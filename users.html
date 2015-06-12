@@ -1,0 +1,42 @@
+---
+layout: default
+title: Users of PM2
+description: Users of PM2.
+permalink: /users/
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="page-header text-center">
+        <h1>Users of PM2</h1>
+        <p class="lead" data-title="Great artists steal">
+          Logos are added by company representatives. These companies may or may
+          not be using PM2 on their main web properties, but they're
+          definitely using it somewhere in their organizations :)
+        </p>
+      </div>
+
+      <div class="container-fluid pm2-user-container">
+        <div class="row">
+          {% for user in site.data.users %}
+          <div class="col-md-4 col-sm-6">
+            <div id="{{user.name}}"></div>
+            <a class="pm2-user" href="{{user.url}}" title="{{user.name}}">
+              <img class="img-responsive" src="/images/users/{{user.logo}}" alt="{{user.name}}">
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="text-center">
+        <p>
+          Logos are submitted by company and project representatives.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

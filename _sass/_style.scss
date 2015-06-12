@@ -1,0 +1,258 @@
+//logos
+
+.logo {
+    background: url("../images/logo_pm2_little.png") no-repeat center;
+    width: 200px;
+    margin-right: 30px;
+}
+
+.logo-git {
+    background: url("../images/github-logo-sm.png") no-repeat center;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0 0 10px;
+}
+
+//Vertical align
+
+.vertical-align {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-fixed-top {
+    position: relative;
+}
+
+
+//Header
+
+.btn-monit {
+    padding-top: 8px !important;
+    padding-bottom: 0 !important;
+}
+
+//Index
+
+.jumbotron {
+    background: url("../images/background-color-codes.jpg") no-repeat center;
+    height: 300px;
+    width: 100%;
+
+    h1 {
+        color: #00b3ee;
+        font-size: 38px;
+    }
+}
+
+.index-box {
+    padding: 20px 0;
+    display: block;
+
+    h2 {
+        font-size: 50px;
+        font-weight: 600;
+        line-height: 1;
+        margin-top: 30px;
+    }
+
+    a {
+        color: #000000;
+    }
+
+    .highlight-index {
+        padding-left: 0;
+    }
+
+    .highlight .k {
+        font-weight: normal;
+    }
+}
+
+.pm2-user-container {
+    background: #eee none repeat scroll 0 0;
+    border-radius: 5px;
+    padding: 0 30px;
+    margin: 40px 0;
+}
+
+.pm2-user {
+    background: white none repeat scroll 0 0;
+    border-radius: 5px;
+    display: block;
+    height: 120px;
+    margin: 15px 0;
+    padding: 25px 60px 0;
+    position: relative;
+}
+
+.btn-wrapper {
+    background: #f6f6f6 none repeat scroll 0 0;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 12px 0;
+    padding: 12px;
+
+    .btn-featured {
+        background: #00b3ee none repeat scroll 0 0;
+        border-color: #00b3ee;
+        color: #323330;
+        font-family: "Avenir Next",Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        padding: 10px 32px;
+        white-space: normal;
+    }
+
+    .btn-featured:hover {
+        background: #323330 none repeat scroll 0 0;
+        border-color: #323330;
+        color: #00b3ee;
+    }
+
+    .btn-featured:not(:first-child) {
+        margin-left: 12px;
+    }
+}
+
+.index-devider {
+    margin: 20px 0;
+}
+
+.header-title {
+    padding: 2em 0;
+}
+
+ul.pm2-tick-list li {
+    color: #449d44;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.pm2-tick-list li::before {
+    content: "✓";
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+//Docs
+
+.docs-content {
+
+    h2 {
+        border-bottom: 1px solid #eeeeee;
+        margin: 40px 0 20px;
+        padding-bottom: 9px;
+    }
+
+    .step-wizard .step-install, .step-wizard .step-setup,
+    .step-wizard .item, .step-wizard .item h3 {
+        display: none;
+    }
+
+    .step-wizard .step-no {
+        background-color: $blue-logo;
+        border-radius: 20px;
+        display: block;
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 10px;
+        text-align: center;
+        width: 30px;
+    }
+
+    .step-wizard .step:first-child > h2 {
+        margin-top: 0;
+    }
+}
+
+.sidebar.affix-top {
+    position: fixed;
+    top: 200px;
+}
+
+.sidebar.affix {
+    position: fixed;
+    top: 50px;
+}
+
+.sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 13px;
+    color: #8c8e87;
+}
+
+.sidebar .nav > .active > ul, .sidebar .nav > li:hover > ul {
+    display: block;
+}
+
+.sidebar .nav > .active > a,
+.sidebar .nav > .active:hover > a,
+.sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    color: #323330;
+    background-color: transparent;
+    border-left: 2px solid $blue-logo;
+}
+
+.sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus {
+    background-color: transparent;
+    border-left: 1px solid $blue-logo;
+    color: #323330;
+    padding-left: 19px;
+    text-decoration: none;
+}
+
+.sidebar .nav .nav {
+    display: none;
+    padding-bottom: 10px;
+}
+
+.sidebar .nav .nav > li > a {
+    font-size: 12px;
+    font-weight: normal;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    padding-top: 1px;
+}
+.sidebar .nav .nav > li > a:hover, .sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.sidebar .nav .nav > .active > a, .sidebar .nav .nav > .active:hover > a, .sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+}
+
+h1:target::after, .h1:target::after,
+h2:target::after, .h2:target::after,
+h3:target::after, .h3:target::after,
+h4:target::after, .h4:target::after,
+h5:target::after, .h5:target::after,
+h6:target::after, .h6:target::after
+{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    height: 1em;
+    width: 10px;
+    background: $blue-logo;
+    margin-left: -20px;
+}
+
+//Footer
+
+.site-footer {
+    margin-top: 40px;
+}

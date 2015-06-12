@@ -1,0 +1,9 @@
+- name: Paypal
+  url: https://www.paypal.com
+  logo: paypal.png
+- name: Microsoft
+  url: https://www.microsoft.com
+  logo: microsoft.png
+- name: Ebay
+  url: http://www.ebay.com/
+  logo: ebay.png

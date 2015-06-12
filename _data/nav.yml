@@ -1,0 +1,22 @@
+- title: Usage
+  url: /docs/usage/
+  subnav:
+    - title: Quick start
+      url: /docs/usage/quick-start/
+    - title: Features
+      url: /docs/usage/features/
+    - title: Deployment
+      url: /docs/usage/deployment/
+    - title: PM2 programmatically and Specific
+      url: /docs/usage/pm2-progra-and-specific/
+    - title: Knowledge
+      url: /docs/usage/knowledge/
+
+- title: Advanced
+  url: /docs/advanced/
+  subnav:
+    - title: Modules
+      url: /docs/advanced/modules/
+
+- title: FAQ
+  url: /docs/faq/

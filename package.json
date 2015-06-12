@@ -1,0 +1,12 @@
+{
+  "name": "pm2.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "pm2 blog",
+  "main": "",
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "bootstrap-sass": "*"
+  }
+}
