@@ -43,7 +43,7 @@
 //Index
 
 .jumbotron {
-    background: url("../images/background-color-codes.jpg") no-repeat center;
+    background: url("../images/background-color-codes.jpg") no-repeat fixed center / cover;
     height: 300px;
     width: 100%;
 
@@ -117,10 +117,10 @@
         border-color: #323330;
         color: #00b3ee;
     }
+}
 
-    .btn-featured:not(:first-child) {
-        margin-left: 12px;
-    }
+.btn-featured:not(:first-child) {
+    margin-left: 12px;
 }
 
 .index-devider {
@@ -287,4 +287,31 @@ h6:target::after, .h6:target::after
     border-top: 1px solid #e2e2e2;
     margin-top: 40px;
     padding: 40px 0;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        display: none;
+    }
+
+    .btn-featured {
+        display: block;
+    }
+
+    .btn-featured:not(:first-child) {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 820px) {
+    .oval-quotes::before {
+        left: 10px;
+        top: -35px;
+    }
+
+    .oval-quotes::after {
+        bottom: -20px;
+        right: 40px;
+    }
 }
