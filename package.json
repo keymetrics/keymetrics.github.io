@@ -1,11 +1,11 @@
 {
-  "name": "pm2.github.io",
+  "name": "keymetrics.github.io",
   "private": true,
   "version": "1.0.0",
-  "description": "pm2 blog",
+  "description": "pm2.io",
   "main": "",
   "author": "",
-  "license": "",
+  "license": "MIT",
   "devDependencies": {
     "bootstrap-sass": "*"
   }
