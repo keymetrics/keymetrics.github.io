@@ -24,6 +24,7 @@
       &:focus {
         text-decoration: none;
         background-color: $nav-link-hover-bg;
+        color : black;
       }
     }
 
@@ -101,6 +102,7 @@
         border: 1px solid $nav-tabs-active-link-hover-border-color;
         border-bottom-color: transparent;
         cursor: default;
+        color : black;
       }
     }
   }

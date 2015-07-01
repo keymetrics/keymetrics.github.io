@@ -1,3 +1,15 @@
+
+
+
+body {
+    background: #161616 url("../images/pattern.png");
+    color : white;
+    font-family : 'Blender';
+    font-size : 18px;
+    margin-top: 40px;
+}
+
+
 //logos
 
 .logo {
@@ -6,12 +18,24 @@
     margin-right: 30px;
 }
 
-.logo-git {
-    background: url("../images/github-logo-sm.png") no-repeat center;
-    width: 30px;
-    height: 30px;
-    margin: 10px 0 0 10px;
+// For HOMEPAGE
+.index-page {
+
+    h2 {
+        font-size: 40px;
+        font-weight: normal;
+        line-height: 1;
+        margin-top: 0px;
+    }
+
+    .box-desc {
+        text-align : center;
+        h2 {
+
+        }
+    }
 }
+
 
 //Vertical align
 
@@ -24,49 +48,36 @@
     flex-direction: column;
 }
 
-.navbar {
-    margin-bottom: 0;
-}
-
-.navbar-fixed-top {
-    position: relative;
-}
-
 
 //Header
 
 .btn-monit {
     padding-top: 8px !important;
     padding-bottom: 0 !important;
+    &:hover {
+        background-color : none !important;
+    }
 }
 
 //Index
 
-.jumbotron {
-    background: url("../images/background-color-codes.jpg") no-repeat fixed center / cover;
-    height: 300px;
-    width: 100%;
-
-    h1 {
-        color: #00b3ee;
-        font-size: 38px;
+.navbar-pm2 {
+    background-color : black;
+    border : 1px solid #222222;
+    a {
+        color : white;
+    }
+    .li-github {
+        a {
+            padding-top: 15px;
+            padding-bottom: 10px;
+        }
     }
 }
 
 .index-box {
-    padding: 20px 0;
+    padding: 17px 0;
     display: block;
-
-    h2 {
-        font-size: 50px;
-        font-weight: 600;
-        line-height: 1;
-        margin-top: 30px;
-    }
-
-    a {
-        color: #000000;
-    }
 
     .highlight-index {
         padding-left: 0;
@@ -77,11 +88,19 @@
     }
 }
 
+pre {
+    background-color: black;
+    text-align : left;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius : 0;
+    border: 1px solid #5cb3c3;
+}
+
 .pm2-user-container {
-    background: #eee none repeat scroll 0 0;
-    border-radius: 5px;
     padding: 0 30px;
-    margin: 40px 0;
 }
 
 .pm2-user {
@@ -95,19 +114,20 @@
 }
 
 .btn-wrapper {
-    background: #f6f6f6 none repeat scroll 0 0;
-    border-radius: 4px;
-    display: inline-block;
-    margin: 12px 0;
     padding: 12px;
 
+    a {
+
+    }
+
     .btn-featured {
-        background: #00b3ee none repeat scroll 0 0;
-        border-color: #00b3ee;
-        color: #323330;
-        font-family: "Avenir Next",Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        background: #0f262a;
+        border: 1px solid #5cb3c3;
+        border-radius: 5px;
+        padding: 14px;
+
+        color : white;
         font-size: 36px;
-        font-weight: bold;
         padding: 10px 32px;
         white-space: normal;
     }
@@ -132,7 +152,7 @@
 }
 
 ul.pm2-tick-list li {
-    color: #449d44;
+    color: #70EC57;
     list-style-type: none;
     padding-left: 0;
 }
@@ -166,7 +186,6 @@ ul.pm2-tick-list li::before {
 .oval-quotes {
     /*background: #ffed26 none repeat scroll 0 0;
     border-radius: 100px / 100px;*/
-    color: #000;
     height: 100%;
     margin-top: 70px;
     position: relative;
@@ -283,7 +302,6 @@ h6:target::after, .h6:target::after
 //Footer
 
 .footer {
-    background: #eeeeee none repeat scroll 0 0;
     border-top: 1px solid #e2e2e2;
     margin-top: 40px;
     padding: 40px 0;

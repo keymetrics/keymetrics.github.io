@@ -2,57 +2,62 @@
 layout: default
 ---
 
-<div class="jumbotron text-center">
-  <div class="container-fluid">
-    <h1>PM2 is a production process manager for Node.js / io.js applications</h1>
-  </div>
-  <div class="container">
-    <iframe src="https://ghbtns.com/github-btn.html?user=Unitech&repo=PM2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-  </div>
-</div>
+<!-- <div class="jumbotron text-center"> -->
+<!--   <div class="container-fluid"> -->
+<!--     <h1>PM2 is a production process manager for Node.js / io.js applications</h1> -->
+<!--   </div> -->
+<!--   <div class="container"> -->
+
+<!--   </div> -->
+<!-- </div> -->
 
 
-<div class="container">
+<div class="container index-page">
   <div class="row index-box text-center">
-    <h2>PM2 is the next gen monitoring service</h2>
+    <img src="https://raw.githubusercontent.com/unitech/pm2/master/pres/pm2.20d3ef.png"/>
+    <br/>
+    <h2>Javascript Process Manager</h2>
   </div>
   <div class="row index-box text-center">
-    <h3>An installation tool very simple</h3>
     <div class="col-md-4 col-md-offset-4">
-      {% highlight javascript %}
-      $ npm install pm2 -g
-      {% endhighlight %}
+      <pre style="text-align : center">
+$ npm install pm2 -g<span class="blinking-cursor">|</span>
+</pre>
     </div>
   </div>
 
   <hr class="index-divider">
 
   <div class="row index-box">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 box-desc">
       <h2>Features</h2>
+      <p>A Complete feature set for production environment, built with a worldwide community of developers and enterprises</p>
     </div>
 
     <div class="col-md-6">
       <div class="col-md-6 col-xs-6">
         <ul class="pm2-tick-list">
-          <li>JSON</li>
-          <li>Log</li>
-          <li>Monitoring</li>
-          <li>Modules</li>
-          <li>Development</li>
-          <li>API</li>
-          <li>Mem restart</li>
+          <li>Behavior configuration</li>
+          <li>Watch & Reload</li>
+          <li>Log management</li>
+          <li>CPU/Mem Monitoring</li>
+          <li>Module System</li>
+          <li>Development workflow</li>
+          <li>Programmatic API</li>
+          <li>Max memory reload</li>
         </ul>
       </div>
 
       <div class="col-md-6 col-xs-6">
         <ul class="pm2-tick-list">
-          <li>ESG</li>
-          <li>Startup</li>
-          <li>Warh</li>
-          <li>Reload</li>
-          <li>Pocker</li>
-          <li>Deploy</li>
+          <li>Node.js auto cluster</li>
+          <li>Hot reload</li>
+          <li>Graceful reload</li>
+          <li>Startup script gen</li>
+          <li>Auto completion</li>
+          <li>Deployment workflow</li>
+          <li>Keymetrics monitoring</li>
+          <li>ES6 support with Babel</li>
         </ul>
       </div>
     </div>
@@ -64,10 +69,10 @@ layout: default
     <div class="col-md-6">
       <img src="/images/pm2-monit.png" alt="PM2 Monit"/>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 box-desc">
       <h2>Monitoring</h2>
       <p>Monitoring all processes launched :</p>
-      <div class="col-md-3 highlight-index">
+      <div class="highlight-index">
         {% highlight javascript %}
         $ pm2 monit
         {% endhighlight %}
@@ -78,24 +83,14 @@ layout: default
   <hr class="index-divider">
 
   <div class="row index-box">
-    <div class="col-md-6">
+    <div class="col-md-6 box-desc">
       <h2>Microservice</h2>
       <p>Monitoring all processes launched :</p>
-      <div class="row">
-        <div class="col-md-3">
-          {% highlight javascript %}
-          $ pm2 list
-          {% endhighlight %}
-        </div>
-      </div>
+      <pre>$ pm2 list</pre>
       <p>And much more with :</p>
-      <div class="col-md-8 highlight-index" style="font-weight: normal">
-        {% highlight javascript %}
-        $ pm2 stop    <app_name|id|all>
+      <pre>$ pm2 stop    <app_name|id|all>
 $ pm2 restart <app_name|id|all>
-$ pm2 delete  <app_name|id|all>
-        {% endhighlight %}
-      </div>
+$ pm2 delete  <app_name|id|all></pre>
     </div>
     <div class="col-md-6">
       <img src="/images/pm2-list.png" alt="PM2 list"/>
@@ -115,10 +110,11 @@ $ pm2 delete  <app_name|id|all>
 
   <div class="index-box">
     <h2 class="text-center">
-      <a href="{{ site.baseurl }}/users/">
-        Who's using PM2 ?
-      </a>
+      Who's using PM2 ?
     </h2>
+    <!-- <a href="{{ site.baseurl }}/users/"> -->
+    <!--   Who's using PM2 ? -->
+    <!-- </a> -->
 
     <div class="pm2-user-container">
     <div class="row index-box">
@@ -162,6 +158,3 @@ $ pm2 delete  <app_name|id|all>
   </div>
 
 </div>
-
-
-

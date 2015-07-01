@@ -49,7 +49,9 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting",
         "bootstrap",
-        "style"
+        "style",
+        "_specific",
+        "_font_awesome"
 ;
 
 $my-gray: $gray;
@@ -58,5 +60,3 @@ $my-gray: $gray;
 p {
     color: my-gray;
 }
-
-
