@@ -6,7 +6,7 @@ body {
     color : white;
     font-family : 'Blender';
     font-size : 18px;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 
 
@@ -63,7 +63,7 @@ body {
 
 .navbar-pm2 {
     background-color : black;
-    border : 1px solid #222222;
+    border-bottom : 1px solid #888888;
     a {
         color : white;
     }
@@ -87,6 +87,7 @@ body {
         font-weight: normal;
     }
 }
+
 
 pre {
     background-color: black;
@@ -305,6 +306,11 @@ h6:target::after, .h6:target::after
     border-top: 1px solid #e2e2e2;
     margin-top: 40px;
     padding: 40px 0;
+}
+
+.verticalign {
+    border-right: thick dashed #666;
+    height: 100px;
 }
 
 @media (max-width: 991px) {
