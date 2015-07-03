@@ -20,7 +20,7 @@ layout: default
   </div>
   <div class="row index-box text-center">
     <div class="col-md-4 col-md-offset-4">
-      <pre style="text-align : center">$ npm install pm2 -g<span class="blinking-cursor">|</span></pre>
+      <pre class="pre-home" style="text-align : center">$ npm install pm2 -g<span class="blinking-cursor">|</span></pre>
     </div>
   </div>
 
@@ -69,11 +69,9 @@ layout: default
     </div>
     <div class="col-md-6 box-desc">
       <h2>Monitoring</h2>
-      <p>Monitoring all processes launched :</p>
+      <p>Monitoring all processes launched:</p>
       <div class="highlight-index">
-        {% highlight javascript %}
-        $ pm2 monit
-        {% endhighlight %}
+        <pre class="pre-home">$ pm2 monit</pre>
       </div>
     </div>
   </div>
@@ -83,10 +81,10 @@ layout: default
   <div class="row index-box">
     <div class="col-md-6 box-desc">
       <h2>Microservice</h2>
-      <p>Monitoring all processes launched :</p>
-      <pre>$ pm2 list</pre>
-      <p>And much more with :</p>
-      <pre>$ pm2 stop    <app_name|id|all>
+      <p>List all processes:</p>
+      <pre class="pre-home">$ pm2 list</pre>
+      <p>Act on them:</p>
+      <pre class="pre-home">$ pm2 stop    <app_name|id|all>
 $ pm2 restart <app_name|id|all>
 $ pm2 delete  <app_name|id|all></pre>
     </div>

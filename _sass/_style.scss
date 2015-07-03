@@ -2,13 +2,49 @@
 
 
 body {
-    background: #161616 url("../images/pattern.png");
-    color : white;
-    font-family : 'Blender';
+    background: #f2f2f2;
+    color : #333;
+    font-family: 'Open Sans', sans-serif;
     font-size : 18px;
     margin-top: 45px;
 }
 
+
+code {
+
+}
+
+.home-page {
+    background: #161616 url("../images/pattern.png");
+    color : white;
+    font-family : 'Blender';
+
+
+    pre {
+        background-color: black;
+        text-align : left;
+        color: white;
+        border: none;
+        border-radius : 0;
+        border: 1px solid #5cb3c3;
+        font-size : 15px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+}
+
+
+
+
+pre {
+    background-color: white;
+    text-align : left;
+    color: #333;
+    border-radius : 0;
+    border: 1px solid rgb(231, 231, 231);
+    font-size : 15px;
+}
 
 //logos
 
@@ -54,6 +90,7 @@ body {
 .btn-monit {
     padding-top: 8px !important;
     padding-bottom: 0 !important;
+    height : 50px;
     &:hover {
         background-color : none !important;
     }
@@ -64,6 +101,7 @@ body {
 .navbar-pm2 {
     background-color : black;
     border-bottom : 1px solid #888888;
+    font-family : 'Blender';
     a {
         color : white;
     }
@@ -89,30 +127,13 @@ body {
 }
 
 
-pre {
-    background-color: black;
-    text-align : left;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border: none;
-    border-radius : 0;
-    border: 1px solid #5cb3c3;
-}
-
 .pm2-user-container {
-    padding: 0 30px;
+    .pm2-user {
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
 }
 
-.pm2-user {
-    background: white none repeat scroll 0 0;
-    border-radius: 5px;
-    display: block;
-    height: 120px;
-    margin: 15px 0;
-    padding: 25px 60px 0;
-    position: relative;
-}
 
 .btn-wrapper {
     padding: 12px;
@@ -134,9 +155,8 @@ pre {
     }
 
     .btn-featured:hover {
-        background: #323330 none repeat scroll 0 0;
-        border-color: #323330;
-        color: #00b3ee;
+        background: black;
+
     }
 }
 
@@ -149,7 +169,15 @@ pre {
 }
 
 .header-title {
-    padding: 2em 0;
+    background: #161616 url("../images/pattern.png");
+    color : white;
+    font-family : 'Blender';
+    height : 150px;
+
+    h1 {
+        margin-top: 48px;
+        font-size : 48px;
+    }
 }
 
 ul.pm2-tick-list li {
@@ -195,11 +223,27 @@ ul.pm2-tick-list li::before {
 //Docs
 
 .docs-content {
+    p {
+        margin: 0 0 16px;
+    }
+    h3, .h3 {
+        font-size: 23px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 27px;
 
     h2 {
-        border-bottom: 1px solid #eeeeee;
+        border-bottom: 1px solid #A0A0A0;
         margin: 40px 0 20px;
         padding-bottom: 9px;
+    }
+
+    h2:first {
+        margin-top : 10px;
     }
 
     .step-wizard .step-install, .step-wizard .step-setup,
@@ -228,18 +272,26 @@ ul.pm2-tick-list li::before {
 
 .sidebar.affix-top {
     position: fixed;
-    top: 200px;
+    top: 235px;
 }
 
 .sidebar.affix {
     position: fixed;
-    top: 50px;
+    top: 120px;
+}
+
+.sidebar .nav {
+    margin-left: 0;
+}
+
+.sidebar h2 {
+    margin-left: 19px;
 }
 
 .sidebar .nav > li > a {
     display: block;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 15px;
     color: #8c8e87;
 }
 
@@ -251,17 +303,18 @@ ul.pm2-tick-list li::before {
 .sidebar .nav > .active:hover > a,
 .sidebar .nav > .active:focus > a {
     padding-left: 18px;
-    color: #323330;
     background-color: transparent;
     border-left: 2px solid $blue-logo;
+    color : #333;
 }
 
 .sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus {
     background-color: transparent;
     border-left: 1px solid $blue-logo;
-    color: #323330;
+    font-weight: bold;
     padding-left: 19px;
     text-decoration: none;
+    color : #333;
 }
 
 .sidebar .nav .nav {
@@ -306,6 +359,10 @@ h6:target::after, .h6:target::after
     border-top: 1px solid #e2e2e2;
     margin-top: 40px;
     padding: 40px 0;
+    background: #161616 url("../images/pattern.png");
+    color : white;
+    font-family : 'Blender';
+    padding-bottom: 52px;
 }
 
 .verticalign {
