@@ -7,6 +7,12 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size : 18px;
     margin-top: 45px;
+    margin-bottom: 190px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 
@@ -375,6 +381,9 @@ h6:target::before, .h6:target::before
     color : white;
     font-family : 'Blender';
     padding-bottom: 52px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .verticalign {
