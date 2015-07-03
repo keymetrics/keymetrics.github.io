@@ -353,6 +353,18 @@ h6:target::after, .h6:target::after
     margin-left: -20px;
 }
 
+h1:target::before, .h1:target::before, 
+h2:target::before, .h2:target::before, 
+h3:target::before, .h3:target::before, 
+h4:target::before, .h4:target::before, 
+h5:target::before, .h5:target::before, 
+h6:target::before, .h6:target::before
+{
+    content: "";
+    display: block;
+    height: 70px;
+    margin-top: -70px;
+}
 //Footer
 
 .footer {
