@@ -40,7 +40,8 @@
   });
 
   function renderHeadings(headings) {
-    var template = '';
+    var title = $('body').attr('class');
+    var template = '<li>' + title + '<li>';
 
     _.each(headings, function(heading) {
       template += '<li><a href="#' + heading.id + '">' + heading.text + '</a>';
