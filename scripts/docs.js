@@ -48,10 +48,10 @@
       var usage = title.next().children().attr('href');
       $('.sidebar a:last-child').attr('href', usage);
 
-      if (usage == undefined) {
-        $('.sidebar a:last-child').hide();
+      if (usage != undefined) {
+        $('.sidebar button').show();
       }
-      
+
     }
 
   });
