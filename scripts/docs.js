@@ -39,9 +39,26 @@
     }
   });
 
+  var selects = $('.nav .active .dropdown-menu li');
+
+  selects.each(function () {
+    var title = $(this);
+
+    if (title.attr('class') == 'active') {
+      var usage = title.next().children().attr('href');
+      $('.sidebar a:last-child').attr('href', usage);
+
+      if (usage == undefined) {
+        $('.sidebar a:last-child').hide();
+      }
+      
+    }
+
+  });
+
   function renderHeadings(headings) {
     var title = $('body').attr('class');
-    var template = '<li>' + title + '<li>';
+    var template = '<li>' + title + '</li>';
 
     _.each(headings, function(heading) {
       template += '<li><a href="#' + heading.id + '">' + heading.text + '</a>';

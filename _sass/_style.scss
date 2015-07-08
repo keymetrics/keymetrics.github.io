@@ -276,6 +276,18 @@ ul.pm2-tick-list li::before {
     }
 }
 
+.sidebar button {
+    margin-top: 20px;
+}
+
+a:focus {
+    outline: 0;
+}
+
+.sidebar li:first-child {
+    margin-bottom: 20px;
+}
+
 .sidebar.affix-top {
     position: fixed;
     top: 235px;
