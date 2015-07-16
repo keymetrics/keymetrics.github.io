@@ -22,3 +22,5 @@ redcarpet:
 
 permalink: /blog/:year/:month/:day/:title
 paginate: 1
+
+gems: ['jekyll-lunr-js-search']
