@@ -1,13 +1,11 @@
 
-
-
 body {
     background: #f2f2f2;
     color : #333;
     font-family: 'Open Sans', sans-serif;
     font-size : 18px;
     margin-top: 45px;
-    margin-bottom: 190px;
+    margin-bottom: 225px;
 }
 
 html {
@@ -397,11 +395,63 @@ h6:target::before, .h6:target::before
     position: absolute;
     bottom: 0;
     width: 100%;
+
+    a:first-child {
+        color: #ffffff;
+        font-size: 30px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #777;
+    }
 }
 
 .verticalign {
     border-right: thick dashed #666;
     height: 100px;
+}
+
+//All Of Fame
+
+.container-contributors {
+    margin: 20px 0 20px 0;
+
+    .img-contributors {
+        margin: 10px 0 10px 0;
+        position: relative;
+
+        .hover-contributor {
+            display: none;
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 230px;
+            height: 230px;
+            background-color: rgba(0, 0, 0, 0.6);
+            
+            p {
+                color: white;
+                text-align: center;
+
+                &:first-child {
+                    margin-top: 83px;
+                }
+            }
+        }
+
+        img {
+            height: 230px;
+            width: 230px;
+        }
+    }
+    
+}
+
+@media (min-width: 991px) and (max-width: 1199px) {
+    .hover-contributor {
+        width: 213px !important;
+    }
 }
 
 @media (max-width: 991px) {
@@ -428,5 +478,11 @@ h6:target::before, .h6:target::before
     .oval-quotes::after {
         bottom: -20px;
         right: 40px;
+    }
+}
+
+@media (max-width: 519px) {
+    .container-contributors .container .row > .col-xs-6 {
+        width: 100% !important;
     }
 }
