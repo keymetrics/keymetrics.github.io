@@ -5,7 +5,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size : 18px;
     margin-top: 45px;
-    margin-bottom: 225px;
+    margin-bottom: 250px;
 }
 
 html {
@@ -97,6 +97,44 @@ pre {
     height : 50px;
     &:hover {
         background-color : none !important;
+    }
+}
+
+.input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    color: #000000;
+}
+
+#search-results {
+    background-color: #ffffff;
+    position: absolute;
+    padding: 0 10px;
+    top: 43px;
+    left: 15px;
+    width: 134px;
+    border: 1px solid;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    .entries {
+        article {
+            h3 {
+                font-size: 15px;
+                a {
+                    color: #000000;
+                }
+            }
+        }
+        
     }
 }
 
@@ -478,6 +516,12 @@ h6:target::before, .h6:target::before
     .oval-quotes::after {
         bottom: -20px;
         right: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    #search, #search-results {
+        display: none;
     }
 }
 
