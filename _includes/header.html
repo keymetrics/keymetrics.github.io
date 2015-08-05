@@ -31,35 +31,35 @@
         {% endfor %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="btn-monit" target="_blank" title="Monitor PM2" href="https://keymetrics.io/"><button class="btn btn-info" type="button">Monitor PM2</button></a></li>
-        <li>
-          <div id="search">
-            <form action="#" class="navbar-form" method="get" onsubmit="return false">
-              <div class="input-group">
-                <span class="search-icon fa fa-search"></span>
-                <input type="text" class="form-control" placeholder="Search..." id="search-query" name="q" autocomplete="off">
-              </div>
-            </form>
-          </div>
-          
-          <section id="search-results" style="display: none;">
-            <div class="entries">
-            </div>
-          </section>
+        <li><a class="btn-monit" target="_blank" title="Monitor PM2" target="_blank" href="https://keymetrics.io/"><button class="btn btn-info" type="button">Monitor PM2</button></a></li>
+        <!-- <li> -->
+        <!--   <div id="search"> -->
+        <!--     <form action="#" class="navbar-form" method="get" onsubmit="return false"> -->
+        <!--       <div class="input-group"> -->
+        <!--         <span class="search-icon fa fa-search"></span> -->
+        <!--         <input type="text" class="form-control" placeholder="Search..." id="search-query" name="q" autocomplete="off"> -->
+        <!--       </div> -->
+        <!--     </form> -->
+        <!--   </div> -->
 
-          {% raw %}
-          <script id="search-results-template" type="text/mustache">
-            {{#entries}}
-              <article>
-                <h3>
-                  {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
-                  <a href="{{url}}">{{title}}</a>
-                </h3>
-              </article>
-            {{/entries}}
-          </script>
-          {% endraw %}
-        </li>
+        <!--   <section id="search-results" style="display: none;"> -->
+        <!--     <div class="entries"> -->
+        <!--     </div> -->
+        <!--   </section> -->
+
+        <!--   {% raw %} -->
+        <!--   <script id="search-results-template" type="text/mustache"> -->
+        <!--     {{#entries}} -->
+        <!--       <article> -->
+        <!--         <h3> -->
+        <!--           {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}} -->
+        <!--           <a href="{{url}}">{{title}}</a> -->
+        <!--         </h3> -->
+        <!--       </article> -->
+        <!--     {{/entries}} -->
+        <!--   </script> -->
+        <!--   {% endraw %} -->
+        <!-- </li> -->
         <li class="li-github">
           <a href="https://github.com/Unitech/PM2" style="color:white">
             <iframe src="https://ghbtns.com/github-btn.html?user=Unitech&repo=PM2&type=star&count=true&size=medium" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
@@ -70,18 +70,3 @@
     </div>
   </div>
 </nav>
-
-
-
-<script type="text/javascript">
-  $(function() {
-    $('#search-query').lunrSearch({
-      indexUrl: '/scripts/index.json',   // Url for the .json file containing search index data
-      results : '#search-results',  // selector for containing search results element
-      entries : '.entries',         // selector for search entries containing element (contained within results above)
-      template: '#search-results-template'  // selector for Mustache.js template
-    });
-  });
-</script>
-
-<script src="/scripts/search.min.js" type="text/javascript" charset="utf-8"></script>

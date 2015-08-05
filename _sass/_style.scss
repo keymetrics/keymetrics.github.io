@@ -134,7 +134,7 @@ pre {
                 }
             }
         }
-        
+
     }
 }
 
@@ -322,7 +322,7 @@ a:focus {
 }
 
 .sidebar li:first-child {
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
 }
 
 .sidebar.affix-top {
@@ -408,11 +408,11 @@ h6:target::after, .h6:target::after
     margin-left: -20px;
 }
 
-h1:target::before, .h1:target::before, 
-h2:target::before, .h2:target::before, 
-h3:target::before, .h3:target::before, 
-h4:target::before, .h4:target::before, 
-h5:target::before, .h5:target::before, 
+h1:target::before, .h1:target::before,
+h2:target::before, .h2:target::before,
+h3:target::before, .h3:target::before,
+h4:target::before, .h4:target::before,
+h5:target::before, .h5:target::before,
 h6:target::before, .h6:target::before
 {
     content: "";
@@ -467,7 +467,7 @@ h6:target::before, .h6:target::before
             width: 230px;
             height: 230px;
             background-color: rgba(0, 0, 0, 0.6);
-            
+
             p {
                 color: white;
                 text-align: center;
@@ -483,7 +483,7 @@ h6:target::before, .h6:target::before
             width: 230px;
         }
     }
-    
+
 }
 
 @media (min-width: 991px) and (max-width: 1199px) {

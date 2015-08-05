@@ -60,3 +60,15 @@ $my-gray: $gray;
 p {
     color: my-gray;
 }
+
+.docs-content {
+    a.auto-anchor {
+        color : #333 !important;
+        &:hover {
+            text-decoration:none;
+        }
+    }
+    p:first-child {
+        margin-top : 39px;
+    }
+}

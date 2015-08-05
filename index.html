@@ -16,11 +16,11 @@ layout: default
   <div class="row index-box text-center">
     <img src="https://raw.githubusercontent.com/unitech/pm2/master/pres/pm2.20d3ef.png"/>
     <br/>
-    <h2>The process manager for Node.js</h2>
+    <h2>Expert process manager for Node.js</h2>
   </div>
   <div class="row index-box text-center">
     <div class="col-md-4 col-md-offset-4">
-      <pre class="pre-home" style="text-align : center">$ npm install pm2 -g<span class="blinking-cursor">|</span></pre>
+      <pre class="pre-home" style="text-align : center">$ npm install pm2 -g <span class="blinking-cursor">|</span></pre>
     </div>
   </div>
 
@@ -65,7 +65,7 @@ layout: default
 
   <div class="row index-box">
     <div class="col-md-6">
-      <img src="/images/pm2-monit.png" alt="PM2 Monit"/>
+      <img src="/images/pm2-monit.png" title="PM2 Monit"/>
     </div>
     <div class="col-md-6 box-desc">
       <h2>Monitoring</h2>
@@ -89,7 +89,7 @@ $ pm2 restart <app_name|id|all>
 $ pm2 delete  <app_name|id|all></pre>
     </div>
     <div class="col-md-6">
-      <img src="/images/pm2-list.png" alt="PM2 list"/>
+      <img src="/images/pm2-list.png" title="PM2 list"/>
     </div>
   </div>
 
@@ -97,8 +97,8 @@ $ pm2 delete  <app_name|id|all></pre>
 
   <div class="text-center">
     <div class="btn-wrapper">
-      <a href="{{ site.baseurl }}/docs/usage/quick-start/" class="btn btn-featured">Learn PM2</a>
-      <a href="{{ site.baseurl }}/docs/usage/features/" class="btn btn-featured">Setup PM2</a>
+      <a title="Go to Quickstart" href="{{ site.baseurl }}/docs/usage/quick-start/" class="btn btn-featured">Learn PM2</a>
+      <a title="Setup PM2" href="{{ site.baseurl }}/docs/usage/features/" class="btn btn-featured">Setup PM2</a>
     </div>
   </div>
 
@@ -118,7 +118,7 @@ $ pm2 delete  <app_name|id|all></pre>
         {% for user in site.data.users limit:18 %}
         <div class="col-md-4 col-sm-6">
           <a class="pm2-user" href="{{user.url}}" title="{{user.name}}">
-            <img class="img-responsive" src="/images/users/{{user.logo}}" alt="{{user.name}}">
+            <img class="img-responsive" src="/images/users/{{user.logo}}" title="{{user.name}}">
           </a>
         </div>
         {% endfor %}
@@ -127,7 +127,7 @@ $ pm2 delete  <app_name|id|all></pre>
 
     <div class="text-center">
       <div class="btn-wrapper">
-        <a href="{{ site.baseurl }}/users/" class="btn btn-sm btn-featured">Meet more Users</a>
+        <a title="Meet more companies" href="{{ site.baseurl }}/users/" class="btn btn-sm btn-featured">Meet more Users</a>
       </div>
     </div>
   </div>
@@ -151,6 +151,8 @@ $ pm2 delete  <app_name|id|all></pre>
         <p><strong>Samuel Brown</strong></p>
       </div>
     </div>
+    <br/>
+    <br/>
   </div>
 
 </div>
