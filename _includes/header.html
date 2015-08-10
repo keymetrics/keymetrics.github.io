@@ -18,14 +18,14 @@
               <ul class="dropdown-menu" role="menu">
                 {% for item in item.subnav %}
                 <li {% if page.url contains item.url %} class="active"{% endif %}>
-                  <a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+                  <a {% if item.blank == true %} target="_blank" {% endif %} href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
                 </li>
                 {% endfor %}
               </ul>
             </li>
           {% else %}
             <li {% if page.url contains item.url %} class="active" {% endif %} >
-              <a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+              <a {% if page.blank == true %} target="_blank"{% endif %} href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
             </li>
           {% endif %}
         {% endfor %}
