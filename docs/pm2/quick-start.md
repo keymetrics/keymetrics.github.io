@@ -1,9 +1,11 @@
 ---
 layout: docs
 title: Quick Start
-description: How to use PM2.
+description: Getting started with PM2
 permalink: /docs/usage/quick-start/
 ---
+
+Welcome to this PM2 Quick Start! Getting started with PM2 is straightforward, it is offered as a simple and intuitive CLI, installable via NPM. Just start your application with PM2 and you're application is ready to handle ton of traffic!
 
 ## Installation
 
@@ -13,21 +15,48 @@ The latest PM2 stable version is installable via NPM:
 $ npm install pm2@latest -g
 ```
 
-If the above fails use:
-
-```bash
-$ npm install git://github.com/Unitech/pm2#master -g
-```
-
 ## Usage
 
-Hello world:
+The simplest way to start, daemonize and monitor your application is this:
 
 ```bash
 $ pm2 start app.js
 ```
 
-## Raw Examples
+## Convenient setup
+
+[How To Use pm2 to Setup a Node.js Production Environment On An Ubuntu VPS](https://www.digitalocean.com/community/articles/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps)
+
+### Setup Auto Completion
+
+```bash
+$ pm2 completion install
+```
+
+[More information](/docs/usage/auto-completion/)
+
+### Setup startup script
+
+```bash
+$ pm2 startup
+```
+
+[More information](/docs/usage/startup/)
+
+## PM2 configuration folder structure
+
+Once PM2 is started, it automatically create these folders:
+
+- `$HOME/.pm2` will contain all PM2 related files
+- `$HOME/.pm2/logs` will contain all applications logs
+- `$HOME/.pm2/pids` will contain all applications pids
+- `$HOME/.pm2/pm2.log` PM2 logs
+- `$HOME/.pm2/pm2.pid` PM2 pid
+- `$HOME/.pm2/rpc.sock` Socket file for remote commands
+- `$HOME/.pm2/pub.sock` Socket file for publishable events
+- `$HOME/.pm2/conf.js` PM2 Configuration
+
+## CheatSheet
 
 ```bash
 # Fork mode
@@ -78,7 +107,7 @@ $ pm2 start app.js --no-vizion
 $ pm2 start app.js --no-autorestart
 ```
 
-## Different ways to launch a process
+## 42 ways of starting processes
 
 ```bash
 $ pm2 start app.js           # Start app.js
@@ -163,7 +192,6 @@ Options:
    --no-autorestart                     do not automatically restart apps
 ```
 
-
 ## How to update PM2
 
 Install the latest pm2 version :
@@ -176,24 +204,4 @@ Then update the in-memory PM2 :
 
 ```bash
 $ pm2 update
-```
-
-## Allow PM2 to bind applications on ports 80/443 without root
-
-It’s a general rule that you shouldn’t run node as root, but only root can bind to ports less than 1024. This is where authbind comes in. Authbind allows non-root users to bind to ports less than 1024.
-
-```bash
-$ sudo apt-get install authbind
-$ sudo touch /etc/authbind/byport/80
-$ sudo chown user /etc/authbind/byport/80
-$ sudo chmod 755 /etc/authbind/byport/80
-$ authbind --deep pm2 update
-```
-
-Now you can start applications with PM2 that can bind to port 80 without being root!
-
-It's recommended to put an alias in your .bashrc file:
-
-```bash
-alias pm2='authbind --deep pm2'
 ```

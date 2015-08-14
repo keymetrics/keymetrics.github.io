@@ -1,63 +1,52 @@
 - title: Usage
   url: /docs/usage/
   subnav:
-    - title: Full documentation
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#table-of-contents
-      blank: true
     - title: Quick Start
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#quick-start-1
-      blank: true
+      url: /docs/usage/quick-start/
+    - title: Process management
+      url: /docs/usage/process-management/
     - title: Update PM2
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#how-to-update-pm2
-      blank: true
+      url: /docs/usage/quick-start/#how-to-update-pm2
 
 - title: Features
   url: /docs/usage/
   subnav:
     - title: Cluster Mode
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#clustering-cluster_mode
-      blank: true
+      url: /docs/usage/cluster-mode
     - title: Watch & Restart
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#watch--restart
-      blank: true
-    - title: CPU / Mem monitoring
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#monitoring-cpumemory
-      blank: true
+      url: /docs/usage/watch-and-restart/
+    - title: Monitoring
+      url: /docs/usage/monitoring/
     - title: Log Management
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#logs-management
-      blank: true
-    - title: JSON declaration
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#jsjson-app-declaration
-      blank: true
+      url: /docs/usage/log-management/
+    - title: Application Declaration
+      url: /docs/usage/application-declaration/
     - title: Deployment
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#deployment
-      blank: true
+      url: /docs/usage/deployment/
     - title: Setup Auto completion
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#pm2-tab-completion
-      blank: true
-    - title: Auto memory restart
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#max-memory-restart
-      blank: true
+      url: /docs/usage/auto-completion/
     - title: Startup Script
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#startup-script
-      blank: true
+      url: /docs/usage/startup/
     - title: Development tool
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#using-pm2-in-development
-      blank: true
-    - title: ES6 auto wrap
-      url: https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md#run-next-generation-javascript
-      blank: true
-    - title: Programmatic API
-      url: https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#using-pm2-programmatically
-      blank: true
+      url: /docs/usage/pm2-development/
+    - title: Specifics, ES6/AuthBind...
+      url: /docs/usage/specifics/
+    - title: PM2 API
+      url: /docs/usage/pm2-api/
+    - title: Knowledge
+      url: /docs/usage/knowledge/
+    - title: Use PM2 in Cloud Providers
+      url: /docs/usage/use-pm2-with-cloud-providers/
+    - title: Contributing
+      url: /docs/usage/contributing/
 
-- title: Advanced
-  url: /docs/advanced/
-  subnav:
-    - title: Modules Available
-      url: https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md#using-pm2-in-cloud-providers
-      blank: true
-    - title: Modules Available
-      url: https://github.com/Unitech/PM2/blob/master/doc/MODULE.md#modules-system
-    - title: Modules Doc
-      url: https://github.com/Unitech/PM2/blob/master/doc/MODULE.md#modules-system
+# - title: Advanced
+#   url: /docs/advanced/
+#   subnav:
+#     - title: Modules Available
+#       url: https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md#using-pm2-in-cloud-providers
+#       blank: true
+#     - title: Modules Available
+#       url: https://github.com/Unitech/PM2/blob/master/doc/MODULE.md#modules-system
+#     - title: Modules Doc
+#       url: https://github.com/Unitech/PM2/blob/master/doc/MODULE.md#modules-system

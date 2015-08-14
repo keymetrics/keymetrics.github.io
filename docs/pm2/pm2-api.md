@@ -1,11 +1,40 @@
 ---
 layout: docs
-title: Programmatic API and Specific
-description: How to use PM2.
-permalink: /docs/usage/pm2-progra-and-specific/
+title: PM2 API
+description: Interact or Embed PM2 in your application
+permalink: /docs/usage/pm2-api/
 ---
 
-##Programmatic API
+PM2 can be used programmatically, meaning that you can embed a process manager directly in your code, spawn processes, keep them alive even if the main script is exited.
+
+It's also usefull when you deploy a Node.js application [in any kind of Cloud Provider / PaaS](/docs/usage/use-pm2-with-cloud-providers/)
+
+Check out [this article](http://keymetrics.io/2014/07/02/manage-processes-programmatically-with-pm2/) for more informations.
+
+## Simple example
+
+This example shows you how to start app.js with some configuration attributes. What is passed to start is the same than what you can declare in a [JS/JSON configuration](/docs/usage/application-declaration/) file:
+
+```bash
+$ npm install pm2 --save
+```
+
+```javascript
+var pm2 = require('pm2');
+
+pm2.connect(function() {
+  pm2.start({
+    script    : 'app.js',         // Script to be run
+    exec_mode : 'cluster',        // Allow your app to be clustered
+    instances : 4,                // Optional: Scale your app by 4
+    max_memory_restart : '100M'   // Optional: Restart your app if it reaches 100Mo
+  }, function(err, apps) {
+    pm2.disconnect();
+  });
+});
+```
+
+## Programmatic API
 
 <table class="table table-striped table-bordered">
     <tr>
@@ -100,62 +129,3 @@ permalink: /docs/usage/pm2-progra-and-specific/
       <td>pm2.killDaemon(fn(err, ret){})</td>
     </tr>
 </table>
-
-## Special features
-
-Launching PM2 without daemonizing itself:
-
-```bash
-$ pm2 start app.js --no-daemon
-```
-
-Sending a system signal to a process:
-
-```bash
-$ pm2 sendSignal SIGUSR2 my-app
-```
-
-## Configuration file
-
-You can specify the following options by editing the file `~/.pm2/custom_options.sh`:
-
-```
-PM2_RPC_PORT
-PM2_PUB_PORT
-PM2_BIND_ADDR
-PM2_API_PORT
-PM2_GRACEFUL_TIMEOUT
-PM2_MODIFY_REQUIRE
-PM2_KILL_TIMEOUT
-```
-
-## API health endpoint
-
-```bash
-$ pm2 web
-```
-
-## Enabling Harmony ES6
-
-The `--node-args` option permit to launch script with V8 flags, so to enable harmony for a process just do this:
-```bash
-$ pm2 start my_app.js --node-args="--harmony"
-```
-
-And with JSON declaration:
-
-```json
-[{
-  "name" : "ES6",
-  "script" : "es6.js",
-  "node_args" : "--harmony"
-}]
-```
-
-## CoffeeScript
-
-```bash
-$ pm2 start server.coffee --interpreter coffee
-```
-
-That's all!

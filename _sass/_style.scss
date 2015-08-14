@@ -24,6 +24,17 @@ code {
     font-family : 'Blender';
 
 
+    .pm2-tick-list {
+        a {
+            color : #70EC57;
+            &:hover {
+                font-weight : bold;
+                font-size : 80%;
+                text-decoration : none;
+            }
+        }
+
+    }
     pre {
         background-color: black;
         text-align : left;
@@ -69,6 +80,9 @@ pre {
 
     .box-desc {
         text-align : center;
+        p {
+            width : 100%;
+        }
         h2 {
 
         }

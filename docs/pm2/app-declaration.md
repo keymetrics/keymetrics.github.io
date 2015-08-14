@@ -1,374 +1,17 @@
 ---
 layout: docs
-title: Features
-description: How to use features of PM2.
-permalink: /docs/usage/features/
+title: Application Declaration
+description: Manage applications via a configuration file
+permalink: /docs/usage/application-declaration/
 ---
 
-## Managing applications states
-
-PM2 is a process manager.
-It manages your applications states, so you can start, stop, restart and *delete* processes.
-
-Start a process:
-
-```bash
-$ pm2 start app.js --name "my-api"
-$ pm2 start web.js --name "web-interface"
-```
-
-Now let's say I need to stop the web-interface:
-
-```bash
-$ pm2 stop web-interface
-```
-
-As you can see **the process hasn't disappeared**. It's still there but in `stopped` status.
-
-To restart it just do:
-
-```bash
-$ pm2 restart web-interface
-```
-
-Now I want to **delete** the app from the PM2 process list.
-To do so:
-
-```bash
-$ pm2 delete web-interface
-```
-
-## Process listing
-
-To list all running processes:
-
-```bash
-$ pm2 list
-# Or
-$ pm2 [list|ls|l|status]
-```
-
-To get more details about a specific process:
-
-```bash
-$ pm2 show 0
-```
-
-## Monitoring CPU/Memory
-
-PM2 gives you a simple way to monitor the resource usage of your application.
-You can monitor memory and cpu very easily, straight from your terminal:
-
-```bash
-$ pm2 monit
-```
-
-Please note that [Keymetrics](https://keymetrics.io) allows to monitor applications much better, from errors, performances, vital signs and much more.
-
-## Clustering (cluster_mode)
-
-The **cluster mode** allows to scale your Node.js application accross all CPUs available and to update them without any downtime!
-
-It's perfectly fitted for networked applications handling HTTP(s)/UDP/TCP connections.
-
-To enable the **cluster mode**, just pass the -i <instances> option:
-
-```bash
-$ pm2 start app.js -i 1
-```
-
-You can pass multiple values to the instances (-i) option:
-
-```
-# Start the maximum processes depending on available CPUs
-$ pm2 start app.js -i 0
-
-# Start the maximum processes -1 depending on available CPUs
-$ pm2 start app.js -i -1
-
-# Start 3 processes
-$ pm2 start app.js -i 3
-```
-
-### Considerations
-
-- You don't need to modify anything from you code to be able to use this nifty feature.
-- In your application the environment variable `NODE_APP_INSTANCE` is exposed so you can listen for different port if needed. (e.g .listen(8000 + process.env.NODE_APP_INSTANCE))
-- Be sure your **application is stateless** meaning that there is not any local data stored in the process, like sessions/websocket connections etc. Use Redis, Mongo or other DB to share states between processes
-
-### Hot reload / 0s reload
-
-As opposed to `restart`, which kills and restarts the process, `reload` achieves a 0-second-downtime reload.
-
-**Warning** This feature only works for apps in **cluster mode**, that uses HTTP/HTTPS/Socket connections.
-
-To reload an app:
-
-```bash
-$ pm2 reload api
-```
-
-If the reload system hasn't managed to reload your app, a timeout will fallback to a classic restart.
-
-### Graceful reload
-
-Sometimes you can experience a **very long reload, or a reload that doesn't work** (fallback to restart) meaning that your app still has open connections on exit.
-Or you may need to close all databases connections, clear a data queue or whatever.
-
-To work around this problem you have to **use the graceful reload**.
-
-Graceful reload is a mechanism that will send a **shutdown** message to your process before reloading it.
-You can control the time that the app has to shutdown via the `PM2_GRACEFUL_TIMEOUT` environment variable.
-
-Example:
-
-```javascript
-process.on('message', function(msg) {
-  if (msg == 'shutdown') {
-    // Your process is going to be reloaded
-    // You have to close all database/socket.io/* connections
-
-    console.log('Closing all connections...');
-
-    // You will have 4000ms to close all connections before
-    // the reload mechanism will try to do its job
-
-    setTimeout(function() {
-      console.log('Finished closing connections');
-      // This timeout means that all connections have been closed
-      // Now we can exit to let the reload mechanism do its job
-      process.exit(0);
-    }, 1500);
-  }
-});
-```
-
-Then use the command:
-
-```bash
-$ pm2 gracefulReload [all|name]
-```
-
-When PM2 starts a new process to replace an old one, it will wait for the new process to begin listening to a connection or a timeout before sending the shutdown message to the old one. You can define the timeout value with the `PM2_GRACEFUL_LISTEN_TIMEOUT` environament variable. If a script does not need to listen to a connection, it can manually tell PM2 that the process has started up by calling `process.send('online')`.
-
-## Logs management
-
-
-PM2 allows you to manage logs easily. You can display all application logs in real-time, flush them, and reload them.
-There are also different ways to configure how PM2 will handle your logs (separated in different files, merged, with timestamp...) without modifying anything in your code.
-
-### Displaying logs in real-time
-
-Displaying logs of a specified process or of all processes in real-time:
-
-```bash
-$ pm2 logs
-$ pm2 logs big-api
-```
-
-### Flushing logs
-
-```bash
-$ pm2 flush # Clear all the logs
-```
-
-You can configure a Cron Job to call this command every X days.
-Or you can install Log rotate to handle the log rotation.
-
-### Reloading all logs
-
-Reloading logs is specially usefull for Logrotate or any other rotating log system.
-
-You can reload logs by sending `SIGUSR2` to the PM2 process.
-
-You can also reload all logs via the command line with:
-
-```bash
-$ pm2 reloadLogs
-```
-
-### Configuring logs
-
-#### CLI
-
-```bash
-$ pm2 start echo.js --merge-logs --log-date-format="YYYY-MM-DD HH:mm Z"
-```
-
-Options:
-
-```bash
---merge-logs                 do not postfix log file with process id
---log-date-format <format>   prefix logs with formated timestamp
--l --log [path]              specify entire log file (error and out are both included)
--o --output <path>           specify out log file
--e --error <path>            specify error log file
-```
-
-### JSON / Programmatic
-
-```
-{
-  "script"          : "echo.js",
-  "error_file"        : "err.log",
-  "out_file"        : "out.log",
-  "merge_logs"      : true,
-  "log_date_format" : "YYYY-MM-DD HH:mm Z"
-}
-```
-
-**Note**: To merge all logs into the same file set the same value for `error_file`, `out_file`.
-
-## Max Memory Restart
-
-PM2 allows to restart an application based on a memory limit.
-
-### CLI
-
-```bash
-$ pm2 start big-array.js --max-memory-restart 20M
-```
-
-### JSON
-
-```json
-{
-  "name"   : "max_mem",
-  "script" : "big-array.js",
-  "max_memory_restart" : "20M"
-}
-```
-
-### Programmatic
-
-```
-pm2.start({
-  name               : "max_mem",
-  script             : "big-array.js",
-  max_memory_restart : "20M"
-}, function(err, proc) {
-  // Processing
-});
-```
-
-### Units
-
-Units can be K(ilobyte), M(egabyte), G(igabyte).
-
-```
-50M
-50K
-1G
-```
-
-## Startup script
-
-PM2 can **generate startup scripts and configure them**.
-PM2 is also smart enough to **save all your process list** and to **bring back all your processes at machine restart**.
-
-```bash
-$ pm2 startup
-# auto-detect platform
-$ pm2 startup [platform]
-# render startup-script for a specific platform, the [platform] could be one of:
-#   ubuntu|centos|redhat|gentoo|systemd|darwin|amazon
-```
-
-Once you have started the apps and want to keep them on server reboot do:
-
-```bash
-$ pm2 save
-```
-
-**Warning** It's tricky to make this feature work generically, so once PM2 has setup your startup script, reboot your server to make sure that PM2 has launched your apps!
-
-### Startup Systems support
-
-Three types of startup scripts are available:
-
-- SystemV init script (with the option `ubuntu` or `centos`)
-- OpenRC init script (with the option `gentoo`)
-- SystemD init script (with the `systemd` option)
-
-The startup options are using:
-
-- **ubuntu** will use `updaterc.d` and the script `lib/scripts/pm2-init.sh`
-- **centos**/**redhat** will use `chkconfig` and the script `lib/scripts/pm2-init-centos.sh`
-- **gentoo** will use `rc-update` and the script `lib/scripts/pm2`
-- **systemd** will use `systemctl` and the script `lib/scripts/pm2.service`
-- **darwin** will use `launchd` to load a specific `plist` to resurrect processes after reboot.
-
-### User permissions
-
-Let's say you want the startup script to be executed under another user.
-
-Just use the `-u <username>` option !
-
-```bash
-$ pm2 startup ubuntu -u www
-```
-
-### Related commands
-
-Dump all processes status and environment managed by PM2:
-```bash
-$ pm2 dump
-```
-It populates the file `~/.pm2/dump.pm2` by default.
-
-To bring back the latest dump:
-```bash
-$ pm2 [resurrect|save]
-```
-
-## Watch & Restart
-
-PM2 can automatically restart your app when a file changes in the current directory or its subdirectories:
-
-```bash
-$ pm2 start app.js --watch
-```
-
-If `--watch` is enabled, stopping it won't stop watching:
-- `pm2 stop 0` will not stop watching
-- `pm2 stop --watch 0` will stop watching
-
-Restart toggle the `watch` parameter when triggered.
-
-To watch specific paths, please use a JSON app declaration, `watch` can take a string or an array of paths. Default is `true`:
-
-```json
-{
-  "watch": ["server", "client"],
-  "ignore_watch" : ["node_modules", "client/img"],
-  "watch_options": {
-    "followSymlinks": false
-  }
-}
-```
-
-As specified in the [Schema](#a988):
-- `watch` can be a boolean, an array of paths or a string representing a path. Default to `false`
-- `ignore_watch` can be an array of paths or a string, it'll be interpreted by [chokidar](https://github.com/paulmillr/chokidar#path-filtering) as a glob or a regular expression.
-- `watch_options` is an object that will replace options given to chokidar. Please refer to [chokidar documentation](https://github.com/paulmillr/chokidar#api) for the definition.
-
-PM2 is giving chokidar these Default options:
-
-```
-var watch_options = {
-  persistent    : true,
-  ignoreInitial : true
-}
-```
-
-## JSON app declaration
-
-
-PM2 empowers your process management workflow, by allowing you to fine-tune the behavior, options, environment variables, logs files... of each process you need to manage via JSON configuration.
+PM2 empowers your process management workflow, by allowing you to fine-tune the behavior, options, environment variables, logs files... of each process you need to manage via JSON/JSON5/JS configuration.
 
 It's particularly usefull for micro service based applications.
 
-You can define parameters for your apps in a JSON file:
+## Declaration via JS, JSON or JSON5 file
+
+You can define parameters for your apps in a JS/JSON file:
 
 ```json
 {
@@ -400,23 +43,31 @@ Then you can run:
 
 ```bash
 # Start all apps
-$ pm2 start processes.json
+$ pm2 start processes.js[on]
 
 # Stop
-$ pm2 stop processes.json
+$ pm2 stop processes.js[on]
+
+# Restart
+$ pm2 start processes.js[on]
+## Or
+$ pm2 restart processes.js[on]
+
+# Reload
+$ pm2 reload processes.js[on]
+
+# Graceful Reload
+$ pm2 gracefulReload processes.js[on]
 
 # Delete from PM2
-$ pm2 delete processes.json
-
-# Restart all
-$ pm2 restart processes.json
+$ pm2 delete processes.js[on]
 ```
 
-### Options
+## Options
 
 The following are valid options for JSON app declarations:
 
-```json
+```js
 {
   "name"             : "node-app",
   "cwd"              : "/srv/node-app/current",
@@ -466,7 +117,8 @@ The following are valid options for JSON app declarations:
 |    cron_restart    |  string |                "1 0 * * *"                |                                      a cron pattern to restart your app. only works in "cluster" mode for now. soon to be avaible in "fork" mode as well                                     |
 |        watch       | boolean |                    true                   |                 enables the watch feature, defaults to "false". if true, it will restart your app everytime a file change is detected on the folder or subfolder of your app.                |
 |    ignore_watch    |   list  |     ["[\\/\\\\]\\./", "node_modules"]     |                                                            list of regex to ignore some file or folder names by the watch feature                                                            |
-|    max_restarts    |  number |                     10                    |                   number of consecutive unstable restarts (less than 1sec interval) before your app is considered errored and stop being restarted by PM2. defaults to 15.                   |
+|    min_uptime      |  number |                     1000                    |                   min uptime of the app to be considered started (i.e. if the app crashes in this time frame, the app will only be restarted the number set in max_restarts (default 15), after that it's errored)                   |
+|    max_restarts    |  number |                     10                    |                   number of consecutive unstable restarts (less than 1sec interval or custom time via min_uptime) before your app is considered errored and stop being
 | max_memory_restart |  string |                   "150M"                  |                      your app will be restarted by PM2 if it exceeds the amount of memory specified. human-friendly format : it can be "10M", "100K", "2G" and so on...                      |
 |         env        |  object |   {"NODE_ENV": "production", "ID": "42"}  |                                                                          env variables which will appear in your app                                                                         |
 |     autorestart    | boolean |                   false                   |                                                   true by default. if false, PM2 will not restart your app if it crashes or ends peacefully                                                  |
@@ -474,8 +126,9 @@ The following are valid options for JSON app declarations:
 |     post_update    |   list  | ["npm install", "echo launching the app"] |                                        a list of commands which will be executed after you perform a Pull/Upgrade operation from Keymetrics dashboard                                        |
 |        force       | boolean |                    true                   |                                          defaults to false. if true, you can start the same script several times which is usually not allowed by PM2                                          |
 |     next_gen_js    | boolean |                    true                   |                             defaults to false. if true, PM2 will launch your app using embedded BabelJS features which means you can run ES6/ES7 javascript code                             |
+|     restart_delay    | number |                    4000                   |                             time to wait before restarting a crashed app (in milliseconds). defaults to 0.                             |
 
-### Schema
+## Schema
 
 The completely definitions:
 
@@ -599,9 +252,10 @@ The completely definitions:
 }
 ```
 
-### Considerations
+## Considerations
 
-- All command line options passed when using the JSON app declaration will be dropped i.e.
+All command line options passed when using the JSON app declaration will be dropped i.e.
+
 ```bash
 $ cat node-app-1.json
 
@@ -612,7 +266,8 @@ $ cat node-app-1.json
 }
 ```
 
-- You can start as many JSON app declarations as you want.  Continuing from above:
+You can start as many JSON app declarations as you want.  Continuing from above:
+
 ```bash
 $ pm2 start node-app-2.json
 $ ps aux | grep node-app
@@ -620,12 +275,11 @@ root  14735  5.8  1.1  752476  83932 ? Sl 00:08 0:00 pm2: node-app-1
 root  24271  0.0  0.3  696428  24208 ? Sl 17:36 0:00 pm2: node-app-2
 ```
 
-Note that if you execute `pm2 start node-app-2` again, it will spawn an additional instance node-app-2.
+*Note* that if you execute `pm2 start node-app-2` again, it will spawn an additional instance node-app-2.
 
-- **cwd:** your JSON declaration does not need to reside with your script.  If you wish to maintain the JSON(s) in a location other than your script (say, `/etc/pm2/conf.d/node-app.json`) you will need to use the `cwd` feature (Note, this can be really helpful for capistrano style directory structures that uses symlinks). Files can be either relative to the `cwd` directory, or absolute (see example below).
+**cwd:** your JSON declaration does not need to reside with your script.  If you wish to maintain the JSON(s) in a location other than your script (say, `/etc/pm2/conf.d/node-app.json`) you will need to use the `cwd` feature (Note, this can be really helpful for capistrano style directory structures that uses symlinks). Files can be either relative to the `cwd` directory, or absolute (see example below).
 
-
-- All the keys can be used in a JSON configured file, but will remain almost the same on the command line e.g.:
+All the keys can be used in a JSON configured file, but will remain almost the same on the command line e.g.:
 
 ```
 exec_interpreter  -> --interpreter
@@ -696,6 +350,10 @@ If the `alias` exists, you can use it as a CLI option, but do not forget to turn
   - maximum
 
     `"instances": 0` means that we will launch the maximum processes possible according to the numbers of CPUs (cluster mode)
+
   - array
 
     `args`, `node_args` and `ignore_watch` could be type of `Array` (e.g.: `"args": ["--toto=heya coco", "-d", "1"]`) or `string` (e.g.: `"args": "--to='heya coco' -d 1"`)
+
+
+Once you declared this file, you will now just need to specify your Cloud Provider to start this file.

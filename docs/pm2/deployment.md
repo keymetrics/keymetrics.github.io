@@ -1,26 +1,26 @@
 ---
 layout: docs
 title: Deployment
-description: How to use PM2.
+description: Easily deploy applications with PM2
 permalink: /docs/usage/deployment/
 ---
 
-PM2 embed a simple and powerful deployment system with revision tracing.
+PM2 embeds a simple and powerful deployment system with revision tracing.
 It's based on <a href="https://github.com/visionmedia/deploy">https://github.com/visionmedia/deploy</a>
 
 A step-by-step tutorial is available here : [Deploy and Iterate faster with PM2 deploy](https://keymetrics.io/2014/06/25/ecosystem-json-deploy-and-iterate-faster/)
 
-## Getting started with deployment
+## Getting started
 
 Please read the [Considerations to use PM2 deploy](#considerations)
 
-1- Generate a sample ecosystem.json file that list processes and deployment environment
+1- Generate a sample ecosystem.json5 file that list processes and deployment environment
 
 ```bash
 $ pm2 ecosystem
 ```
 
-In the current folder a `ecosystem.json` file will be created.
+In the current folder a `ecosystem.json5` file will be created.
 It contains this:
 
 ```json
@@ -134,6 +134,7 @@ Just add the "key" attribute with file path to the .pem key within the attribute
       "post-deploy" : "pm2 startOrRestart ecosystem.json --env production"
     },
 ```
+
 ## Considerations
 
 - You might want to commit your node_modules folder ([#622](https://github.com/Unitech/pm2/issues/622)) or add the `npm install` command to the `post-deploy` section: `"post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"`
