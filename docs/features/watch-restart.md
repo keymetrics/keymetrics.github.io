@@ -5,8 +5,6 @@ description: Restart process on file change
 permalink: /docs/usage/watch-and-restart/
 ---
 
-## Watch & Restart
-
 PM2 can automatically restart your app when a file changes in the current directory or its subdirectories:
 
 ```bash
