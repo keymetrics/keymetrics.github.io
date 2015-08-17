@@ -117,7 +117,7 @@ $ pm2 delete  <app_name|id|all></pre>
     <div class="pm2-user-container">
       <div class="row index-box">
 
-        {% for user in site.data.users limit:18 %}
+        {% for user in site.data.users limit:3 %}
         <div class="col-md-4 col-sm-6">
           <a class="pm2-user" href="{{user.url}}" title="{{user.name}}">
             <img class="img-responsive" src="/images/users/{{user.logo}}" title="{{user.name}}">

@@ -458,7 +458,7 @@ $ pm2 start app.js -i 1
 
 You can pass multiple values to the instances (-i) option:
 
-```
+```bash
 # Start the maximum processes depending on available CPUs
 $ pm2 start app.js -i 0
 
@@ -1202,6 +1202,8 @@ Units can be K(ilobyte), M(egabyte), G(igabyte).
 1G
 ```
 
+
+<center>![Logo PM2](/images/logo_pm2.png)</center>
 
 Welcome to this PM2 Quick Start! Getting started with PM2 is straightforward, it is offered as a simple and intuitive CLI, installable via NPM. Just start your application with PM2 and you're application is ready to handle ton of traffic!
 
