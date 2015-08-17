@@ -17,7 +17,7 @@ $ pm2 start app.js -i 1
 
 You can pass multiple values to the instances (-i) option:
 
-```
+```bash
 # Start the maximum processes depending on available CPUs
 $ pm2 start app.js -i 0
 
