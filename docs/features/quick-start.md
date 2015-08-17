@@ -5,6 +5,8 @@ description: Getting started with PM2
 permalink: /docs/usage/quick-start/
 ---
 
+<center>![Logo PM2](/images/logo_pm2.png)</center>
+
 Welcome to this PM2 Quick Start! Getting started with PM2 is straightforward, it is offered as a simple and intuitive CLI, installable via NPM. Just start your application with PM2 and you're application is ready to handle ton of traffic!
 
 ## Installation
