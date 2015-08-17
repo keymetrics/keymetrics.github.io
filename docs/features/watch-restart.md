@@ -14,6 +14,7 @@ $ pm2 start app.js --watch
 ```
 
 If `--watch` is enabled, stopping it won't stop watching:
+
 - `pm2 stop 0` will not stop watching
 - `pm2 stop --watch 0` will stop watching
 
@@ -32,6 +33,7 @@ To watch specific paths, please use a JS/JSON app declaration, `watch` can take 
 ```
 
 As specified in the [Schema](#a988):
+
 - `watch` can be a boolean, an array of paths or a string representing a path. Default to `false`
 - `ignore_watch` can be an array of paths or a string, it'll be interpreted by [chokidar](https://github.com/paulmillr/chokidar#path-filtering) as a glob or a regular expression.
 - `watch_options` is an object that will replace options given to chokidar. Please refer to [chokidar documentation](https://github.com/paulmillr/chokidar#api) for the definition.
