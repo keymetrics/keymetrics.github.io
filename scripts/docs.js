@@ -67,7 +67,7 @@
         $('.sidebar .next-page').attr('href', usage);
 
         if (usage != undefined) {
-          $('.sidebar button').show();
+          $('.sidebar .next-page').show();
         }
 
       }

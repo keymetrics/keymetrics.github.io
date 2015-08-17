@@ -40,13 +40,8 @@
     - title: Contributing
       url: /docs/usage/contributing/
 
-# - title: Advanced
-#   url: /docs/advanced/
-#   subnav:
-#     - title: Modules Available
-#       url: https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md#using-pm2-in-cloud-providers
-#       blank: true
-#     - title: Modules Available
-#       url: https://github.com/Unitech/PM2/blob/master/doc/MODULE.md#modules-system
-#     - title: Modules Doc
-#       url: https://github.com/Unitech/PM2/blob/master/doc/MODULE.md#modules-system
+- title: Advanced
+  url: /docs/advanced/
+  subnav:
+    - title: Modules Available
+      url: /docs/advanced/pm2-module-system/

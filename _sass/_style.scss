@@ -325,9 +325,19 @@ ul.pm2-tick-list li::before {
     }
 }
 
-.sidebar button {
-    margin-top: 20px;
-    display: none;
+.sidebar {
+    button {
+        width : 80%;
+        margin-bottom : 5px;
+    }
+    .actions-on-doc {
+        text-align : center;
+        margin-top : 10px;
+    }
+    .next-page {
+        margin-top: 20px;
+        display: none;
+    }
 }
 
 a:focus {
