@@ -43,5 +43,7 @@
 - title: Advanced
   url: /docs/advanced/
   subnav:
-    - title: Modules Available
+    - title: Module System
       url: /docs/advanced/pm2-module-system/
+    - title: Single Page Doc
+      url: /docs/usage/pm2-doc-single-page/

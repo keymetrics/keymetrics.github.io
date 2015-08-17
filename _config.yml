@@ -16,6 +16,8 @@ sass:
 markdown: redcarpet
 highlighter: pygments
 
+exclude: ['node_modules', 'docs/intro.md']
+
 redcarpet:
   extensions: ['tables', 'no_intra_emphasis', 'autolink']
 
