@@ -63,13 +63,19 @@ pre {
 //logos
 
 .logo {
-    background: url("../images/logo_pm2_little.png") no-repeat center;
     width: 200px;
     margin-right: 30px;
+    margin-top : -10px;
 }
 
 // For HOMEPAGE
 .index-page {
+
+    .keymetrics-main-logo {
+        margin-top: 35px;
+        margin-bottom: 34px;
+        width: 599px;
+    }
 
     h2 {
         font-size: 40px;
