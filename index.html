@@ -18,11 +18,11 @@ layout: default
   <hr class="index-divider">
 
   <div class="row index-box">
-    <div class="col-md-6 box-desc">
+    <div class="col-md-6 box-desc" style="margin-top : 58px">
       <h2>Features</h2>
-      <p>A Complete feature set for production environment, built with a worldwide community of developers and enterprises</p>
+      <p>We built Keymetrics hand to hand with companies using Node.js, all around the world. And best of all, we are our very first users, allowing us to innovative in a very unique way.</p>
 
-      <pre class="pre-home">$ pm2 link [private_key] [public_key]</pre>
+
     </div>
 
     <div class="col-md-6">
@@ -58,33 +58,57 @@ layout: default
 
   <hr class="index-divider">
 
+  <center><h2>Interface CheatSheet</h2></center>
+  <br/>
   <div class="row index-box">
-    <div class="col-md-6">
-      <img src="/images/pm2-monit.png" title="PM2 Monit"/>
-    </div>
-    <div class="col-md-6 box-desc">
-      <h2>Monitoring</h2>
-      <p>Monitoring all processes launched:</p>
-      <div class="highlight-index">
-        <pre class="pre-home">$ pm2 monit</pre>
-      </div>
+    <div class="col-md-12">
+      <h2>Dashboard - Classic Overview</h2>
+      <img src="/images/interface-explanation.png"/>
     </div>
   </div>
 
-  <hr class="index-divider">
 
   <div class="row index-box">
-    <div class="col-md-6 box-desc">
-      <h2>Microservice</h2>
-      <p>List all processes:</p>
-      <pre class="pre-home">$ pm2 list</pre>
-      <p>Act on them:</p>
-      <pre class="pre-home">$ pm2 stop    <app_name|id|all>
-$ pm2 restart <app_name|id|all>
-$ pm2 delete  <app_name|id|all></pre>
+    <div class="col-md-12">
+      <h2>Dashboard - Condensed mode</h2>
+      <img src="/images/condensed-interface.png"/>
     </div>
-    <div class="col-md-6">
-      <img src="/images/pm2-list.png" title="PM2 list"/>
+  </div>
+
+
+  <div class="row index-box">
+    <div class="col-md-12">
+      <h2>Module system - Management interface</h2>
+      <img src="/images/module-interface.png"/>
+    </div>
+  </div>
+
+
+  <div class="row index-box">
+    <div class="col-md-12">
+      <h2>High load ready</h2>
+      <img src="/images/perf-interface.png"/>
+    </div>
+  </div>
+
+  <div class="row index-box">
+    <div class="col-md-12">
+      <h2>Monitoring interface</h2>
+      <img src="/images/monitoring-interface.png"/>
+    </div>
+  </div>
+
+  <div class="row index-box">
+    <div class="col-md-12">
+      <h2>Issue / Exception interface</h2>
+      <img src="/images/issue-interface.png"/>
+    </div>
+  </div>
+
+  <div class="row index-box">
+    <div class="col-md-12">
+      <h2>Event interface</h2>
+      <img src="/images/event-interface.png"/>
     </div>
   </div>
 
@@ -92,62 +116,9 @@ $ pm2 delete  <app_name|id|all></pre>
 
   <div class="text-center">
     <div class="btn-wrapper">
-      <a title="PM2 Quickstart" href="https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#quick-start-1" target="_blank" class="btn btn-featured">QuickStart</a>
-      <a title="PM2 features" href="https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#features-1" target="_blank" class="btn btn-featured">Features</a>
+      <a title="PM2 Quickstart" href="/docs/usage/introduction" target="_blank" style="width: 239px" class="btn btn-featured">Introduction</a>
+      <a title="PM2 features" href="/docs/usage/setup" target="_blank" style="width: 239px"  class="btn btn-featured">Setup</a>
     </div>
-  </div>
-
-  <hr class="index-divider">
-
-  <div class="index-box">
-    <h2 class="text-center">
-      Who's using PM2 ?
-    </h2>
-    <!-- <a href="{{ site.baseurl }}/users/"> -->
-    <!--   Who's using PM2 ? -->
-    <!-- </a> -->
-
-    <div class="pm2-user-container">
-      <div class="row index-box">
-
-        {% for user in site.data.users limit:3 %}
-        <div class="col-md-4 col-sm-6">
-          <a class="pm2-user" href="{{user.url}}" title="{{user.name}}">
-            <img class="img-responsive" src="/images/users/{{user.logo}}" title="{{user.name}}">
-          </a>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="text-center">
-      <div class="btn-wrapper">
-        <a title="Meet more companies" href="{{ site.baseurl }}/users/" class="btn btn-sm btn-featured">Meet more Users</a>
-      </div>
-    </div>
-  </div>
-
-  <hr class="index-divider">
-
-  <div class="index-box">
-    <div class="row">
-      <h2 class="text-center">Client Testimonial</h2>
-      <div class="col-md-3 col-md-offset-1 oval-quotes">
-        <p>Guys just installed pm2 on my live server and hooked up to Keymetrics.
-          Very impressed. Its all seamless and awesome!</p>
-        <p><strong>Adam Robinson</strong></p>
-      </div>
-      <div class="col-md-3 col-md-offset-1 oval-quotes">
-        <p>Just fell in love with pm2 Much better that forever to restart node procs if nec.</p>
-        <p><strong>Christian Kellner</strong></p>
-      </div>
-      <div class="col-md-3 col-md-offset-1 oval-quotes">
-        <p>Recently switched to pm2 from forever.. not looking back!</p>
-        <p><strong>Samuel Brown</strong></p>
-      </div>
-    </div>
-    <br/>
-    <br/>
   </div>
 
 </div>

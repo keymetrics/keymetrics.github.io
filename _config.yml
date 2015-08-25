@@ -1,11 +1,10 @@
 # Site settings
-title: PM2
-email: your-email@domain.com
+title: Keymetrics Documentation
+email: contact@keymetrics.io
 description: > # this means to ignore newlines until "baseurl:"
-  Advanced process manager for production Node.js applications. Load balancer, logs facility,
-  startup script, micro service management, at a glance.
+  Keymetrics, a powerful networked software allowing you to supervize applications.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://pm2.keymetrics.io" # the base hostname & protocol for your site
+url: "http://docs.keymetrics.io" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 

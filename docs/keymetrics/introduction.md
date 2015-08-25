@@ -1,0 +1,52 @@
+---
+layout: docs
+title: Introduction to Keymetrics software
+description: Introduction to Keymetrics software
+permalink: /docs/usage/introduction/
+---
+
+Welcome to this introduction to Keymetrics, a powerful networked software allowing you to supervize applications. It helps you to both manage and monitor your applications via a real-time dashboard, capable of monitoring one to hundreds of applications on one to hundreds of servers.
+
+Keymetrics is built on top of [PM2](http://pm2.keymetrics.io/) an advanced process manager mainly for Node.js applications but that can be used [for any kind of other apps](http://pm2.keymetrics.io/docs/usage/process-management/#start-any-process-type). It's Open Sourced on [Github](https://github.com/Unitech/PM2) and already have over [1 million downloads](http://npm-stat.com/charts.html?package=pm2).
+
+## Keymetrics features
+
+<center><img src="/images/keymetrics-black.png" alt="Keymetrics logo" style="width: 70%; margin-top: 20px; margin-bottom: 25px;"/></center>
+
+Keymetrics offer a wide range of features, all in realtime, some enabled by default, others enabled depending your needs.
+
+Here is a quick overview of the main Keymetrics features:
+
+- Application management (restart/reload/gracefulReload)
+- CPU / Memory monitoring
+- Exception / Issue reporting linked to deployment id
+- Multi server overview
+- Slow HTTP transaction interception and HTTP average calculation
+- Client-side GIT versioning, without configuration overhead
+- Custom metrics
+- Remote trigger functions
+- Events tracking
+- Remote retrieval of Heapdump and Cpu profile (for Node.js)
+- Realtime, isolated logs display
+- Configurable Alert system
+- Module system
+
+## PM2 features
+
+<center>![PM2 img](https://raw.githubusercontent.com/unitech/pm2/master/pres/pm2.20d3ef.png)</center>
+
+- Strong process management and daemon system
+- Auto Cluster mode for Node.js
+- For micro services systeme
+- PaaS compatible
+- Reload / Graceful reload
+- Log management
+- Basic monitoring
+- API
+- Auto completion
+- Deployment worflow
+- Application declaration via conf files
+
+Learn more about [PM2 here](http://pm2.keymetrics.io/)
+
+Now let's setup your first production environment and discover how to use Keymetrics
