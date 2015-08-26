@@ -26,3 +26,33 @@ This password that you configured at the PM2 level via the command `pm2 set pm2:
 ## Between Keymetrics and your browser
 
 We use the HTTPS protocol to secure all data transfered from Keymetrics to your browser.
+
+## User permissions
+
+You can add as many users as you want to your bucket. There are four different roles: User, Developer, Admin, Owner.
+Only the owner can change a user's role.
+
+1. User
+  * Has read-only permission on the bucket
+  * This is the default role when you add a user
+
+2. Developer
+  * This should be assigned to your tech team members as they can do the following:
+  * Trigger remote actions (e.g: restart, custom actions)
+  * Delete exceptions
+  * Delete HTTP monitoring data
+  * Subscribe to new events
+  * Update alert settings
+
+3. Admin
+  * Has the same rights as developer
+  * Can add a user to the bucket
+  * Can delete a server
+
+4. Owner
+  * Cannot be changed
+  * Update bucket metadata (name, description...)
+  * Can remove users from the bucket
+  * Delete the bucket
+  * Change user permissions
+  * Upgrade the bucket to a premium plan
