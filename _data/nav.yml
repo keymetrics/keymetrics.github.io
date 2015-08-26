@@ -13,5 +13,7 @@
   subnav:
     - title: Dashboard interface
       url: /docs/usage/dashboard-interface/
+    - title: Exception reporting
+      url: /docs/usage/issues/
     - title: Keymetrics & PaaS (Heroku, Azure...)
       url: /docs/usage/paas-heroku-azure/
