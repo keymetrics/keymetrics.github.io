@@ -6,6 +6,7 @@ permalink: /docs/usage/issues/
 ---
 
 Once your bucket is correctly linked to your server, you should see something like this in your dashboard:
+
 <img src="/images/tutorial/issues/first.png"/>
 
 The errors count is 0, this means your application didn't have any exception yet ! Lets see how that works
@@ -31,12 +32,15 @@ throw "a string"
 When `pmx` is correctly setup, it catches it and here is what happens:
 
 1. It sends a notification to keymetrics, the error is then saved and increases the error count on the dashboard
+
 <img src="/images/tutorial/issues/second.png"/>
 
 2. A red counter also appears in the left-side menu when expanded:
+
 <img src="/images/tutorial/issues/third.png"/>
 
 3. The error is described in the `issues` tab:
+ 
 <img src="/images/tutorial/issues/fourth.png"/>
 
 4. If the email alerts are `on` for the exceptions alert (under the "Alerts" tab), an email is sent to you if the exception occurs for the first time. Otherwise it just increments the counters.
@@ -50,6 +54,7 @@ pmx.notify({ success : false });
 ```
 
 Here is what you will see in your "Issues" tab when both happen:
+
 <img src="/images/tutorial/issues/fifth.png"/>
 
 
