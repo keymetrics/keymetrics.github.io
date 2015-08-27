@@ -13,6 +13,8 @@
   subnav:
     - title: Dashboard interface
       url: /docs/usage/dashboard-interface/
+    - title: PMX, Keymetrics library
+      url: /docs/usage/pmx-keymetrics-library/
     - title: Exception reporting
       url: /docs/usage/issues/
     - title: Keymetrics & PaaS (Heroku, Azure...)
