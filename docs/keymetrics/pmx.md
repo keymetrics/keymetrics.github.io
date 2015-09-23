@@ -215,7 +215,7 @@ var metric = probe.metric({
     mode  : 'threshold',
     value : 95,
     msg   : 'Detected over 95% CPU usage', // optional
-    func  : function() { //optional
+    action: function() { //optional
       console.error('Detected over 95% CPU usage');
     },
     cmp   : function(value, threshold) { //optional
@@ -227,10 +227,10 @@ var metric = probe.metric({
 
 ####Options:
 
-- `mode` : `threshold`, `threshold-avg`.
+- `mode` : `threshold`, `threshold-avg`, `smart`.
 - `value` : Value that will be used for the exception check.
 - `msg` : String used for the exception.
-- `func` :  **optional**. Function declenched when exception reached.
+- `action` :  **optional**. Function triggered when exception reached.
 - `cmp` : **optional**. Function used for exception check taking 2 arguments.
 - `interval` : **optional**, `threshold-avg` mode. Sample length for monitored value (180 seconds default).
 - `timeout` : **optional**, `threshold-avg` mode. Time after which mean comparison starts (30 000 milliseconds default).
