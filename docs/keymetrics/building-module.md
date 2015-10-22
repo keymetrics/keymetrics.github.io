@@ -213,10 +213,10 @@ Example:
 $ pm2 set server-monitoring:days_interval 2
 ```
 
-**NOTE** These variables are written in `~/.pm2/module_conf.json`, so if you prefer, you can directly edit these variables in this file.
-**NOTE2** You can display configuration variable via `pm2 conf [module-name]`
-**NOTE3** When you set a new value the target module is restarted
-**NOTE4** You have to typecast yourself values, it is always strings!
+- **NOTE** These variables are written in `~/.pm2/module_conf.json`, so if you prefer, you can directly edit these variables in this file.
+- **NOTE2** You can display configuration variable via `pm2 conf [module-name]`
+- **NOTE3** When you set a new value the target module is restarted
+- **NOTE4** You have to typecast yourself values, it is always strings!
 
 #### With Keymetrics
 
