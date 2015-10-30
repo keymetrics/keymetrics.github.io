@@ -11,6 +11,8 @@
       url: /docs/usage/install-pmx/
     - title: PMX documentation
       url: /docs/usage/pmx-keymetrics-library/
+    - title: FAQ/Troubleshooting
+      url: /docs/pages/faq-troubleshooting/
 
 - title: Features
   url: /docs/pages/
