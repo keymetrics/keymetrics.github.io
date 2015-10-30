@@ -13,6 +13,22 @@ When you create a *Bucket*, you may have noticed that we provide two unique keys
 
 These keys are used to identify your PM2 toward Keymetrics and also to cipher all data transfered (push or reverse data) between PM2 and Keymetrics. The data is ciphered in AES256.
 
+## Data stored in Keymetrics
+
+> What information about our services / servers / applications is collected and sent to your systems?
+
+**Server**: Hostname, IP, Load average, Memory, CPU infos, distribution type
+**Applications**: CPU, Memory, PM2 metadata (exec mode, id, restart nb, unstable restart nb, probes, actions name), Git metadata
+**Services** (via module system): Custom metrics, Custom actions name (no storage of results)
+
+> How do you protect that data?
+
+Data is ciphered while transfered into network (HTTPS and AES256). Data stored in database is normalized but each bucket has is own database (with database name ciphered)
+
+> Do you adhere to any industry security standards, such as ISO or PCI?
+
+We use [Stripe](https://stripe.com/) as our payment system, we never store any informations about credit card used on Keymetrics. 
+
 ### Remote actions lock'in
 
 As you may know, Keymetrics provide a very simple way to interact with your servers, from triggering in-code functions as well as triggering PM2 actions.
