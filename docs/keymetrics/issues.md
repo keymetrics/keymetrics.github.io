@@ -2,7 +2,7 @@
 layout: docs
 title: Keymetrics issues tutorial
 description: Introduction to Keymetrics issues
-permalink: /docs/usage/issues/
+permalink: /docs/pages/issues/
 ---
 
 Once your bucket is correctly linked to your server, you should see something like this in your dashboard:
@@ -13,13 +13,9 @@ The errors count is 0, this means your application didn't have any exception yet
 
 ## Exceptions monitoring
 
-As many of Keymetrics features, the issues reporting requires [pmx](https://github.com/keymetrics/pmx), so be sure to run `npm install --save pmx` in your project.
-Then, you need to require `pmx` in your code:
-```javascript
-require('pmx').init();
-```
+As many of Keymetrics features, the issues reporting requires PMX [to be installed on your project](/docs/usage/install-pmx/).
 
-There are two way to get errors reported in Keymetrics: catching uncaught exceptions and report custom ones. Let's review them.
+There are two way to get errors reported in Keymetrics, catching uncaught exceptions and report custom ones. Let's review them.
 
 ### Catch uncaught exceptions
 
@@ -31,20 +27,24 @@ throw "a string"
 
 When `pmx` is correctly setup, it catches it and here is what happens:
 
-- It sends a notification to keymetrics, the error is then saved and increases the error count on the dashboard:
+It sends a notification to keymetrics, the error is then saved and increases the error count on the dashboard:
+
 <img src="/images/tutorial/issues/second.png"/>
 
-- A red counter also appears in the left-side menu when expanded:
+A red counter also appears in the left-side menu when expanded:
+
 <img src="/images/tutorial/issues/third.png"/>
 
-- The error is described in the `issues` tab:
+The error is described in the `issues` tab:
+
 <img src="/images/tutorial/issues/fourth.png"/>
 
-- If the email alerts are `on` for the exceptions alert (under the "Alerts" tab), an email is sent to you if the exception occurs for the first time. Otherwise it just increments the counters.
+If the email alerts are `on` for the exceptions alert (under the "Alerts" tab), an email is sent to you if the exception occurs for the first time. Otherwise it just increments the counters.
 
 ### Custom issues
 
 You can also emit your own issues using `pmx.notify()`. Given the following snippets:
+
 ```javascript
 pmx.notify(new Error('This is an error'));
 pmx.notify({ success : false });
@@ -56,4 +56,10 @@ Here is what you will see in your "Issues" tab when both happen:
 
 ### Bonus: Express middleware
 
-`pmx` also comes with its own express middleware. All you need to do is add the following line `app.use(pmx.expressErrorHandler());` after the routes declaration.
+`pmx` also comes with its own express middleware. All you need to do is add the following line:
+
+```javascript
+app.use(pmx.expressErrorHandler());
+```
+
+after the routes declaration.

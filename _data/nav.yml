@@ -7,17 +7,33 @@
       url: /docs/usage/setup/
     - title: Security concern
       url: /docs/usage/security/
+    - title: Install PMX
+      url: /docs/usage/install-pmx/
+    - title: PMX documentation
+      url: /docs/usage/pmx-keymetrics-library/
 
 - title: Features
+  url: /docs/pages/
+  subnav:
+    - title: Monitoring page
+      url: /docs/pages/monitoring/
+    - title: Issues page
+      url: /docs/pages/issues/
+    - title: Events page
+      url: /docs/pages/events/
+    - title: HTTP analysis
+      url: /docs/pages/http/
+    - title: Profiling
+      url: /docs/pages/profiling/
+    - title: Trigger functions remotely
+      url: /docs/pages/custom-actions/
+    - title: Monitor custom metrics
+      url: /docs/pages/custom-metrics/
+
+- title: Other
   url: /docs/usage/
   subnav:
-    - title: Dashboard interface
-      url: /docs/usage/dashboard-interface/
-    - title: PMX, Keymetrics library
-      url: /docs/usage/pmx-keymetrics-library/
-    - title: Exception reporting
-      url: /docs/usage/issues/
     - title: Building a module
       url : /docs/usage/building-module/
-    - title: Keymetrics & PaaS (Heroku, Azure...)
+    - title: Using Keymetrics on PaaS
       url: /docs/usage/paas-heroku-azure/
