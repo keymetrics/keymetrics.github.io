@@ -7,19 +7,37 @@ permalink: /docs/pages/custom-metrics/
 
 ## Expose Metrics: Measure anything
 
-Keymetrics allows you to expose any metrics from you code to the Keymetrics Dashboard, in realtime (and with storage over the time). These metrics takes place in the main Keymetrics Dashboard page under the Custom Metrics section.
+Keymetrics allows you to expose any metrics from your code to the Keymetrics Dashboard, in realtime (and with storage over the time for premium accounts).
 
-When you add a custom metric you will be able to see it's current value on the application widget:
+When you add a custom metric you will be able to see it's current value on the application widget (Dashboard page):
 
 <img src="/images/custom-metric.png" alt="Custom metrics"/>
 
-If you upgraded to a premium account, you will be able to monitor these values over the time in the monitoring page:
+If you upgraded to a premium account, you will be able to monitor these values over the time in the Monitoring page:
 
 <img src="/images/custom-metric-2.png" alt="Custom metrics over time"/>
 
 ## Usage
 
-4 helpers are available:
+You will need to [install pmx](/docs/usage/install-pmx/) first.
+
+### Builtin custom Metrics
+
+When initializing pmx, you can set to true some options:
+
+- `network` option will display inbound and outbound traffic
+- `ports` will display ports your application is using
+
+```javascript
+var pmx = require('pmx').init({
+  network       : true,  // Network monitoring at the application level
+  ports         : true,  // Shows which ports your app is listening on (default: false)
+});
+```
+
+### Custom Metrics
+
+Then you can program your very own metrics to track important informations. 4 differents probes are available:
 
 - **Simple metrics**: Values that can be read instantly
     - eg. Monitor variable value
@@ -30,7 +48,7 @@ If you upgraded to a premium account, you will be able to monitor these values o
 - **Histogram**: Keeps a resevoir of statistically relevant values biased towards the last 5 minutes to explore their distribution
     - eg. Monitor the mean of execution of a query into database
 
-### Metric: Simple value reporting
+#### Simple Metric: Simple value reporting
 
 This allow to expose values that can be read instantly.
 
@@ -53,7 +71,7 @@ var valvar = probe.metric({
 valvar.set(23);
 ```
 
-### Counter: Sequential value change
+#### Counter: Sequential value change
 
 Things that increment or decrement.
 
@@ -75,7 +93,7 @@ http.createServer(function(req, res) {
 });
 ```
 
-### Meter: Average calculated values
+#### Meter: Average calculated values
 
 Things that are measured as events / interval.
 
@@ -94,12 +112,12 @@ http.createServer(function(req, res) {
 });
 ```
 
-#### Options
+##### Options
 
 **samples** option is the rate unit. Defaults to **1** sec.
 **timeframe** option is the timeframe over which events will be analyzed. Defaults to **60** sec.
 
-### Histogram
+#### Histogram
 
 Keeps a resevoir of statistically relevant values biased towards the last 5 minutes to explore their distribution.
 
@@ -119,7 +137,7 @@ setInterval(function() {
 }, 100);
 ```
 
-#### Common Custom Metrics options
+### Common Custom Metrics options
 
 - `name` : The probe name as is will be displayed on the **Keymetrics** dashboard
 - `agg_type` : This param is optionnal, it can be `sum`, `max`, `min`, `avg` (default) or `none`. It will impact the way the probe data are aggregated within the **Keymetrics** backend. Use `none` if this is irrelevant (eg: constant or string value).
