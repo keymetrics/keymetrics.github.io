@@ -31,6 +31,8 @@
       url: /docs/pages/custom-actions/
     - title: Monitor custom metrics
       url: /docs/pages/custom-metrics/
+    - title: 3rd Integrations
+      url: /docs/pages/integrations/
 
 - title: Other
   url: /docs/usage/
