@@ -41,3 +41,5 @@
       url : /docs/usage/building-module/
     - title: Using Keymetrics on PaaS
       url: /docs/usage/paas-heroku-azure/
+    - title: Keymetrics App Changelog
+      url: /docs/usage/keymetrics-changelog/
