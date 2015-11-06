@@ -17,6 +17,8 @@
 - title: Features
   url: /docs/pages/
   subnav:
+    - title: Dashboard page
+      url: /docs/pages/dashboard/
     - title: Monitoring page
       url: /docs/pages/monitoring/
     - title: Issues page
