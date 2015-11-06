@@ -5,7 +5,7 @@ description: Introduction to Keymetrics software
 permalink: /docs/usage/introduction/
 ---
 
-Welcome to Keymetrics, a powerful networking software allowing you to supervise and manage applications in real-time using a dashboard that is capable of monitoring from one to hundreds of applications, and all on one up to hundreds of servers.
+Welcome to Keymetrics, a powerful networking software allowing you to supervise and manage applications in real-time using a dashboard that is capable of monitoring from one to hundreds of applications in numerous servers
 
 Keymetrics is built on top of [PM2](http://pm2.keymetrics.io/) an advanced process manager designed for Node.js applications that can be used [for any kind of other apps](http://pm2.keymetrics.io/docs/usage/process-management/#start-any-process-type). It's Open Sourced on [Github](https://github.com/Unitech/PM2) and already have over [1 million downloads](http://npm-stat.com/charts.html?package=pm2).
 
