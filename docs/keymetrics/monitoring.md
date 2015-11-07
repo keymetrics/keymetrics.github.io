@@ -20,6 +20,12 @@ This page is mainly for visual monitoring, to know more on how to add custom met
 - Process events (restart, reload, stop, start)
 - Custom metrics value over the time
 
+### Trend line
+
+A trend line is now generated when you use the global filters (it only appears when you select one specific server).
+This trend line is a linear regression over the values displayed. It helps you understand how a metric is evolving over the time.
+
+<img title="monitoring interface trend line" src="/images/monitoring-trend-line.png"/>
 
 ### Graphics label
 
