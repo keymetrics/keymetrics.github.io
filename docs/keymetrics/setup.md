@@ -5,7 +5,7 @@ description: Setup Keymetrics and PM2
 permalink: /docs/usage/setup/
 ---
 
-Getting started with Keymetrics is straightforward and seamless.
+Getting started with Keymetrics is seamless, smart and straightforward:
 
 ## 1- Create an account
 
@@ -29,7 +29,7 @@ Give a name to your bucket and an optional comment:
 
 ## 3- Link your server to Keymetrics
 
-Congratulation, you have created you very first bucket in Keymetrics! You benefits now from a public and secret key that will identify and secure the connectivity between your server and Keymetrics,
+Congratulation, you have succesfully created you very first bucket in Keymetrics! You benefits now from a public and secret key that will identify and secure the connectivity between your server and Keymetrics,
 
 You will land up to the following page telling you how to link PM2 to Keymetrics:
 
