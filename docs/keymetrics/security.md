@@ -45,7 +45,7 @@ We use the HTTPS protocol to secure all data transfered from Keymetrics to your 
 
 ## User permissions
 
-You can add as many users as you want to your bucket. There are four different roles: User, Developer, Admin, Owner.
+You can add as many users as you want to your bucket. There are four different roles: User, Developer, Admin and Owner.
 Only the owner can change a user's role.
 
 1. User
