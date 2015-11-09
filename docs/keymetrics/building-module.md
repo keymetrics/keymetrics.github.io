@@ -187,10 +187,10 @@ Then these values are accessible via the data returned by pmx.initModule().
 Example:
 
 ```javascript
-var conf = pmx.initModule({[...]});
-
-// Now we can read these values
-console.log(conf.days_interval);
+pmx.initModule({[...]}, function(err, conf) {
+ // Now we can read these values
+ console.log(conf.days_interval);
+});
 ```
 
 ### Override configuration values
@@ -217,3 +217,13 @@ $ pm2 set server-monitoring:days_interval 2
 #### With Keymetrics
 
 In the main Keymetrics Dashboard, the module will have a button called "Configure". Once you click on it you will be able to access / modify all configurations variable exposed on the package.json!
+
+## Publishing a module
+
+To update/publish a module, it's straightforward. The `pm2 publish` command will increment the minor version of the module, will `git add . ; git commit -m "VERSION"; git push origin master` then it will `npm publish`.
+
+```
+$ cd my-module
+$ pm2 publish
+```
+
