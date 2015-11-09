@@ -156,15 +156,11 @@ var conf    = pmx.initModule({
         main_probes : ['Processes']
       },
     },
-
-    // Status (in the future, not implemented yet)
-    status_check : ['latency', 'event loop', 'query/s']
-    //= Status Green / Yellow / Red (maybe for probes?)
-
+}, function(err, conf) {
+  // The module has been initiated
+  // Now you can require all files
+  console.log(conf);
 });
-
-// Here we can see the default configuration values declared in the package.json
-console.log(conf);
 ```
 
 ### Module configuration
