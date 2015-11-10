@@ -23,7 +23,7 @@ These keys are used to identify your PM2 toward Keymetrics and also to cipher al
 
 > How do you protect that data?
 
-Data is ciphered while transfered into network (HTTPS and AES256). Data stored in database is normalized but each bucket has is own database (with database name ciphered)
+Data is ciphered while transfered into network (HTTPS and AES256). Data stored in database is normalized but each bucket has own database (with database name ciphered)
 
 > Do you adhere to any industry security standards, such as ISO or PCI?
 
