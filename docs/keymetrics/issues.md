@@ -22,7 +22,7 @@ There are two way to get errors reported in Keymetrics, catching uncaught except
 Let's consider the following snippet, somewhere in your code:
 
 ```javascript
-throw "a string"
+throw new Error("error message")
 ```
 
 When `pmx` is correctly setup, it catches it and here is what happens:
