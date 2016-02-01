@@ -5,6 +5,16 @@ description: Keymetrics changelog
 permalink: /docs/usage/keymetrics-changelog/
 ---
 
+## February 2016
+
+- Feature: Offline system available again
+- Feature: Better support for auto scaling systems (via auto server deletion on offline)
+
+## January 2016
+
+- Enhancement: Realtime system refactored with Primus
+- Enhancement: 40% back end more stable (leak fixed)
+
 ## December 2015
 
 - Feature: CPU profile page now display D3.js charts and analyze cpu profile
