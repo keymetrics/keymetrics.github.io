@@ -7,8 +7,11 @@ permalink: /docs/usage/keymetrics-changelog/
 
 ## February 2016
 
-- Feature: Offline system available again
-- Feature: Better support for auto scaling systems (via auto server deletion on offline)
+- Feature: Slack notification when server offline
+- Feature: Deployment detection
+- Enhancement: Text emails
+- Feature: Offline system available again (premium)
+- Feature: Better support for auto scaling systems (via auto server deletion on offline)(waiting for documentation)
 
 ## January 2016
 
