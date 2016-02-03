@@ -36,6 +36,21 @@ pmx.action('db:clean', function(reply) {
 });
 ```
 
+#### Passing a parameter
+
+To pass a parameter to the remote function, just add the `param` attribute to the callback:
+
+```javascript
+var pmx = require('pmx');
+
+pmx.action('db:clean', function(param, reply) {
+  console.log(param);
+  reply({success : true});
+});
+```
+
+When triggering the remote function on Keymetrics, a popup will open asking you to enter the parameter you want to pass to the function.
+
 ### Scoped actions
 
 Scoped Actions are advanced remote actions that can be also triggered from Keymetrics.
