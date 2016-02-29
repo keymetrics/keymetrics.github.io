@@ -63,3 +63,7 @@ app.use(pmx.expressErrorHandler());
 ```
 
 after the routes declaration.
+
+## Source map support
+
+You need to upgrade PM2 to enable the source map support (http://pm2.keymetrics.io/docs/usage/source-map-support/)
