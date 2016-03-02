@@ -7,7 +7,7 @@ permalink: /docs/pages/events/
 
 ## Events
 
-The event mechanism allows you to track important things happening in your code. You can also subscribe to an event so you will an email every time the event is happening.
+The event mechanism allows you to track important things happening in your code. You can also subscribe to an event so you will receive an email every time the event is happening.
 
 For example:
 
