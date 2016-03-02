@@ -12,7 +12,6 @@ sass:
   sass_dir: _sass
 
 # Build settings
-highlighter: pygments
 
 exclude: ['node_modules', 'docs/intro.md']
 
