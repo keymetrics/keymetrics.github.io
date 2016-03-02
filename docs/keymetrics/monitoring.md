@@ -11,13 +11,11 @@ This page allow you to track vital application signs (CPU/Memory) and other cust
 
 <img title="monitoring interface" src="/images/monitoring-interface.png"/>
 
-This page is mainly for visual monitoring, to know more on how to add custom metrics and set alerts please [go to the custom metrics page](/docs/pages/custom-metrics)
-
 ### Metrics monitored
 
 - Memory usage
 - CPU usage
-- Process events (restart, reload, stop, start)
+- Process events (restart, code update, reload, stop, start)
 - Custom metrics value over the time
 
 ### Trend line
