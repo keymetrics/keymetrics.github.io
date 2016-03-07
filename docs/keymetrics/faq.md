@@ -7,9 +7,9 @@ permalink: /docs/pages/faq-troubleshooting/
 
 If you have a suggestion or an issue to report, please read the troubleshooting process below first. If this does not help you please reach out to us on our in app-chat
 
-##Troubleshooting for Keymetrics/PM2
+## Troubleshooting for Keymetrics/PM2
 
-###1. I can't seem to connect my local PM2 to the Keymetrics dashboard
+### 1. I can't seem to connect my local PM2 to the Keymetrics dashboard
 
 If you are in this situation, it might be for several reasons.
 
@@ -31,7 +31,7 @@ Make sure you have only one PM2 instance launched `ps -aux | grep PM2`
 
 - Refresh your connection to Keymetrics. `pm2 interact stop` then `pm2 interact start`. Also don't forget to refresh the dashboard itself, it might help sometimes.
 
-###2. The versioning buttons (Rollback/Pull/Upgrade) aren't working
+### 2. The versioning buttons (Rollback/Pull/Upgrade) aren't working
 
 - If the buttons are disabled, make sure that the `Local changes` and `Local commit` indicators are green.
 
@@ -41,7 +41,7 @@ Make sure you have only one PM2 instance launched `ps -aux | grep PM2`
 
 - Also, your repository should not ask for a password input (it means you must clone it via ssh), try typing `git remote update` manually in the folder and see if it asks for a password or not.
 
-###3. The versioning block tell me `File modified (unstaged changes)`
+### 3. The versioning block tell me `File modified (unstaged changes)`
 
 It means that there are local files that has been changed and not comited.
 
