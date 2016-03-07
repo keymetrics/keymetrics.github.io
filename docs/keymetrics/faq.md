@@ -16,12 +16,7 @@ If you are in this situation, it might be for several reasons.
 - You are behind a company proxy or firewall.
 Make sure that the ports 80 (TCP outbound), 443 (HTTPS) and 43554 (TCP inbound/outbound) are open.
 
-If you need to whitelist IPs, allow these ones:
-
-- 62.210.94.153
-- 62.210.100.99
-- 62.210.101.249
-- 195.154.156.78
+If you need to whitelist IPs, allow these ones: 62.210.94.153, 62.210.100.99, 62.210.101.249, 195.154.156.78
 
 - You are using an old version of Node.js or PM2.
 Make sure you are using at least Node.js v0.11.x or higher (node v0.12.x or iojs v.2.x is recommended).
