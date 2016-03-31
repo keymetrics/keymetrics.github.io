@@ -23,7 +23,7 @@ Make sure you are using at least Node.js v0.11.x or higher (node v0.12.x or iojs
 Make sure you are using the latest version of PM2 https://github.com/Unitech/PM2/releases.
 
 - You have concurrent PM2 sending data to the same bucket with an identical server name.
-Make sure you have only one PM2 instance launched `ps -aux | grep PM2`
+Make sure you have only one PM2 instance launched `ps -ax | grep PM2`
 
 - Refresh your connection to Keymetrics. `pm2 interact stop` then `pm2 interact start`. Also don't forget to refresh the dashboard itself, it might help sometimes.
 
