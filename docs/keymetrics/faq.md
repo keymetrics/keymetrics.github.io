@@ -35,6 +35,10 @@ Please make sure that the port 43554 (TCP inbound/outbound) is opened and check 
 
 Type `pm2 link` to re-try the connection.
 
+## I cannot link new servers but not any server is linked
+
+Go to the setting page of your bucket and delete Servers in the Server box.
+
 ### The versioning buttons (Rollback/Pull/Upgrade) aren't working
 
 - If the buttons are disabled, make sure that the `Local changes` and `Local commit` indicators are green.
