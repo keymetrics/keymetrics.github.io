@@ -9,7 +9,7 @@ If you have a suggestion or an issue to report, please read the troubleshooting 
 
 ## Troubleshooting for Keymetrics/PM2
 
-### 1. I can't seem to connect my local PM2 to the Keymetrics dashboard
+### I can't seem to connect my local PM2 to the Keymetrics dashboard
 
 If you are in this situation, it might be for several reasons.
 
@@ -19,7 +19,7 @@ Make sure that the ports 80 (TCP outbound), 443 (HTTPS) and 43554 (TCP inbound/o
 If you need to whitelist IPs, allow these ones: 62.210.94.153, 62.210.100.99, 62.210.101.249, 195.154.156.78
 
 - You are using an old version of Node.js or PM2.
-Make sure you are using at least Node.js v0.11.x or higher (node v0.12.x or iojs v.2.x is recommended).
+Make sure you are using at least Node.js v0.12.x or higher (node v0.12.x or iojs v.2.x is recommended).
 Make sure you are using the latest version of PM2 https://github.com/Unitech/PM2/releases.
 
 - You have concurrent PM2 sending data to the same bucket with an identical server name.
@@ -27,7 +27,15 @@ Make sure you have only one PM2 instance launched `ps -ax | grep PM2`
 
 - Refresh your connection to Keymetrics. `pm2 interact stop` then `pm2 interact start`. Also don't forget to refresh the dashboard itself, it might help sometimes.
 
-### 2. The versioning buttons (Rollback/Pull/Upgrade) aren't working
+### The dashboad tells "Reverse connection not established"
+
+It means that PM2 have not managed to initialize the full duplex connection. Not any actions will work (restart, pull, module install...)
+
+Please make sure that the port 43554 (TCP inbound/outbound) is opened and check the logs in ~/.pm2/agent.log.
+
+Type `pm2 link` to re-try the connection.
+
+### The versioning buttons (Rollback/Pull/Upgrade) aren't working
 
 - If the buttons are disabled, make sure that the `Local changes` and `Local commit` indicators are green.
 
