@@ -68,7 +68,7 @@ To remove the module:
 $ pm2 uninstall <module-name>
 ```
 
-## Advanced
+## API
 
 ### Package.json: Declare options, widget aspect and module behavior
 
