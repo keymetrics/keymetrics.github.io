@@ -9,7 +9,27 @@ permalink: /docs/pages/custom-metrics/
 
 Keymetrics allows you to expose any metrics from your code to the Keymetrics Dashboard, in realtime (and with storage over the time for premium accounts).
 
-When you add a custom metric you will be able to see it's current value on the application widget (Dashboard page):
+This is an example of custom metric:
+
+```javascript
+var probe = require('pmx').probe();
+
+var measure = probe.histogram({
+  name        : 'Mean Save',
+  unit        : 'ms',
+  measurement : 'mean',
+  alert : {
+    mode  : 'threshold',
+    value : 500,
+  }
+});
+
+setInterval(function() {
+  measure.update(Math.floor(Math.random() * 100));
+}, 100);
+```
+
+Then you will be able to see this metric into the application widget:
 
 <img src="/images/custom-metric.png" alt="Custom metrics"/>
 
@@ -20,20 +40,6 @@ If you upgraded to a premium account, you will be able to monitor these values o
 ## Usage
 
 You will need to [install pmx](/docs/usage/install-pmx/) first.
-
-### Builtin custom Metrics
-
-When initializing pmx, you can set to true some options:
-
-- `network` option will display inbound and outbound traffic
-- `ports` will display ports your application is using
-
-```javascript
-var pmx = require('pmx').init({
-  network       : true,  // Network monitoring at the application level
-  ports         : true,  // Shows which ports your app is listening on (default: false)
-});
-```
 
 ### Custom Metrics
 
@@ -178,3 +184,17 @@ var metric = probe.metric({
 - `cmp` : **optional**. Function used for exception check taking 2 arguments.
 - `interval` : **optional**, `threshold-avg` mode. Sample length for monitored value (180 seconds default).
 - `timeout` : **optional**, `threshold-avg` mode. Time after which mean comparison starts (30 000 milliseconds default).
+
+### Builtin custom Metrics
+
+When initializing pmx, you can set to true some options:
+
+- `network` option will display inbound and outbound traffic
+- `ports` will display ports your application is using
+
+```javascript
+var pmx = require('pmx').init({
+  network       : true,  // Network monitoring at the application level
+  ports         : true,  // Shows which ports your app is listening on (default: false)
+});
+```
