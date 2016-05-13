@@ -19,8 +19,9 @@ var measure = probe.histogram({
   unit        : 'ms',
   measurement : 'mean',
   alert : {
-    mode  : 'threshold',
-    value : 500,
+    mode     : 'threshold-avg',
+    value    : 500,
+    interval : 30
   }
 });
 
