@@ -152,7 +152,10 @@ setInterval(function() {
 
 ## Alert System
 
-This alert system can monitor a Probe value and launch an exception when hitting a particular value.
+An alert system allows you to trigger (email, slack, webhook...) notifications when a monitored value cross a threshold.
+When setting a threshold value, the color on the dashboard change from green to red depending on the alert level!
+
+You can both programmatically parameter this limit or on the dashboard by clicking on the button "alert".
 
 Example for a `cpu_usage` var:
 
