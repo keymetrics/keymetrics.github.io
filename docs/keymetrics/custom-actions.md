@@ -5,19 +5,19 @@ description: Custom actions
 permalink: /docs/pages/custom-actions/
 ---
 
-# Trigger functions remotely
+## Trigger functions remotely
 
-With Keymetrics you are able to interact with any Node.js software. You can expose functions like Grunt/Gulp tasks and any kind of Javascript functions and trigger them and get their results straight in Keymetrics.
+Interact with your application by exposing triggerable function from your code. For example it is particularly usefull to change variables values on-the-fly, to switch an application in maintenance mode or any actions to change your software behavior without restart. 
 
-Once an *action* is added you will see it on the application widget:
+Once you exposed a function, a button named with your function will be added to the dashboard:
 
 <img src="/images/custom-actions.png" alt="Custom actions"/>
 
-# Usage
+## Usage
 
 You will need to [install pmx](/docs/usage/install-pmx/) then can use either simple actions for instant results or scoped actions to monitor the progress of an action.
 
-## Simple actions
+### Simple actions
 
 Simple action allows to trigger a function from Keymetrics. The function takes a function as a parameter (reply here) and need to be called once the job is finished.
 
@@ -36,7 +36,7 @@ pmx.action('db:clean', function(reply) {
 });
 ```
 
-### Passing a parameter
+#### Passing a parameter
 
 To pass a parameter to the remote function, just add the `param` attribute to the callback:
 
@@ -51,7 +51,7 @@ pmx.action('db:clean', function(param, reply) {
 
 When triggering the remote function on Keymetrics, a popup will open asking you to enter the parameter you want to pass to the function.
 
-## Scoped actions
+### Scoped actions
 
 Scoped Actions are advanced remote actions that can be also triggered from Keymetrics.
 
@@ -80,9 +80,9 @@ pmx.scopedAction('long running lsof', function(data, res) {
 });
 ```
 
-# Examples
+## Examples
 
-## Clean database
+### Clean database
 
 ```javascript
 var pmx = require('pmx');
@@ -93,7 +93,7 @@ pmx.action('db:clean', function(reply) {
 });
 ```
 
-## Change variable value on-the-fly
+### Change variable value on-the-fly
 
 ```javascript
 var pmx = require('pmx');
@@ -104,7 +104,7 @@ pmx.action('debug:on', function(reply) {
 });
 ```
 
-## Query a database and get the result
+### Query a database and get the result
 
 ```javascript
 var pmx = require('pmx');
