@@ -5,28 +5,30 @@ description: Custom metrics
 permalink: /docs/pages/custom-metrics/
 ---
 
-## Expose Metrics: Measure anything
+## Collect and monitor custom metrics
 
-Keymetrics allows you to expose any metrics from your code to the Keymetrics Dashboard, in realtime (and with storage over the time for premium accounts).
+By plugging custom metrics onto your code, you will be able to monitor values in realtime and overtime straight from the dashboard.
 
-This is an example of custom metric:
+Make sure you added [pmx](/docs/usage/install-pmx/) into your package.json and now you monitor values like that:
 
 ```javascript
 var probe = require('pmx').probe();
 
-var measure = probe.histogram({
-  name        : 'Mean Save',
-  unit        : 'ms',
-  measurement : 'mean',
+var counter = 0;
+
+var metric = probe.metric({
+  name    : 'Realtime user',
+  value   : function() {
+    return counter;
+  },
   alert : {
-    mode     : 'threshold-avg',
-    value    : 500,
-    interval : 30
+    mode     : 'threshold',
+    value    : 500
   }
 });
 
 setInterval(function() {
-  measure.update(Math.floor(Math.random() * 100));
+  counter++;
 }, 100);
 ```
 
