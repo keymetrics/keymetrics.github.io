@@ -9,7 +9,7 @@ permalink: /docs/pages/integrations/
 
 The Slack integration allow you to receive exceptions and event notifications straight into a Slack channel.
 
-First you need to get the Slack URL, you need to setup an Incoming Webhook. More details on how to set this up can be found here: https://api.slack.com/incoming-webhooks
+First you need to get the Slack URL, you need to setup an Incoming Webhook. More details on how to set this up can be found here: [https://my.slack.com/services/new/incoming-webhook/](https://my.slack.com/services/new/incoming-webhook/) or [https://api.slack.com/incoming-webhooks](https://api.slack.com/incoming-webhooks)
 
 Then go to the alert page of your bucket:
 
