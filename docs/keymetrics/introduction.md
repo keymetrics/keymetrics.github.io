@@ -35,7 +35,7 @@ Here is a quick overview of the main Keymetrics features:
 
 ## PM2 features
 
-<center>![PM2 img](https://raw.githubusercontent.com/unitech/pm2/master/pres/pm2.20d3ef.png)</center>
+<center><img src="https://raw.githubusercontent.com/unitech/pm2/master/pres/pm2.20d3ef.png" alt="Keymetrics logo"/></center>
 
 - Strong process management and daemon system
 - Auto Cluster mode for Node.js
