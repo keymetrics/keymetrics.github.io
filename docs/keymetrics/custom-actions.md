@@ -13,6 +13,12 @@ Once you exposed a function, a button named with your function will be added to 
 
 <img src="/images/custom-actions.png" alt="Custom actions"/>
 
+## Cross Actions
+
+If you have an application hosted on a fleet of servers, you can now perform a custom action through all the different servers where the app is hosted simultaneously. You must filter the dashboard to see the global activity of the app and click the button of the desired custom action. You will then see the progress of the action on each server and will be able to check the logs. 
+
+<img src="http://i.imgur.com/bSsXaHL.jpg" alt="Custom actions"/>
+
 ## Usage
 
 You will need to [install pmx](/docs/usage/install-pmx/) then can use either simple actions for instant results or scoped actions to monitor the progress of an action.
