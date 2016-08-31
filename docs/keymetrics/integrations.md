@@ -28,7 +28,7 @@ First you'll need to setup a http server that will listen for calls from keymetr
 
 I just setup a https://requestb.in url (you can setup our own to test all the stuff, its free), this will log all http request that has been done to this url, for example an error that has been thrown :
 
- ```
+```
  {
    "event":"event:new_exception",
    "data":{
@@ -59,6 +59,6 @@ I just setup a https://requestb.in url (you can setup our own to test all the st
       "bucket_url":"https://app.keymetrics.io/#/bucket/YOUR_BUCKET_ID/exceptions"
    }
 }
- ```
+```
  
  So with this you can easily setup an little express server that receive webhook and send SMS or use whatever integration you want to use.
