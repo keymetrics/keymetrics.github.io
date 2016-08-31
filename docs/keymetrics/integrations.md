@@ -26,7 +26,8 @@ First you'll need to setup a http server that will listen for calls from keymetr
 
 <img src="/images/webhooks.png" alt="webhook integration"/>
 
-I set a https://requestb.in url, this will log all http request that has been done to this url, for example an error that has been thrown :
+I just setup a https://requestb.in url (you can setup our own to test all the stuff, its free), this will log all http request that has been done to this url, for example an error that has been thrown :
+
  ```json
  {
    "event":"event:new_exception",
