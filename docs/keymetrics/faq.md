@@ -27,7 +27,7 @@ Make sure you have only one PM2 instance launched `ps -ax | grep PM2`
 
 - Refresh your connection to Keymetrics. `pm2 interact stop` then `pm2 interact start`. Also don't forget to refresh the dashboard itself, it might help sometimes.
 
-### The dashboad tells "Reverse connection not established"
+## The dashboad tells "Reverse connection not established"
 
 It means that PM2 have not managed to initialize the full duplex connection. Not any actions will work (restart, pull, module install...)
 
