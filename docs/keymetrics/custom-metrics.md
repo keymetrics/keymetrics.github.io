@@ -20,10 +20,6 @@ var metric = probe.metric({
   name    : 'Realtime user',
   value   : function() {
     return counter;
-  },
-  alert : {
-    mode     : 'threshold',
-    value    : 500
   }
 });
 
