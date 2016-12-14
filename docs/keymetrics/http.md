@@ -23,3 +23,8 @@ require('pmx').init({
 var http = require('http');
 [...]
 ```
+
+## Possible issues with modules:
+
+To retrieve the http latency, pmx [wraps](https://github.com/keymetrics/pmx/blob/master/lib/wrapper/simple_http.js) the `http` module. If you require any module modifying the `http` module, the wrapper could be removed.
+* `request-promise`: This module clears the node cache and requires a new clean version of the `http` module. To solve this require `http` again after requiring `request-promise` to get the correctly wrapped `http` module.
