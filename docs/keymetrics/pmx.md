@@ -5,7 +5,7 @@ description: PMX library
 permalink: /docs/usage/pmx-keymetrics-library/
 ---
 
-PMX is a module that allows you to create advanced interactions with Keymetrics. It can be used both on raw Node.js application and Modules.
+PMX is a module that allows you to create advanced interactions with Keymetrics. It can be used both on raw Node.js applications and modules.
 
 It allows you to:
 
@@ -40,11 +40,11 @@ var pmx = require('pmx').init({
 
 ## Expose Functions: Trigger Functions remotely
 
-Remotely trigger functions from Keymetrics. These metrics takes place in the main Keymetrics Dashboard page under the Custom Action section.
+Remotely trigger functions directly from Keymetrics. These features can be found in the main Keymetrics Dashboard page under the Custom Action section.
 
 ### Simple actions
 
-Simple action allows to trigger a function from Keymetrics. The function takes a function as a parameter (reply here) and need to be called once the job is finished.
+A simple action allows to trigger a function from Keymetrics. The action command takes a function as a parameter (reply here) and needs to be called once the job is finished.
 
 Example:
 
@@ -63,7 +63,7 @@ pmx.action('db:clean', function(reply) {
 
 ### Scoped actions
 
-Scoped Actions are advanced remote actions that can be also triggered from Keymetrics.
+Scoped Actions are advanced remote actions that can also be triggered from Keymetrics.
 
 Two arguments are passed to the function, data (optionnal data sent from Keymetrics) and res that allows to emit log data and to end the scoped action.
 
@@ -75,16 +75,16 @@ pmx.scopedAction('long running lsof', function(data, res) {
 
   child.stdout.on('data', function(chunk) {
     chunk.toString().split('\n').forEach(function(line) {
-      res.send(line); // This send log to Keymetrics to be saved (for tracking)
+      res.send(line); // This sends log to Keymetrics to be saved (for tracking)
     });
   });
 
   child.stdout.on('end', function(chunk) {
-    res.end('end'); // This end the scoped action
+    res.end('end'); // This ends the scoped action
   });
 
   child.on('error', function(e) {
-    res.error(e);  // This report an error to Keymetrics
+    res.error(e);  // This reports an error to Keymetrics
   });
 
 });
@@ -92,22 +92,22 @@ pmx.scopedAction('long running lsof', function(data, res) {
 
 ## Expose Metrics: Measure anything
 
-Keymetrics allows you to expose any metrics from you code to the Keymetrics Dashboard, in realtime. These metrics takes place in the main Keymetrics Dashboard page under the Custom Metrics section.
+Keymetrics allows you to expose any metrics from you code to the Keymetrics Dashboard, in realtime. These metrics are located in the main Keymetrics Dashboard page under the Custom Metrics section.
 
 4 helpers are available:
 
 - **Simple metrics**: Values that can be read instantly
     - eg. Monitor variable value
 - **Counter**: Things that increment or decrement
-    - eg. Downloads being processed, user connected
+    - eg. Downloads being processed, users connected
 - **Meter**: Things that are measured as events / interval
-    - eg. Request per minute for a http server
+    - eg. Requests per minute for a http server
 - **Histogram**: Keeps a resevoir of statistically relevant values biased towards the last 5 minutes to explore their distribution
-    - eg. Monitor the mean of execution of a query into database
+    - eg. Monitor the average time of execution of a query into database
 
 ### Metric: Simple value reporting
 
-This allow to expose values that can be read instantly.
+This allows to expose values that can be read instantly.
 
 ```javascript
 var probe = pmx.probe();
@@ -152,7 +152,7 @@ http.createServer(function(req, res) {
 
 ### Meter: Average calculated values
 
-Things that are measured as events / interval.
+Things that are measured as events / intervals.
 
 ```javascript
 var probe = pmx.probe();
@@ -171,12 +171,12 @@ http.createServer(function(req, res) {
 
 #### Options
 
-**samples** option is the rate unit. Defaults to **1** sec.
+**Sample** option is the rate unit. Defaults to **1** sec.
 **timeframe** option is the timeframe over which events will be analyzed. Defaults to **60** sec.
 
 ### Histogram
 
-Keeps a resevoir of statistically relevant values biased towards the last 5 minutes to explore their distribution.
+Stores a resevoir of statistically relevant values biased towards the last 5 minutes to explore their distribution.
 
 ```javascript
 var probe = pmx.probe();
@@ -196,9 +196,9 @@ setInterval(function() {
 
 ### Common Custom Metrics options
 
-- `name` : The probe name as is will be displayed on the **Keymetrics** dashboard
-- `agg_type` : This param is optionnal, it can be `sum`, `max`, `min`, `avg` (default) or `none`. It will impact the way the probe data are aggregated within the **Keymetrics** backend. Use `none` if this is irrelevant (eg: constant or string value).
-- `alert` : For `Meter` and `Counter` probes. This param is optionnal. Creates an alert object (see below).
+- `name` : The probe name as it will be displayed on the **Keymetrics** dashboard.
+- `agg_type` : This parameter is optional, it can be `sum`, `max`, `min`, `avg` (default) or `none`. It will impact the way the probe data are aggregated within the **Keymetrics** backend. Use `none` if this is irrelevant (eg: constant or string value).
+- `alert` : For `Meter` and `Counter` probes. This parameter is optional. It will create an alert object (see below).
 
 ### Alert System for Custom Metrics
 
@@ -225,20 +225,20 @@ var metric = probe.metric({
 });
 ```
 
-####Options:
+#### Options:
 
 - `mode` : `threshold`, `threshold-avg`, `smart`.
 - `value` : Value that will be used for the exception check.
 - `msg` : String used for the exception.
-- `action` :  **optional**. Function triggered when exception reached.
-- `cmp` : **optional**. Function used for exception check taking 2 arguments.
+- `action` :  **optional**. Function triggered when the exception level is reached.
+- `cmp` : **optional**. Function used for exception check that takes 2 arguments.
 - `interval` : **optional**, `threshold-avg` mode. Sample length for monitored value (180 seconds default).
 - `timeout` : **optional**, `threshold-avg` mode. Time after which mean comparison starts (30 000 milliseconds default).
 
 ## Report Alerts: Errors / Uncaught Exceptions
 
-By default once PM2 is linked to Keymetrics, you will be alerted of any uncaught exception.
-These errors are accessible in the **Issue** tab of Keymetrics.
+Once PM2 is linked to Keymetrics, you will be alerted of any uncaught exception by default.
+These errors are accessible in Keymetrics **Issue** page. 
 
 ### Custom alert notification
 
@@ -256,7 +256,7 @@ pmx.notify(new Error('This is an error'));
 
 ### Add Verbosity to an Alert: Express Error handler
 
-When an uncaught exception is happening you can track from which routes it has been thrown.
+When an uncaught exception is happening you can track the routes from which it has been thrown.
 To do that you have to attach the middleware `pmx.expressErrorHandler` at then end of your routes mounting:
 
 ```javascript
@@ -274,7 +274,7 @@ app.use(pmx.expressErrorHandler());
 ## Emit Events
 
 Emit events and get historical and statistics.
-This is available in the **Events** page of Keymetrics.
+This is available in the Keymetrics **Events** page.
 
 ```javascript
 var pmx = require('pmx');
@@ -287,35 +287,40 @@ pmx.emit('user:register', {
 
 ## Application level network traffic monitoring / Display used ports
 
-You can monitor the network usage of a specific application by adding the option `network: true` when initializing PMX. If you enable the flag `ports: true` when you init pmx it will show which ports your app is listenting on.
+You can monitor the network usage of a specific application by adding the option `network: true` when initializing PMX. 
+If you enable the flag `ports: true` when you init pmx it will show which ports your application is listening on.
 
-These metrics will be shown in the Keymetrics Dashboard in the Custom Metrics section.
+You can find these metrics in the **Custom Metrics** section located in the Keymetrics Dashboard page.
 
 Example:
 
 ```
 pmx.init({
   [...]
-  network : true, // Allow application level network monitoring
-  ports   : true  // Display ports used by the application
+  network : true, // Allows application level network monitoring
+  ports   : true  // Displays ports used by the application
 });
 ```
 
 ## HTTP latency analysis
 
-Monitor routes, latency and codes. REST compliant.
+This feature enables you to monitor routes, latency and codes while being REST compliant.
 
 ```javascript
 pmx.http(); // You must do this BEFORE any require('http')
 ```
-Ignore some routes by passing a list of regular expressions.
+
+You can also ignore some routes by passing a list of regular expressions.
+
 ```javascript
 pmx.http({
   http          : true, // (Default: true)
   ignore_routes : [/socket\.io/, /notFound/] // Ignore http routes with this pattern (Default: [])
 });
 ```
-This can also be done via pmx.init()
+
+This can alternatively be done via pmx.init().
+
 ```javascript
 pmx.init({
   http          : true, // (Default: true)
@@ -325,4 +330,4 @@ pmx.init({
 
 ## License
 
-MIT
+Massachusetts Institute of Technology: MIT
