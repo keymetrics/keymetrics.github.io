@@ -5,30 +5,30 @@ description: Introduction to Keymetrics software
 permalink: /docs/usage/introduction/
 ---
 
-Welcome to Keymetrics, a powerful networking software allowing you to supervise and manage applications in real-time using a dashboard that is capable of monitoring from one to hundreds of applications in numerous servers
+Welcome to Keymetrics, a powerful networking software that allows you to supervise and to manage applications in real-time using a dashboard that is capable of monitoring from one to hundreds of applications on numerous servers.
 
-Keymetrics is built on top of [PM2](http://pm2.keymetrics.io/) an advanced process manager designed for Node.js applications that can be used [for any kind of other apps](http://pm2.keymetrics.io/docs/usage/process-management/#start-any-process-type). It's Open Sourced on [Github](https://github.com/Unitech/PM2) and already have over [1 million downloads](http://npm-stat.com/charts.html?package=pm2).
+Keymetrics is built on top of [PM2](http://pm2.keymetrics.io/) an advanced process manager designed for Node.js applications that can be used [for any kind of other apps](http://pm2.keymetrics.io/docs/usage/process-management/#start-any-process-type). It's Open Sourced on [Github](https://github.com/Unitech/PM2) and already has over [1 million downloads](http://npm-stat.com/charts.html?package=pm2).
 
 ## Keymetrics features
 
 <center><img src="/images/keymetrics-black.png" alt="Keymetrics logo" style="width: 70%; margin-top: 20px; margin-bottom: 25px;"/></center>
 
 
-Keymetrics offers a wide range of features and all features work in real-time. Some of Keymetrics features are enabled by default, and others are empowered depending your needs.
+Keymetrics offers a wide range of features that all work in real-time. Some of Keymetrics' features are enabled by default, and others are empowered depending your needs.
 
 
 Here is a quick overview of the main Keymetrics features:
 
-- Application management (restart/reload/gracefulReload)
+- Application management (Restart / Reload / Graceful reload)
 - CPU / Memory monitoring
 - Exception / Issue reporting linked to deployment id
 - Multi server overview
-- Slow HTTP transaction interception and HTTP average calculation
+- Slow HTTP transactions interception and HTTP average calculation
 - Client-side GIT versioning, without configuration overhead
 - Custom metrics
 - Remote trigger functions
 - Events tracking
-- Remote retrieval of Heapdump and Cpu profile (for Node.js)
+- Remote retrieval of Heapdump and Cpu profiling (for Node.js)
 - Realtime, isolated logs display
 - Configurable Alert system
 - Module system
@@ -39,14 +39,14 @@ Here is a quick overview of the main Keymetrics features:
 
 - Strong process management and daemon system
 - Auto Cluster mode for Node.js
-- For micro services systeme
+- Micro services systeme
 - PaaS compatible
 - Reload / Graceful reload
 - Log management
 - Basic monitoring
 - API
 - Auto completion
-- Deployment worflow
+- Deployment workflow
 - Application declaration via conf files
 
 Learn more about [PM2 here](http://pm2.keymetrics.io/)
