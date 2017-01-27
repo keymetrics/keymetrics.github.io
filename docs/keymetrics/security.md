@@ -5,7 +5,7 @@ description: Keymetrics security concerns
 permalink: /docs/usage/security/
 ---
 
-Security is a main concern at Keymetrics.
+At Keymetrics, security is our main concern.
 
 ## Between PM2 and Keymetrics
 
@@ -23,30 +23,31 @@ These keys are used to identify your PM2 toward Keymetrics and also to cipher al
 
 > How do you protect that data?
 
-Data is ciphered while transfered into network (HTTPS and AES256). Data stored in database is normalized but each bucket has own database (with database name ciphered)
+Data is ciphered while transfered into network (HTTPS and AES256). Data stored in database is normalized but each bucket has his own database (with database name ciphered).
 
 > Do you adhere to any industry security standards, such as ISO or PCI?
 
-We use [Stripe](https://stripe.com/) as our payment system, we never store any informations about credit card used on Keymetrics. 
+We use [Stripe](https://stripe.com/) as our payment system, we never store any informations about credit cards used on Keymetrics. 
 
 ### Remote actions lock'in
 
-As you may know, Keymetrics provide a very simple way to interact with your servers, from triggering in-code functions as well as triggering PM2 actions.
+As you may know, Keymetrics provides a very simple way to interact with your servers, from triggering in-code functions as well as triggering PM2 actions.
 
 Concerning PM2 actions, a strict list of allowed remote functions are hard-coded into PM2 itself, forbidding any critical actions to be called. This strict list of allowed remote functions are splitted in two packs.
 
-The first one, non-offensive functions like `pm2 restart | reload | gracefulReload` that cannot change deeply the state of your software. Then the second one, sensitive functions like `pm2 stop | updateDeep | pm2 set [...]`. These sensitive functions can be called from Keymetrics but asks to the one who wants to trigger the function, a password, previously set at PM2 level.
+The first one, non-offensive functions like `pm2 restart | reload | gracefulReload` that cannot change deeply the state of your software. 
+Then the second one, sensitive functions like `pm2 stop | updateDeep | pm2 set [...]`. These sensitive functions can be called from Keymetrics but asks to the one who wants to trigger the function, a password, previously set at PM2 level.
 
-This password that you configured at the PM2 level via the command `pm2 set pm2:passwd <password>` is not known from Keymetrics. Only you know it, and this password is only transfered by Keymetrics, making the system very secure.
+This password, that you configured at the PM2 level via the command `pm2 set pm2:passwd <password>`, is not shared with Keymetrics. Only you know it, and this password is only transferred by Keymetrics, making the system very secure.
 
 ## Between Keymetrics and your browser
 
-We use the HTTPS protocol to secure all data transfered from Keymetrics to your browser.
+We use the HTTPS protocol to secure all data transferred from Keymetrics to your browser.
 
 ## User permissions
 
-You can add as many users as you want to your bucket. There are four different roles: User, Developer, Admin and Owner.
-Only the owner can change a user's role.
+You can add as many users as you want to your buckets. There are four different roles: User, Developer, Admin and Owner.
+Only the Owner can change a user's role.
 
 1. User
   * Has read-only permission on the bucket
