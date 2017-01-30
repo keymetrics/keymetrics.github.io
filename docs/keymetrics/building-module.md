@@ -10,7 +10,7 @@ permalink: /docs/usage/building-module/
 
 ## What is a module?
 
-A module is a simple Node.js application that will connect to a technology (database, utility) to both retrieve metrics (Memory, Entries...) and expose actions (restart, flush...).
+A module is a simple Node.js application that will connect to a technology (database, utility) to both retrieve metrics (memory, entries...) and expose actions (restart, flush...).
 
 A module is published on NPM.
 
@@ -24,7 +24,7 @@ $ npm install pm2 -g
 
 2- [Go to Keymetrics](https://app.keymetrics.io/#/) and create a new account
 
-3- Create a bucket and then follow the instruction to link your local pm2 to Keymetrics
+3- Create a bucket and then follow the instructions to link your local PM2 to Keymetrics
 
 4- Install a simple module
 
@@ -33,11 +33,11 @@ $ npm install pm2 -g
 $ pm2 install pm2-server-monit
 ```
 
-Now you can see in the Keymetrics interface the module interface you just installed.
+Now you can see in the Keymetrics dashboard the module interface you just installed.
 
-The source code of this pm2-server-monit module is [here](https://github.com/pm2-hive/pm2-server-monit)
+The source code of this pm2-server-monit module is [here](https://github.com/pm2-hive/pm2-server-monit).
 
-Here are some other modules:
+Here are some additional modules:
 
 - [pm2-redis](https://github.com/pm2-hive/pm2-redis.git)
 - [pm2-mongodb](https://github.com/pm2-hive/pm2-mongodb)
@@ -165,7 +165,7 @@ var conf    = pmx.initModule({
 
 ### Module configuration
 
-In the package.json you can declare default options accessible in the Module under the attribute `config`. These values can be overriden by PM2 or Keymetrics.
+In the package.json you can declare default options accessible in the module under the attribute `config`. These values can be overriden by PM2 or Keymetrics.
 
 #### Default values
 
@@ -197,7 +197,7 @@ pmx.initModule({[...]}, function(err, conf) {
 
 #### With PM2
 
-With PM2 this is straightforward. Just call this command:
+With PM2 the process is straightforward. Just call this command:
 
 ```bash
 $ pm2 set module_name:option_name <new_value>
@@ -216,11 +216,11 @@ $ pm2 set server-monitoring:days_interval 2
 
 #### With Keymetrics
 
-In the main Keymetrics Dashboard, the module will have a button called "Configure". Once you click on it you will be able to access / modify all configurations variable exposed on the package.json!
+In the main Keymetrics Dashboard, the module will have a button called "Configure". Once you click on it you will be able to access/modify all configuration variables exposed on the package.json!
 
 ## Publishing a module
 
-To update/publish a module, it's straightforward. The `pm2 publish` command will increment the minor version of the module, will `git add . ; git commit -m "VERSION"; git push origin master` then it will `npm publish`.
+Publishing or updating a module is also straightforward! The `pm2 publish` command will increment the minor version of the module, will `git add . ; git commit -m "VERSION"; git push origin master` then it will `npm publish`.
 
 ```
 $ cd my-module
