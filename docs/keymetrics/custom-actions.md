@@ -7,7 +7,7 @@ permalink: /docs/pages/custom-actions/
 
 ## Trigger functions remotely
 
-Interact with your application by exposing triggerable function from your code. For example it is particularly usefull to change variables values on-the-fly, to switch an application in maintenance mode or any actions to change your software behavior without restart. 
+Interact with your applications by exposing triggerable functions from your code. For example it is particularly useful to change variables values on-the-fly, to switch an application in maintenance mode or to trigger any actions to change your software behavior without having to restart. 
 
 Once you exposed a function, a button named with your function will be added to the dashboard:
 
@@ -15,17 +15,17 @@ Once you exposed a function, a button named with your function will be added to 
 
 ## Cross Actions
 
-If you have an application hosted on a fleet of servers, you can now perform a custom action through all the different servers where the app is hosted simultaneously. You must filter the dashboard to see the global activity of the app and click the button of the desired custom action. You will then see the progress of the action on each server and will be able to check the logs. 
+If you have an application hosted on a fleet of servers, you can perform a custom action through all the different servers where the app is hosted simultaneously. You must filter the dashboard to see the global activity of the app and click the button of the desired custom action. You will then see the progress of the action on each server and you will also be able to check the logs. 
 
 <img src="http://i.imgur.com/bSsXaHL.jpg" alt="Custom actions"/>
 
 ## Usage
 
-You will need to [install pmx](/docs/usage/install-pmx/) then can use either simple actions for instant results or scoped actions to monitor the progress of an action.
+You will need to [install pmx](/docs/usage/install-pmx/) to then be able to use either simple actions for instant results or scoped actions to monitor the progress of a specific action.
 
 ### Simple actions
 
-Simple action allows to trigger a function from Keymetrics. The function takes a function as a parameter (reply here) and need to be called once the job is finished.
+Simple actions allow you to trigger a function from Keymetrics. The function takes a function as a parameter (reply here) and need to be called once the job is finished.
 
 Example:
 
@@ -55,13 +55,13 @@ pmx.action('db:clean', function(param, reply) {
 });
 ```
 
-When triggering the remote function on Keymetrics, a popup will open asking you to enter the parameter you want to pass to the function.
+Triggering a remote function on Keymetrics will open a popup that will ask you to enter the parameter you want to pass to the function.
 
 ### Scoped actions
 
-Scoped Actions are advanced remote actions that can be also triggered from Keymetrics.
+Scoped Actions are advanced remote actions that can also be triggered from Keymetrics.
 
-Two arguments are passed to the function, data (optionnal data sent from Keymetrics) and res that allows to emit log data and to end the scoped action.
+Two arguments are passed to the function, data (optionnal data sent from Keymetrics) and res that will emit the log data and end the scoped action.
 
 Example:
 
@@ -71,16 +71,16 @@ pmx.scopedAction('long running lsof', function(data, res) {
 
   child.stdout.on('data', function(chunk) {
     chunk.toString().split('\n').forEach(function(line) {
-      res.send(line); // This send log to Keymetrics to be saved (for tracking)
+      res.send(line); // This sends log to Keymetrics to be saved (for tracking)
     });
   });
 
   child.stdout.on('end', function(chunk) {
-    res.end('end'); // This end the scoped action
+    res.end('end'); // This ends the scoped action
   });
 
   child.on('error', function(e) {
-    res.error(e);  // This report an error to Keymetrics
+    res.error(e);  // This reports an error to Keymetrics
   });
 
 });
