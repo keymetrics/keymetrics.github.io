@@ -5,9 +5,9 @@ description: Email notifications
 permalink: /docs/pages/alert-system/
 ---
 
-## Alert page
+## Notifications page
 
-Some alerting systems are available in the Alert page.
+Different alerting preferences are available in the Notifications page.
 
 <img src="/images/alert-page.png" alt="Alert page"/>
 
@@ -21,14 +21,14 @@ If your server does not send monitoring data to Keymetrics for more than 2 minut
 
 ## Custom metrics alert
 
-Once you have set <a href="/docs/pages/custom-metrics/" title="custom metrics link">custom metrics</a> to monitor critical metrics on your code, you can then set alerts threshold on these values.
+Once you have set <a href="/docs/pages/custom-metrics/" title="custom metrics link">custom metrics</a> to monitor critical metrics on your code, you can then set alert thresholds on these values.
 
 <img src="/images/metrics-alert.png" alt="Alert page"/>
 
-Just to go to the main dashboard page, click on the **Alert** button and you will be able to configure alerts on each custom metrics.
+In the main dashboard page, click on the **Alert** button to be able to configure alerts for each custom metric.
 
 Alert mode available are:
 
-- **Threshold**: trigger an email directly when value is above or below threshold
-- **Threshold average**: trigger an email when value is above or below threshold for *X* seconds
-- **Smart** (bêta): trigger an email automatically when value is weird
+- **Threshold**: trigger an email directly when the value is above or below the threshold
+- **Threshold average**: trigger an email when the value is above or below the threshold for *X* seconds
+- **Smart** (bêta): trigger an email automatically when the value is unusual
