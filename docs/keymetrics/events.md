@@ -7,26 +7,26 @@ permalink: /docs/pages/events/
 
 ## Events
 
-The event mechanism allows you to track important things happening in your code. You can also subscribe to an event so you will receive an email every time the event is happening.
+This mechanism allows you to track important events happening in your code. You can also subscribe to a specific event to receive an email every time it occurs.
 
 For example:
 
 - A new user has registered
-- A new mail has been sent
+- A new email has been sent
 - A robot has finished its jobs and you want to know what happened
 
 <img src="/images/event-interface.png" alt="Event Interface"/>
 
 ## Usage
 
-You will need to [install pmx](/docs/usage/install-pmx/), then the prototype is simple:
+You first need to [install pmx](/docs/usage/install-pmx/), the prototype is then as simple as that:
 
 ```javascript
 pmx.emit(EVENT_NAME, DATA)
 ```
 
-EVENT_NAME must be a string
-DATA can be an object or a string
+EVENT_NAME must be a string.
+DATA can be an object or a string.
 
 ## Example #1: User registration
 
