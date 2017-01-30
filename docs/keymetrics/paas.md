@@ -5,8 +5,8 @@ description: Keymetrics Heroku, Azure, Google App Engine
 permalink: /docs/usage/paas-heroku-azure/
 ---
 
-Thanks to the PM2 API, using the Keymetrics / PM2 combo is straightforward and configurable:
-Now you can run micro-service style application very easily. Don't forget to have a look on how to declare [multiple applications in a JSON style with PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#declaration-via-js-json-or-json5-file)
+Thanks to the PM2 API, using the Keymetrics/PM2 combo is straightforward and configurable:
+Now you can run micro-service style applications very easily. Don't forget to have a look on how to declare [multiple applications in a JSON style with PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#declaration-via-js-json-or-json5-file).
 
 Change the following snippet with your private and public key and you are ready to go:
 
