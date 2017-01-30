@@ -9,7 +9,7 @@ permalink: /docs/pages/custom-metrics/
 
 By plugging custom metrics onto your code, you will be able to monitor values in realtime and overtime straight from the dashboard.
 
-Make sure you added [pmx](/docs/usage/install-pmx/) into your package.json and now you monitor values like that:
+Make sure you added [pmx](/docs/usage/install-pmx/) into your package.json. You can monitor values as follows:
 
 ```javascript
 var probe = require('pmx').probe();
@@ -28,11 +28,11 @@ setInterval(function() {
 }, 100);
 ```
 
-Then you will be able to see this metric into the application widget:
+You will then be able to see this metric into the application widget:
 
 <img src="/images/custom-metric.png" alt="Custom metrics"/>
 
-If you upgraded to a premium account, you will be able to monitor these values over the time in the Monitoring page:
+A premium account will let you monitor these values over the time in the Monitoring page:
 
 <img src="/images/custom-metric-2.png" alt="Custom metrics over time"/>
 
@@ -42,7 +42,7 @@ You will need to [install pmx](/docs/usage/install-pmx/) first.
 
 ### Custom Metrics
 
-Then you can program your very own metrics to track important informations. 4 differents probes are available:
+You can then program your very own metrics to track important and relevant information. 4 differents probes are available:
 
 - **Simple metrics**: Values that can be read instantly
     - eg. Monitor variable value
@@ -55,12 +55,12 @@ Then you can program your very own metrics to track important informations. 4 di
 
 #### Simple Metric: Simple value reporting
 
-This allow to expose values that can be read instantly.
+This allows to expose values that can be read instantly.
 
 ```javascript
 var probe = pmx.probe();
 
-// Here the value function will be called each second to get the value
+// Here the value function will be called every second to get the monitored value
 var metric = probe.metric({
   name    : 'Realtime user',
   value   : function() {
@@ -144,14 +144,14 @@ setInterval(function() {
 
 ### Common Custom Metrics options
 
-- `name` : The probe name as is will be displayed on the **Keymetrics** dashboard
+- `name` : The probe name as it will be displayed on the **Keymetrics** dashboard
 - `agg_type` : This param is optionnal, it can be `sum`, `max`, `min`, `avg` (default) or `none`. It will impact the way the probe data are aggregated within the **Keymetrics** backend. Use `none` if this is irrelevant (eg: constant or string value).
 - `alert` : For `Meter` and `Counter` probes. This param is optionnal. Creates an alert object (see below).
 
-## Alert System
+## Notification System
 
-An alert system allows you to trigger (email, slack, webhook...) notifications when a monitored value cross a threshold.
-When setting a threshold value, the color on the dashboard change from green to red depending on the alert level!
+A notification system allows you to trigger (email, slack, webhook...) an alert when a monitored value crosses a threshold.
+When setting a threshold value, the color on the dashboard changes from green to red depending on the alert level!
 
 You can both programmatically parameter this limit or on the dashboard by clicking on the button "alert".
 
@@ -182,7 +182,7 @@ var metric = probe.metric({
 - `mode` : `threshold`, `threshold-avg`, `smart`.
 - `value` : Value that will be used for the exception check.
 - `msg` : String used for the exception.
-- `action` :  **optional**. Function triggered when exception reached.
+- `action` :  **optional**. Function triggered when the exception is reached.
 - `cmp` : **optional**. Function used for exception check taking 2 arguments.
 - `interval` : **optional**, `threshold-avg` mode. Sample length for monitored value (180 seconds default).
 - `timeout` : **optional**, `threshold-avg` mode. Time after which mean comparison starts (30 000 milliseconds default).
