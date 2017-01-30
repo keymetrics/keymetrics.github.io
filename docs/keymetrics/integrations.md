@@ -7,26 +7,26 @@ permalink: /docs/pages/integrations/
 
 ## Slack integration
 
-The Slack integration allow you to receive exceptions and event notifications straight into a Slack channel.
+The Slack integration allows you to receive exceptions and event notifications straight into a selected Slack channel.
 
-First you need to get the Slack URL, you need to setup an Incoming Webhook. More details on how to set this up can be found here: [https://my.slack.com/services/new/incoming-webhook/](https://my.slack.com/services/new/incoming-webhook/) or [https://api.slack.com/incoming-webhooks](https://api.slack.com/incoming-webhooks)
+First you need to get the Slack URL and to setup an incoming Webhook. More details on how to set this up can be found here: [https://my.slack.com/services/new/incoming-webhook/](https://my.slack.com/services/new/incoming-webhook/) or [https://api.slack.com/incoming-webhooks](https://api.slack.com/incoming-webhooks).
 
-Then go to the alert page of your bucket:
+Then go to the Notifications page of your bucket:
 
 <img src="/images/slack.png" alt="slack integration"/>
 
-Put the webhook into the Slack integration textfield and click on the checkbox active. Then click on update.
+Insert the webhook into the Slack integration textfield and click on the checkbox active. Then click on update.
 
-You will receive a notification into your configured slack chanel telling you that it has been configured.
+You will receive a notification into your configured slack channel confirming that it has been configured.
 
 ## Custom integration
 
 You can also set a custom webhook that will simply POST data to any URL when you receive a notifications.
-First you'll need to setup a http server that will listen for calls from keymetrics, after just put the url into keymetrics interface : 
+To do so you will need to setup a http server that will listen for calls from Keymetrics, then you will just have to insert the URL into Keymetrics interface: 
 
 <img src="/images/webhooks.png" alt="webhook integration"/>
 
-I just setup a https://requestb.in url (you can setup our own to test all the stuff, its free), this will log all http request that has been done to this url, for example an error that has been thrown :
+I just setup a https://requestb.in URL (don't hesitate to use our own to test the different functionalities, it's free!). This will log all http requests that have been made to this URL. Example of an error that has been thrown:
 
 ```
  {
@@ -61,4 +61,4 @@ I just setup a https://requestb.in url (you can setup our own to test all the st
 }
 ```
  
- So with this you can easily setup an little express server that receive webhook and send SMS or use whatever integration you want to use.
+This will let you easily setup a little express server that can receive webhooks, automatically send SMS or use any integration you want.
