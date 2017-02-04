@@ -106,7 +106,7 @@ Things that are measured as events / interval.
 var probe = pmx.probe();
 
 var meter = probe.meter({
-  name      : 'req/min',
+  name      : 'req/sec',
   samples   : 1,
   timeframe : 60
 });
