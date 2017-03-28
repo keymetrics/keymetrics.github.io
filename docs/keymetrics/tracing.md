@@ -47,9 +47,9 @@ When received by PM2, transactions are aggregated depending on their path (so wi
 - `/api/users/search` and `/api/users/1` will not be aggregated together because `search` isnt a identifier
 
 PM2 detect identifier with multiples regex :
-- UUID v1/v4 with or without dash (/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/)
-- any number (/\d+/)
-- suit of number and letter (/[0-9]+[a-z]+|[a-z]+[0-9]+/) : this one is used by mongo for document id 
+- UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
+- any number (`/\d+/`)
+- suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id 
 
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier.
 
