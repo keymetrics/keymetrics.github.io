@@ -7,14 +7,14 @@ permalink: /docs/pages/tracing/
 
 ## Transaction tracing
 
-This feature allow you to record and aggregate the database and external calls that your application make on every http request.
+This feature allows you to record and aggregate the database and external calls that your application make on every http request.
 You can use transaction traces to troubleshoot performance issues and to get detailed low-level insight into how your app is working.
 
 <img src="/images/tracing.png" alt="Transaction Interface"/>
 
 ## Usage
 
-You will need to have at least pm2 `2.4.x` to use it, then you have two way to enable it :
+You will need to have at least pm2 `2.4.x` to use it, then you have two ways to enable it :
  - pmx using a options :
 
 ```javascript
@@ -54,14 +54,14 @@ PM2 detect identifier with multiples regex :
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier.
 
 ## Things to know
-- PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value to them to be relevant).
-- You can find the dashboard showing the context of a transaction (your source code), we retrieve it using the V8 API and sometimes (when module using too much async code) we can loose the code that start this request, specially for mongodb.
+- PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value for them to be relevant).
+- You can find the dashboard showing the context of a transaction (your source code), we retrieve it using the V8 API and sometimes (when module using too much async code) we can loose the code that start this request, especially for mongodb.
 - There isnt any AVERAGE computed, only MEDIAN value.
 - The dataset used to compute percentiles (so median and p95) are all values aggregated over one hour (see [implementation](https://github.com/keymetrics/pmx/blob/master/lib/utils/probes/Histogram.js))
 
-## Dashboard explaination
+## Dashboard explanation
 
-PM2 sent aggregated data with an interval of 1min (the document is really heavy), so you'll get realtime update each minute only.
+PM2 sends aggregated data with an interval of 1min (the document is really heavy), so you'll get realtime update every minute only.
 
 Keymetrics will store it and show you some graphic representing value over time (currently the median, p95, p99 and median of specific type like redis/mongo etc) :
 
@@ -71,5 +71,5 @@ Keymetrics will store it and show you some graphic representing value over time 
 ## Incompatibilities
 
 This feature has some known problems with other modules :
-* `node-newrelic`: This module do the same thing as we do, so you might encounter problem with it.
+* `node-newrelic`: This module do the same thing as we do, so you might encounter problems with it.
 * `request-promise`: This module clears the node cache and requires a new clean version of the `http` module. To solve this require `http` again after requiring `request-promise` to get the correctly wrapped `http` module.
