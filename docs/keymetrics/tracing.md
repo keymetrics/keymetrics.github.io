@@ -26,7 +26,7 @@ require('pmx').init({
  
  On the other hand, you can disable it with `--disable-trace` option when restarting your process.
 
-## Explaination
+## Explanation
 
 PMX will wrap below modules if they exist in your application : 
  - `express` version 4
