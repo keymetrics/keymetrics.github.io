@@ -9,13 +9,29 @@ permalink: /docs/pages/profiling/
 
 The profiling section allows you to take memory and CPU snapshots straight from your production servers. You will then get a file that can be inspected with the chrome developer tool.
 
-## Usage
+## Installation
+
+### PM2 v2.3 and more
+
+You can now install the [V8 profiler](https://www.npmjs.com/package/v8-profiler) via pm2, and have it available everyhwere on your server. Just use:
+
+```bash
+$ pm2 install profiler
+# or
+$ pm2 install v8-profiler
+```
+
+### Alternative installation for older PM2
 
 You will need to [install pmx](/docs/usage/install-pmx/) and to add the v8-profiler dependency to your project:
 
 ```bash
 $ npm install v8-profiler --save
 ```
+
+If you don't see the profiling buttons appearing after restarting your app, consider upgrading pm2 to 2.3+.
+
+## Usage
 
 Once the module is installed, restart your application and different buttons will appea on the Profiling pages:
 
