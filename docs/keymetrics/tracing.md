@@ -49,24 +49,57 @@ When received by PM2, transactions are aggregated depending on their path (so wi
 PM2 detect identifier with multiples regex :
 - UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
 - any number (`/\d+/`)
-- suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id 
+- suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id
+- most SEO optimized webpages (articles, blog posts...): /((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/
 
-Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier.
+Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
+
+## Dashboard walkthrough
+
+PM2 sends aggregated data with an interval of 1min (the document is really heavy), so you'll get realtime update every minute.
+
+
+### Latency Graph
+
+Keymetrics stores the data and shows you some graphs representing value over time (currently the median, p95, p99 and median of specific type like redis/mongo etc) for the selected application:
+
+<img src="/images/tracing-graph.png" alt="Transaction Interface"/>
+
+Under the graph you can select which values you want drawn on the graph:
+* The [median](https://en.wikipedia.org/wiki/Median) of the application tells you what an ordinary user can expect as a response time.
+* P95 and P99 curves lets you explore the evolution of the slowest latencies of your application.
+* The database latencies shows you how much time they consume in a standard request.
+
+### Transaction list
+
+<img src="/images/tracing-list.png" alt="Transaction Listing"/>
+
+This represents the list of detected paths: every time the application answers for the first time to a path, PM2 logs it and tries to fit it with an existing one. If none is found, it will then be shown here. You can list the transactions by 3 different orders:
+
+* Most time consuming: Total time spent in this route for the whole application
+* Slowest routes: Which routes take the most time
+* Number of calls: how many calls are made to every route
+
+When clicking on a route, you access to the Transaction Detail
+
+### Transaction details and Variances
+
+<img src="/images/tracing-variance.png" alt="Transaction Detail"/>
+
+Some transactions have the same path but respond differently: a forbidden access on a route can return a 403 and be executed differently than usual. We call those **variances**: for each path we log up 5 most used variances that you can examine here.
+
+Let's examine a specific variance: 
+* median, slowest and fastest call response time
+* Metadata about the call
+* List of registered subcalls. If no call to an external entity is made, nothing will appear here. The call display and information depends on the stack logged. For databases, you will for example see the database call made.
+
+You can then click on another **variance** to examine why and how the behaviour was different.
 
 ## Things to know
 - PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value for them to be relevant).
 - You can find the dashboard showing the context of a transaction (your source code), we retrieve it using the V8 API and sometimes (when module using too much async code) we can loose the code that start this request, especially for mongodb.
-- There isnt any AVERAGE computed, only MEDIAN value.
-- The dataset used to compute percentiles (so median and p95) are all values aggregated over one hour (see [implementation](https://github.com/keymetrics/pmx/blob/master/lib/utils/probes/Histogram.js))
-
-## Dashboard explanation
-
-PM2 sends aggregated data with an interval of 1min (the document is really heavy), so you'll get realtime update every minute only.
-
-Keymetrics will store it and show you some graphic representing value over time (currently the median, p95, p99 and median of specific type like redis/mongo etc) :
-
-<img src="/images/tracing-graph.png" alt="Transaction Interface"/>
-
+- There isnt any AVERAGE computed, only [MEDIAN](https://en.wikipedia.org/wiki/Median) value.
+- The dataset used to compute percentiles (so median and p95) are all values aggregated over the last hour (see [implementation](https://github.com/keymetrics/pmx/blob/master/lib/utils/probes/Histogram.js))
 
 ## Incompatibilities
 
