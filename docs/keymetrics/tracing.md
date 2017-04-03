@@ -26,34 +26,6 @@ require('pmx').init({
  
  On the other hand, you can disable it with `--disable-trace` option when restarting your process.
 
-## Explanation
-
-PMX will wrap below modules if they exist in your application : 
- - `express` version 4
- - `hapi` versions 8 - 13
- - `restify` versions 3 - 4
- - `koa` version v1.x
- - Outbound HTTP requests using `http` core module
- - `mongodb-core` version 1 (used by mongoose)
- - `redis` versions 0.12 - 2
- - `mysql` version ^2.9
- - `pg` version ^6.x
-
-Then record all requests made or received by them then sended to PM2 to be aggregated. 
-The impact on performance should be low since there is no heavy logic done in your process except wrap modules and sending data. 
-
-When received by PM2, transactions are aggregated depending on their path (so without the query), for example :
-- `/api/users/1` and `/api/users/2` will be aggregated together because PM2 detected the `1` and `2` has identifier
-- `/api/users/search` and `/api/users/1` will not be aggregated together because `search` isnt a identifier
-
-PM2 detect identifier with multiples regex :
-- UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
-- any number (`/\d+/`)
-- suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id
-- most SEO optimized webpages (articles, blog posts...): /((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/
-
-Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
-
 ## Dashboard walkthrough
 
 PM2 sends aggregated data with an interval of 1min (the document is really heavy), so you'll get realtime update every minute.
@@ -84,7 +56,7 @@ When clicking on a route, you access to the Transaction Detail
 
 ### Transaction details and Variances
 
-<img src="/images/tracing-variance.png" alt="Transaction Detail"/>
+<img src="/images/tracing-details.png" alt="Transaction Detail"/>
 
 Some transactions have the same path but respond differently: a forbidden access on a route can return a 403 and be executed differently than usual. We call those **variances**: for each path we log up 5 most used variances that you can examine here.
 
@@ -94,6 +66,34 @@ Let's examine a specific variance:
 * List of registered subcalls. If no call to an external entity is made, nothing will appear here. The call display and information depends on the stack logged. For databases, you will for example see the database call made.
 
 You can then click on another **variance** to examine why and how the behaviour was different.
+
+## Under the hood
+
+PMX will wrap below modules if they exist in your application : 
+ - `express` version 4
+ - `hapi` versions 8 - 13
+ - `restify` versions 3 - 4
+ - `koa` version v1.x
+ - Outbound HTTP requests using `http` core module
+ - `mongodb-core` version 1 (used by mongoose)
+ - `redis` versions 0.12 - 2
+ - `mysql` version ^2.9
+ - `pg` version ^6.x
+
+Then record all requests made or received by them then sended to PM2 to be aggregated. 
+The impact on performance should be low since there is no heavy logic done in your process except wrap modules and sending data. 
+
+When received by PM2, transactions are aggregated depending on their path (so without the query), for example :
+- `/api/users/1` and `/api/users/2` will be aggregated together because PM2 detected the `1` and `2` has identifier
+- `/api/users/search` and `/api/users/1` will not be aggregated together because `search` isnt a identifier
+
+PM2 detect identifier with multiples regex :
+- UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
+- any number (`/\d+/`)
+- suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id
+- most SEO optimized webpages (articles, blog posts...): /((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/
+
+Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
 
 ## Things to know
 - PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value for them to be relevant).
