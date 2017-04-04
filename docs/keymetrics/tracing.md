@@ -15,15 +15,14 @@ You can use transaction traces to troubleshoot performance issues and to get det
 ## Usage
 
 You will need to have at least pm2 `2.4.x` to use it, then you have two ways to enable it :
- - pmx using a options :
+ - pm2 with the `--trace` options, ex :`pm2 start ecosystem.json --trace`
+ - pmx using the options :
 
 ```javascript
 require('pmx').init({
   transactions : true
 });
 ```
- - or using pm2 with the `--trace` options, ex :`pm2 start ecosystem.json --trace`
- 
  On the other hand, you can disable it with `--disable-trace` option when restarting your process.
 
 ## Dashboard walkthrough
@@ -46,13 +45,13 @@ Under the graph you can select which values you want drawn on the graph:
 
 <img src="/images/tracing-list.png" alt="Transaction Listing"/>
 
-This represents the list of detected paths: every time the application answers for the first time to a path, PM2 logs it and tries to fit it with an existing one. If none is found, it will then be shown here. You can list the transactions by 3 different orders:
+This represents the list of recorded paths: every time the application answers for the first time to a path, PM2 logs it and tries to aggregate it. If no previous record is found, it is appended to the aggregate. You can list the transactions via:
 
 * Most time consuming: Total time spent in this route for the whole application
 * Slowest routes: Which routes take the most time
 * Number of calls: how many calls are made to every route
 
-When clicking on a route, you access to the Transaction Detail
+When clicking on a route, you access to the Transaction details
 
 ### Transaction details and Variances
 
@@ -63,7 +62,7 @@ Some transactions have the same path but respond differently: a forbidden access
 Let's examine a specific variance: 
 * median, slowest and fastest call response time
 * Metadata about the call
-* List of registered subcalls. If no call to an external entity is made, nothing will appear here. The call display and information depends on the stack logged. For databases, you will for example see the database call made.
+* List of registered subcalls. If no call to an external [entity](http://docs.keymetrics.io/docs/pages/tracing/#under-the-hood) is made, nothing will appear here. The call display and information depends on the stack logged. For databases, you will for example see the database call made.
 
 You can then click on another **variance** to examine why and how the behaviour was different.
 
@@ -83,6 +82,13 @@ PMX will wrap below modules if they exist in your application :
 Then record all requests made or received by them then sended to PM2 to be aggregated. 
 The impact on performance should be low since there is no heavy logic done in your process except wrap modules and sending data. 
 
+## Things to know
+- PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value for them to be relevant).
+- You can find the dashboard showing the context of a transaction (your source code), we retrieve it using the V8 API and sometimes (when module using too much async code) we can loose the code that start this request, especially for mongodb.
+- There isnt any AVERAGE computed, only [MEDIAN](https://en.wikipedia.org/wiki/Median) value.
+- The dataset used to compute percentiles (so median and p95) are all values aggregated over the last hour (see [implementation](https://github.com/keymetrics/pmx/blob/master/lib/utils/probes/Histogram.js))
+
+
 When received by PM2, transactions are aggregated depending on their path (so without the query), for example :
 - `/api/users/1` and `/api/users/2` will be aggregated together because PM2 detected the `1` and `2` has identifier
 - `/api/users/search` and `/api/users/1` will not be aggregated together because `search` isnt a identifier
@@ -91,15 +97,9 @@ PM2 detect identifier with multiples regex :
 - UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
 - any number (`/\d+/`)
 - suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id
-- most SEO optimized webpages (articles, blog posts...): /((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/
+- most SEO optimized webpages (articles, blog posts...): `/((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/`
 
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
-
-## Things to know
-- PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value for them to be relevant).
-- You can find the dashboard showing the context of a transaction (your source code), we retrieve it using the V8 API and sometimes (when module using too much async code) we can loose the code that start this request, especially for mongodb.
-- There isnt any AVERAGE computed, only [MEDIAN](https://en.wikipedia.org/wiki/Median) value.
-- The dataset used to compute percentiles (so median and p95) are all values aggregated over the last hour (see [implementation](https://github.com/keymetrics/pmx/blob/master/lib/utils/probes/Histogram.js))
 
 ## Incompatibilities
 
