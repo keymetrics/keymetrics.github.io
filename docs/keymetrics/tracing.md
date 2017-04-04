@@ -24,6 +24,66 @@ require('pmx').init({
 });
 ```
  On the other hand, you can disable it with `--disable-trace` option when restarting your process.
+ For the configuration side, you need to define them programmaticly when requiring pmx like above, here are the available options : 
+ 
+ ```javascript
+ {
+    // Log levels: 0-disabled,1-error,2-warn,3-info,4-debug
+    logLevel: 1,
+
+    // If true, information about query parameters and results will be
+    // attached to spans representating database operations.
+    enhancedDatabaseReporting: true,
+
+    // The maximum number of characters reported on a label value. This
+    // cannot exceed 16383, the maximum value accepted by the service.
+    maximumLabelValueSize: 512,
+
+    // A list of trace plugins to load. Each field's key in this object is the
+    // name of the module to trace, and its value is the require-friendly path
+    // to the plugin.
+    // By default, all of the following plugins are loaded.
+    // Specifying a different object for this field in the configuration passed
+    // to the method that starts the trace agent will cause that object to be
+    // merged with this one.
+    // To disable a plugin in this list, you may override its path with a falsey
+    // value. Disabling any of the default plugins may cause unwanted behavior,
+    // so use caution.
+    plugins: {
+      'connect': path.join(__dirname, 'src/plugins/plugin-connect.js'),
+      'express': path.join(__dirname, 'src/plugins/plugin-express.js'),
+      'google-gax': path.join(__dirname, 'src/plugins/plugin-google-gax.js'),
+      'grpc': path.join(__dirname, 'src/plugins/plugin-grpc.js'),
+      'hapi': path.join(__dirname, 'src/plugins/plugin-hapi.js'),
+      'http': path.join(__dirname, 'src/plugins/plugin-http.js'),
+      'koa': path.join(__dirname, 'src/plugins/plugin-koa.js'),
+      'mongodb-core': path.join(__dirname, 'src/plugins/plugin-mongodb-core.js'),
+      'mysql': path.join(__dirname, 'src/plugins/plugin-mysql.js'),
+      'pg': path.join(__dirname, 'src/plugins/plugin-pg.js'),
+      'redis': path.join(__dirname, 'src/plugins/plugin-redis.js'),
+      'restify': path.join(__dirname, 'src/plugins/plugin-restify.js')
+    },
+    
+    // Ignore request based on matching string/regex for each field
+    // Only one value need to match for the request to be ignored.
+    // Example :
+    // ignoreFilter: { path: [/v1/, '/'], ip: [/127.0.0.1/, '::1'] } 
+    // will ignore request that contains v1 in their path or the index
+    // it will ignore request that has been made by localhost
+    ignoreFilter: {
+      'path': [],
+      'method': [],
+      'ip': []
+    },
+
+    // An upper bound on the number of traces to gather each second. If set to 0,
+    // sampling is disabled and all transactions are recorded. Sampling rates greater
+    // than 1000 are not supported and will result in at most 1000 samples per
+    // second.
+    samplingRate: 0
+ }
+ ```
+ 
 
 ## Dashboard walkthrough
 
@@ -84,20 +144,23 @@ The impact on performance should be low since there is no heavy logic done in yo
 
 ## Things to know
 - PM2 will wait 10 minutes after you started your application to send data (to aggregate enough value for them to be relevant).
+
 - You can find the dashboard showing the context of a transaction (your source code), we retrieve it using the V8 API and sometimes (when module using too much async code) we can loose the code that start this request, especially for mongodb.
+
 - There isnt any AVERAGE computed, only [MEDIAN](https://en.wikipedia.org/wiki/Median) value.
+
 - The dataset used to compute percentiles (so median and p95) are all values aggregated over the last hour (see [implementation](https://github.com/keymetrics/pmx/blob/master/lib/utils/probes/Histogram.js))
 
 
-When received by PM2, transactions are aggregated depending on their path (so without the query), for example :
-- `/api/users/1` and `/api/users/2` will be aggregated together because PM2 detected the `1` and `2` has identifier
-- `/api/users/search` and `/api/users/1` will not be aggregated together because `search` isnt a identifier
+- When received by PM2, transactions are aggregated depending on their path (so without the query), for example :
+  - `/api/users/1` and `/api/users/2` will be aggregated together because PM2 detected the `1` and `2` has identifier
+  - `/api/users/search` and `/api/users/1` will not be aggregated together because `search` isnt a identifier
 
-PM2 detect identifier with multiples regex :
-- UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
-- any number (`/\d+/`)
-- suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id
-- most SEO optimized webpages (articles, blog posts...): `/((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/`
+- PM2 detect identifier with multiples regex :
+  - UUID v1/v4 with or without dash (`/[0-9a-f]{8}-[0-9a-f]{4}-[14][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12}[14][0-9a-f]{19}/`)
+  - any number (`/\d+/`)
+  - suit of number and letter (`/[0-9]+[a-z]+|[a-z]+[0-9]+/`) : this one is used by mongo for document id
+  - most SEO optimized webpages (articles, blog posts...): `/((?:[0-9a-zA-Z]+[@\-_.][0-9a-zA-Z]+|[0-9a-zA-Z]+[@\-_.]|[@\-_.][0-9a-zA-Z]+)+)/`
 
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
 
