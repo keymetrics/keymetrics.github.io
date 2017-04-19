@@ -14,7 +14,7 @@ You can use transaction traces to troubleshoot performance issues and to get det
 
 ## Usage
 
-You will need to have at least pm2 `2.4.x` to use it, then you have two ways to enable it :
+You will need to have at least pm2 `2.4.4` to use it, then you have two ways to enable it (don't do both) :
  - pm2 with the `--trace` options, ex :`pm2 start ecosystem.json --trace`
  - pmx using the options :
 
@@ -31,39 +31,6 @@ require('pmx').init({
     // Log levels: 0-disabled,1-error,2-warn,3-info,4-debug
     logLevel: 1,
 
-    // If true, information about query parameters and results will be
-    // attached to spans representating database operations.
-    enhancedDatabaseReporting: true,
-
-    // The maximum number of characters reported on a label value. This
-    // cannot exceed 16383, the maximum value accepted by the service.
-    maximumLabelValueSize: 512,
-
-    // A list of trace plugins to load. Each field's key in this object is the
-    // name of the module to trace, and its value is the require-friendly path
-    // to the plugin.
-    // By default, all of the following plugins are loaded.
-    // Specifying a different object for this field in the configuration passed
-    // to the method that starts the trace agent will cause that object to be
-    // merged with this one.
-    // To disable a plugin in this list, you may override its path with a falsey
-    // value. Disabling any of the default plugins may cause unwanted behavior,
-    // so use caution.
-    plugins: {
-      'connect': path.join(__dirname, 'src/plugins/plugin-connect.js'),
-      'express': path.join(__dirname, 'src/plugins/plugin-express.js'),
-      'google-gax': path.join(__dirname, 'src/plugins/plugin-google-gax.js'),
-      'grpc': path.join(__dirname, 'src/plugins/plugin-grpc.js'),
-      'hapi': path.join(__dirname, 'src/plugins/plugin-hapi.js'),
-      'http': path.join(__dirname, 'src/plugins/plugin-http.js'),
-      'koa': path.join(__dirname, 'src/plugins/plugin-koa.js'),
-      'mongodb-core': path.join(__dirname, 'src/plugins/plugin-mongodb-core.js'),
-      'mysql': path.join(__dirname, 'src/plugins/plugin-mysql.js'),
-      'pg': path.join(__dirname, 'src/plugins/plugin-pg.js'),
-      'redis': path.join(__dirname, 'src/plugins/plugin-redis.js'),
-      'restify': path.join(__dirname, 'src/plugins/plugin-restify.js')
-    },
-    
     // Ignore request based on matching string/regex for each field
     // Only one value need to match for the request to be ignored.
     // Example :
