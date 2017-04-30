@@ -14,9 +14,19 @@ You can use transaction traces to troubleshoot performance issues and to get det
 
 ## Usage
 
-You will need to have at least pm2 `2.4.4` to use it, then you have two ways to enable it (don't do both) :
- - pm2 with the `--trace` options, ex :`pm2 start ecosystem.json --trace`
- - pmx using the options :
+You will need to have at least pm2 `2.4.4` to use it, then start/reload the application in tracing mode with the `--trace` option:
+
+```
+$ pm2 start ecosystem.json --trace
+# Or a specific application
+$ pm2 reload API --trace
+# Or a specific process id or instance
+$ pm2 reload 3 --trace
+```
+
+## Advanced Options
+
+To customize some Transaction Tracing feature, first install pmx and require it into your code (at the really beginning of your main file):
 
 ```javascript
 require('pmx').init({
