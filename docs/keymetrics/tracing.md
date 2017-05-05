@@ -10,18 +10,26 @@ permalink: /docs/pages/tracing/
 This feature allows you to record and aggregate the database and external calls that your application make on every http request.
 You can use transaction traces to troubleshoot performance issues and to get detailed low-level insight into how your app is working.
 
-<img src="/images/tracing.png" alt="Transaction Interface"/>
+<img src="http://i.imgur.com/bgPDwbF.png" alt="Transaction Interface"/>
 
 ## Usage
 
 You will need to have at least pm2 `2.4.4` to use it, then start/reload the application in tracing mode with the `--trace` option:
 
-```
+```bash
 $ pm2 start ecosystem.json --trace
 # Or a specific application
 $ pm2 reload API --trace
 # Or a specific process id or instance
 $ pm2 reload 3 --trace
+```
+
+### Disable Tracing
+
+To disable the transaction tracing:
+
+```bash
+$ pm2 reload <APP> --disable-trace
 ```
 
 ## Advanced Options
