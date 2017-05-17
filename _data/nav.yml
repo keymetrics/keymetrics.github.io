@@ -23,6 +23,8 @@
       url: /docs/pages/monitoring/
     - title: Issues page
       url: /docs/pages/issues/
+    - title: Transaction Tracing
+      url: /docs/pages/tracing/
     - title: Notifications page
       url: /docs/pages/alert-system/
     - title: Custom metrics
