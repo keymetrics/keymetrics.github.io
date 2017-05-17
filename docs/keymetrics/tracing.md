@@ -36,6 +36,8 @@ $ pm2 reload <APP> --disable-trace
 
 To customize some Transaction Tracing feature, first install pmx and require it into your code (at the really beginning of your main file):
 
+**WARNING**: If you want the options to use options with the transaction, you need to disable `--trace` because this option will enable it with default settings. You need to only use the programmatic API. 
+
 ```javascript
 require('pmx').init({
   transactions : true
