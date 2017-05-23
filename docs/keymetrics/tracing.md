@@ -151,8 +151,22 @@ The impact on performance should be low since there is no heavy logic done in yo
 
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
 
+## Throubleshooting
+
+It's possible that the agent inside your application is enabled but the tracing isn't succesful. Few things to check :
+- If you used `--trace`, disable it with `--disable-trace` then add the pmx snippet at the first line of your application :
+```
+require('pmx').init({
+  transactions : true
+});
+```
+- If still not working, please double-check that you correctly added the snippet at the first line of your application (before any other `require`)
+- If still not working, you may have a dependency that break our agent, see the [next chapter](http://docs.keymetrics.io/docs/pages/tracing/#incompatibilities).
+- If you don't have any dependency listed as imcompatible, please contact our support either on zendesk, contact@keymetrics.io or https://github.com/keymetrics/keymetrics-support
+
 ## Incompatibilities
 
 This feature has some known problems with other modules :
 * `node-newrelic`: This module do the same thing as we do, so you might encounter problems with it.
 * `request-promise`: This module clears the node cache and requires a new clean version of the `http` module. To solve this require `http` again after requiring `request-promise` to get the correctly wrapped `http` module.
+
