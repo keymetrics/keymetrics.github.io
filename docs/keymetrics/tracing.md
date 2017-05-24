@@ -169,4 +169,3 @@ require('pmx').init({
 This feature has some known problems with other modules :
 * `node-newrelic`: This module do the same thing as we do, so you might encounter problems with it.
 * `request-promise`: This module clears the node cache and requires a new clean version of the `http` module. To solve this require `http` again after requiring `request-promise` to get the correctly wrapped `http` module.
-
