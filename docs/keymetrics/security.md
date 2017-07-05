@@ -40,6 +40,11 @@ Then the second one, sensitive functions like `pm2 stop | updateDeep | pm2 set [
 
 This password, that you configured at the PM2 level via the command `pm2 set pm2:passwd <password>`, is not shared with Keymetrics. Only you know it, and this password is only transferred by Keymetrics, making the system very secure.
 
+### Ports usage
+
+The 80 port is used to push monitoring data from PM2 to Keymetrics.
+The 43554 port is used by Keymetrics to send asynchronous command from Keymetrics to PM2.
+
 ## Between Keymetrics and your browser
 
 We use the HTTPS protocol to secure all data transferred from Keymetrics to your browser.
