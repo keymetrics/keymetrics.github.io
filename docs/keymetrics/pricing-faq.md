@@ -5,8 +5,6 @@ description: pricing FAQ
 permalink: /docs/pages/pricing-faq
 ---
 
-## Pricing and plan limitations FAQ
-
 This page lists the frequently asked questions about the Keymetrics pricing system and the specificities of our plan limitations.
 
 ## Process-based pricing
