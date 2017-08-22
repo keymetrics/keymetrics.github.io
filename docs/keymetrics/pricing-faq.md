@@ -7,7 +7,7 @@ permalink: /docs/pages/pricing-faq
 
 # Pricing and plan limitations FAQ
 
-This page lists the frequently asked questions about the Keymetrics pricing system andthe specificity of our plan limitations.
+This page lists the frequently asked questions about the Keymetrics pricing system and the specificities of our plan limitations.
 
 # Process-based pricing
 
@@ -18,7 +18,7 @@ It can be a worker in a cluster, a app in fork mode or a module.
 
 ### What about the cluster mode?
 
-When you use the [cluster mode](http://pm2.keymetrics.io/docs/usage/cluster-mode/) (`pm2 start -i `) each instance will be counted as a process.
+When you use the [cluster mode](http://pm2.keymetrics.io/docs/usage/cluster-mode/) (with `pm2 start -i `) each instance will be counted as a process.
 If you start 3 instances of the same application they will all count towards your process plan limit.
 
 ### Can I select which processes I want monitored?
