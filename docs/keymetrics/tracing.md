@@ -24,6 +24,26 @@ $ pm2 reload API --trace
 $ pm2 reload 3 --trace
 ```
 
+### Via [Process File](http://pm2.keymetrics.io/docs/usage/application-declaration/)
+
+Just add the attribute `trace: true` to enable tracing for the target application:
+
+```javascript
+module.exports = {
+  apps : [{
+    name        : "API",
+    script      : "./api.js",
+    trace       : true
+  }]
+}
+```
+
+### Tracing Status
+
+You can see which application has the Tracing activated by noticing the Clock next to the application name:
+
+<img src="http://i.imgur.com/v8ZiWtg.png" alt="Tracing PM2"/>
+
 ### Disable Tracing
 
 To disable the transaction tracing:
