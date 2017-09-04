@@ -13,12 +13,26 @@ The profiling section allows you to take memory and CPU snapshots straight from 
 
 ### PM2 v2.3 and more
 
-You can now install the [V8 profiler](https://www.npmjs.com/package/v8-profiler) via pm2, and have it available everyhwere on your server. Just use:
+You can now install the [V8 profiler](https://www.npmjs.com/package/v8-profiler) via pm2, and have it available everyhwere on your server.
+
+Before this, make sure you have `g++` installed, if not:
+
+```bash
+$ sudo apt-get install build-essential
+```
+
+Then to install/enable the profiler Just use:
 
 ```bash
 $ pm2 install profiler
 # or
 $ pm2 install v8-profiler
+```
+
+You can now reload your application and the profiling will be enabled:
+
+```bash
+$ pm2 reload all
 ```
 
 ### Alternative installation for older PM2
