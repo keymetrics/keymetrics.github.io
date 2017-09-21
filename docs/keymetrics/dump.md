@@ -23,8 +23,6 @@ Then to install/enable the profiler Just use:
 
 ```bash
 $ pm2 install profiler
-# or
-$ pm2 install v8-profiler
 ```
 
 You can now reload your application and the profiling will be enabled:
