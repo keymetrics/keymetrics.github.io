@@ -41,6 +41,35 @@ $ npm install v8-profiler --save
 
 If you don't see the profiling buttons appearing after restarting your app, consider upgrading pm2 to 2.3+.
 
+### Docker integration
+
+Depending on the Docker and Node.Js version, the buttons might not appear in the dahsboard. To solve this, you have 2 steps to add to your Dockerfile:
+
+1- Install the correct version of Glibc if not present
+```
+ENV GLIBC_VERSION 2.25-r0
+
+#Download and install glibc
+RUN apk add --update curl && \
+  curl -Lo /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub && \
+  curl -Lo glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" && \
+  curl -Lo glibc-bin.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk" && \
+  apk add glibc-bin.apk glibc.apk && \
+  /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
+  echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
+  apk del curl && \
+  rm -rf glibc.apk glibc-bin.apk /var/cache/apk/*
+```
+
+2 - Install and build v8-profiler from source:
+```
+# Install app dependencies
+RUN apk add --no-cache --virtual .build-deps sudo make gcc g++ python \
+    && sudo npm install --build-from-source -g v8-profiler --unsafe-perm \
+    && npm cache clean \
+    && apk del .build-deps
+```
+
 ## Usage
 
 Once the module is installed, restart your application and different buttons will appea on the Profiling pages:
