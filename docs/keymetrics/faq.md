@@ -15,7 +15,7 @@ If this does not help you please do not hesitate reach out to us on our in app-c
 If you are in this situation, it might be for several reasons.
 
 - You are behind a company proxy or firewall.
-Make sure that the ports 80 (TCP outbound), 443 (HTTPS) and 43554 (TCP outbound) are allowed on your firewall.
+Make sure that the ports 80 (TCP outbound), 443 (HTTPS outbound) and 43554 (TCP outbound) are allowed on your firewall.
 
 If you need to whitelist IPs, please allow these ones: 163.172.76.240, 62.210.94.153, 195.154.156.78, 62.210.100.99, 62.210.102.213, 62.4.21.42 and 163.172.20.79
 
