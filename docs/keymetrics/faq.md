@@ -26,7 +26,7 @@ Make sure you are using the latest version of PM2 https://github.com/Unitech/PM2
 - You have concurrent PM2 sending data to the same bucket with an identical server name.
 Make sure you have only one PM2 instance launched `ps -ax | grep PM2`
 
-- Refresh your connection to Keymetrics. `pm2 interact stop` then `pm2 interact start` should help. Also don't forget to refresh the dashboard itself, it might help sometimes.
+- Refresh your connection to Keymetrics. `pm2 interact stop` then `pm2 interact` should help. Also don't forget to refresh the dashboard itself, it might help sometimes.
 
 ## The dashboard displays "Reverse connection not established"
 
