@@ -21,7 +21,7 @@ If you start 3 instances of the same application they will all count towards you
 
 ### Can I select which processes I want monitored?
 
-Yes, you **need PM2 v2.6.0+**
+Yes, you **need PM2 v2.7.0+**
 
 You can then use the command `pm2 unmonitor [APP_NAME|ID]` to stop monitoring a process via Keymetrics.
 When using `pm2 ls` you should see a red dot indicating the application will not be followed by Keymetrics.
