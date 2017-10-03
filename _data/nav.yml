@@ -51,3 +51,5 @@
       url: /docs/usage/paas-heroku-azure/
     - title: Keymetrics App Changelog
       url: /docs/usage/keymetrics-changelog/
+    - title: Migrating from Trace to Keymetrics
+      url: /docs/usage/from-trace-to-keymetrics
