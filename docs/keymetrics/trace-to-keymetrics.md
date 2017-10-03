@@ -17,9 +17,11 @@ This piece of documentation is for former Trace users and will help them underst
 
 ### Level up your application with PM2
 
+<br/>
 <center>
- <img src="https://raw.githubusercontent.com/Unitech/pm2/master/pres/pm2-v3.png" width="400"/>
+ <img src="https://raw.githubusercontent.com/Unitech/pm2/master/pres/pm2-v3.png" width="500"/>
 </center>
+<br/><br/>
 
 Keymetrics is built on top of PM2, a well known, [Open Source](https://github.com/Unitech/pm2) process manager that improves performance and reliability of your Node.js applications.
 
