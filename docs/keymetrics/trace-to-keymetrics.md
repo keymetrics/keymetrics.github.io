@@ -74,22 +74,25 @@ For CPU profiling, it can be started directly from the Keymetrics interface and 
 
 About Memory Profiling, you have the exact same ability to heapdump memory any time you want.
 
+### Errors
+ 
+You can find and filter errors in your code and see their stack traces and occurrence data. We also display line code number and logs before exceptions
+
+![https://keymetrics.io/assets/images/homepage-tour/screen5.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen5.jpeg)
+
 ### Metrics
  
 With Keymetrics you can also monitor criticals metrics and also have data retention of 14 days. This will be extended to 60 days in the next month.
 
 ![https://keymetrics.io/assets/images/homepage-tour/screen3.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen3.jpeg)
  
-### Topology
+### Features in development
  
-The Trace Topology System is under development and will be available in the following month.
+The Trace Uptime Webchecks and Topology overview will be developped in the following month in partnership with RisingStack team. 
  
 ### Alerting
 
 Alerting is available 
-Errors: 
- 
-You can find and filter errors in your code and see their stack traces and occurrence data.
 
 
 ## Keymetrics specific features
