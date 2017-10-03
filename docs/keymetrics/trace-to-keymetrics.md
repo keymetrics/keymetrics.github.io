@@ -17,7 +17,7 @@ This piece of documentation is for former Trace users and will help them underst
 
 ## What is required to use Keymetrics ?
 
-### Level up your application with PM2
+## Supercharge Node.js with PM2
 
 <br/>
 <center>
@@ -46,7 +46,7 @@ Some of the key features are:
 
 Discover all PM2 features via our [official documentation](http://pm2.keymetrics.io/).
 
-### Monitor and Diagnose with Keymetrics
+## Monitor and Diagnose with Keymetrics
 
 Now let's get this Node.js application monitored by Keymetrics. Make sure [you've created an account](https://app.keymetrics.io/#/) and just copy the `pm2 link <secret> <public>` displayed in the popup and paste it into your terminal. 
 
