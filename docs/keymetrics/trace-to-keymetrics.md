@@ -5,6 +5,8 @@ description: Migrating From RisingStack Trace To Keymetrics
 permalink: /docs/usage/from-trace-to-keymetrics/
 ---
 
+![https://i.imgur.com/17Wa4fu.png](https://i.imgur.com/17Wa4fu.png)
+
 ## From Trace to Keymetrics
 
 As you might have seen, Trace and Keymetrics had partnered up. Trace was the tool built by the engineers of RisingStack, a monitoring SaaS which use an agent to provide insights into Node.js services. 
