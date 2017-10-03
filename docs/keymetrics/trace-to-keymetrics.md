@@ -54,27 +54,39 @@ Now let's get this Node.js application monitored by Keymetrics. Make sure [you'v
 
 Instantly, you will see the Keymetrics Dashboard revealed and you can monitor some of the Key Metrics of your application.
 
+![https://keymetrics.io/assets/images/homepage-tour/screen1.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen1.jpeg)
+
 ## Feature comparison between Trace and Keymetrics
+
+### Transaction Tracing
+
+As Trace, Keymetrics provides a Transaction Tracing system that allows you to identify which HTTP calls are slow and why they are slow.
+
+![https://keymetrics.io/assets/images/homepage-tour/screen6.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen6.jpeg)
 
 ### Memory & CPU profiling
 
-Trace allows you to investigate memory & cpu dumps to find leaks & bottlenecks in production easily
- 
-### Distributed Tracing
+The Trace tracing feature is similar to what can be found under the "Profiling" tab of Keymetrics App:
 
-Finding issues in a distributed system or microservices can be challenging. We collect, group and visualize service calls with issues, so you don't have to waste your time with spending hours to dig in your logs.
- 
+![https://keymetrics.io/assets/images/tour/screen4@2x.jpg?v=d02a2e7337](https://keymetrics.io/assets/images/tour/screen4@2x.jpg?v=d02a2e7337)
+
+For CPU profiling, it can be started directly from the Keymetrics interface and stopped any time you want. You will then get a visualisation of the stack and you will still have the ability to download the CPU profiling file.
+
+About Memory Profiling, you have the exact same ability to heapdump memory any time you want.
+
 ### Metrics
  
-Our metrics page allows you to keep track of what is currently happening in your application. It makes it easy to spot potential errors during runtime.
+With Keymetrics you can also monitor criticals metrics and also have data retention of 14 days. This will be extended to 60 days in the next month.
+
+![https://keymetrics.io/assets/images/homepage-tour/screen3.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen3.jpeg)
  
 ### Topology
  
-On the service map you can check how your services communicate with each other, what are the average response times and how many requests each service makes. See the communication with databases and 3rd party APIs, and get live hints when your services are getting slower.
+The Trace Topology System is under development and will be available in the following month.
  
-Alerting: 
-You simply don't have enough time watching the metrics page and trying to figure out problems with your infrastructure. This feature allows you to set an alert for your future self, or your team when something bad occurs based on the collected metrics.
- 
+### Alerting
+
+Alerting is available 
 Errors: 
  
 You can find and filter errors in your code and see their stack traces and occurrence data.
