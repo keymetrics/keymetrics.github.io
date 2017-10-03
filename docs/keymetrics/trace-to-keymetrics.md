@@ -5,16 +5,24 @@ description: Migrating From RisingStack Trace To Keymetrics
 permalink: /docs/usage/from-trace-to-keymetrics/
 ---
 
-# Intro
+## From Trace to Keymetrics
 
-As you might have seen, Trace and Keymetrics had partnered up. Trace was the tool built by the engineers of RisingStack, a monitoring tool which use to provide actionable insights into Node.js services & microservices architectures. 
+As you might have seen, Trace and Keymetrics had partnered up. Trace was the tool built by the engineers of RisingStack, a monitoring SaaS which use an agent to provide insights into Node.js services. 
+
 The partnership of RisingStack & Keymetrics includes merging Trace and its userbase into Keymetrics, and providing technical help to build a superior Node.js monitoring tool.
 
 This piece of documentation is for former Trace users and will help them understand how do properly migrate from Trace to Keymetrics
 
-# What is required to use Keymetrics ?
+## What is required to use Keymetrics ?
 
-Keymetrics is built on top of PM2, a well known process manager that improves performance and reliability of your Node.js applications.
+### Level up your application with PM2
+
+<center>
+ <img src="https://raw.githubusercontent.com/Unitech/pm2/master/pres/pm2-v3.png" width="400"/>
+</center>
+
+Keymetrics is built on top of PM2, a well known, [Open Source](https://github.com/Unitech/pm2) process manager that improves performance and reliability of your Node.js applications.
+
 Getting started with PM2 is as easy as:
 
 ```bash
@@ -24,31 +32,39 @@ $ npm install pm2 -g
 $ pm2 start app.js
 ```
 
-Your app is now daemonized, monitored and kept alive forever. Discover all PM2 features via our official documentation and don't forget to checkout unique PM2 features like cluster mode, process configuration files or the official Docker integration!
+Your app is now daemonized, monitored and kept alive forever. 
 
-## Linking PM2 to Keymetrics
+Some of the key features are:
+- [Automatic clustering and Zero Downtime Reload](http://pm2.keymetrics.io/docs/usage/cluster-mode/)
+- [Process Configuration file](http://pm2.keymetrics.io/docs/usage/application-declaration/)
+- [Docker integration](http://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/)
+- Auto Source Map resolving, Log management and much ore
 
-Now let's get this Node.js application monitored by Keymetrics. Make sure you've created an account and just copy the `pm2 link <secret> <public>` displayed in the popup and paste it into your terminal. Instantly, you will see the Keymetrics Dashboard revealed and you can monitor some of the Key Metrics of your application.
+Discover all PM2 features via our [official documentation](http://pm2.keymetrics.io/).
 
+### Monitor and Diagnose with Keymetrics
 
+Now let's get this Node.js application monitored by Keymetrics. Make sure [you've created an account](https://app.keymetrics.io/#/) and just copy the `pm2 link <secret> <public>` displayed in the popup and paste it into your terminal. 
 
+![https://i.imgur.com/3bg5Wrg.png](https://i.imgur.com/3bg5Wrg.png)
 
-# How to use Trace features in KM
+Instantly, you will see the Keymetrics Dashboard revealed and you can monitor some of the Key Metrics of your application.
 
+## Feature comparison between Trace and Keymetrics
 
-Memory & CPU profiling
+### Memory & CPU profiling
 
 Trace allows you to investigate memory & cpu dumps to find leaks & bottlenecks in production easily
  
-Distributed Tracing: 
+### Distributed Tracing
 
 Finding issues in a distributed system or microservices can be challenging. We collect, group and visualize service calls with issues, so you don't have to waste your time with spending hours to dig in your logs.
  
-Metrics: 
+### Metrics
  
 Our metrics page allows you to keep track of what is currently happening in your application. It makes it easy to spot potential errors during runtime.
  
-Topology
+### Topology
  
 On the service map you can check how your services communicate with each other, what are the average response times and how many requests each service makes. See the communication with databases and 3rd party APIs, and get live hints when your services are getting slower.
  
@@ -60,16 +76,16 @@ Errors:
 You can find and filter errors in your code and see their stack traces and occurrence data.
 
 
-# Keymetrics specific features
+## Keymetrics specific features
 
-Real time Dashboard 
-Custom Metrics
-Trigger Function from Dashboard
-Plugins system (DB & Server monitoring)
-User ACL management
+- Server monitoring
+- Real time Dashboard 
+- Custom Metrics
+- Trigger Function from Dashboard
+- Plugins system (DB & Server monitoring)
+- User ACL management
 
-
-# what is next
+## What is next
 
 Webinars
  
