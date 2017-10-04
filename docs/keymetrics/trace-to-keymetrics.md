@@ -114,5 +114,5 @@ The Trace Uptime Webchecks and Topology overview will be developped in the follo
 
 ## What is next
 
-Also, the teams of Keymetrics & RisingStack created a webinar which will help you in the migration & the unanswered questions you have. Here is the link of the [upcoming webinar](https://app.livestorm.co/keymetrics/migrating-from-trace-to-keymetrics-1)
+Also, the teams of Keymetrics & RisingStack created a webinar which will help you in the migration & the unanswered questions you have. Here is the link of the [upcoming webinar](https://app.livestorm.co/keymetrics/migrating-from-trace-to-keymetrics-1).
  
