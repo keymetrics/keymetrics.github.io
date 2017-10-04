@@ -69,6 +69,8 @@ As Trace, Keymetrics provides a Transaction Tracing system that allows you to id
 
 ![https://keymetrics.io/assets/images/homepage-tour/screen6.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen6.jpeg)
 
+[Learn more about Transaction Tracing](http://docs.keymetrics.io/docs/pages/tracing/)
+
 ### Memory & CPU profiling
 
 The Trace tracing feature is similar to what can be found under the "Profiling" tab of Keymetrics App:
@@ -79,25 +81,32 @@ For CPU profiling, it can be started directly from the Keymetrics interface and 
 
 About Memory Profiling, you have the exact same ability to heapdump memory any time you want.
 
-### Errors
+[Learn more about Memory & CPU Profiling](http://docs.keymetrics.io/docs/pages/profiling/)
+
+### Errors & Exceptions
  
 You can find and filter errors in your code and see their stack traces and occurrence data. We also display line code number and logs before exceptions
 
 ![https://keymetrics.io/assets/images/homepage-tour/screen5.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen5.jpeg)
+
+[Learn more about Exceptions Tracking](http://docs.keymetrics.io/docs/pages/issues/)
 
 ### Metrics
  
 With Keymetrics you can also monitor criticals metrics and also have data retention of 14 days. This will be extended to 60 days in the next month.
 
 ![https://keymetrics.io/assets/images/homepage-tour/screen3.jpeg](https://keymetrics.io/assets/images/homepage-tour/screen3.jpeg)
- 
+
+[Learn more about Metrics Monitoring](http://docs.keymetrics.io/docs/pages/monitoring/)
+
 ### Features in development
  
 The Trace Uptime Webchecks and Topology overview will be developped in the following month in partnership with RisingStack team. 
- 
-### Alerting
 
-Alerting is available 
+### Some Nifty Keymetrics Features
+
+- [Custom metrics](http://docs.keymetrics.io/docs/pages/custom-metrics/) allows you to track variable value over time
+- [Remote Functions Trigger](http://docs.keymetrics.io/docs/pages/custom-actions/) allows you to trigger code function straight fronm the dashboard
 
 ## More about Keymetrics
 
