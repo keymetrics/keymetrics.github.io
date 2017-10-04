@@ -17,7 +17,10 @@ This piece of documentation is for former Trace users and will help them underst
 
 ## What is required to use Keymetrics?
 
-## Start your application with PM2
+It requires a very short amount of time to use Keymetrics and PM2 in production.
+Basically you will just need to use pm2 as a process manager / node.js runtime and use one to command to link it to Keymetrics.
+
+## 1/ Start your application with PM2
 
 <br/>
 <center>
@@ -46,11 +49,13 @@ Some of the key features are:
 
 Discover all PM2 features via our [official documentation](http://pm2.keymetrics.io/).
 
-## Link PM2 to Keymetrics
+## 2/ Link PM2 to Keymetrics
 
 Now let's get this Node.js application monitored by Keymetrics. Make sure [you've created an account](https://app.keymetrics.io/#/) and just copy the `pm2 link <secret> <public>` displayed in the popup and paste it into your terminal. 
 
 ![https://i.imgur.com/3bg5Wrg.png](https://i.imgur.com/3bg5Wrg.png)
+
+## 3/ Monitor
 
 Instantly, you will see the Keymetrics Dashboard revealed and you can monitor some of the Key Metrics of your application.
 
