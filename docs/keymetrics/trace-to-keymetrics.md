@@ -99,15 +99,9 @@ The Trace Uptime Webchecks and Topology overview will be developped in the follo
 
 Alerting is available 
 
+## More about Keymetrics
 
-## Keymetrics specific features
-
-- Server monitoring
-- Real time Dashboard 
-- Custom Metrics
-- Trigger Function from Dashboard
-- Plugins system (DB & Server monitoring)
-- User ACL management
+[Fly over here](http://docs.keymetrics.io/)
 
 ## What is next
 
