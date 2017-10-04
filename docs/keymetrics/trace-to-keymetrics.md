@@ -15,7 +15,7 @@ The partnership of RisingStack & Keymetrics includes merging Trace and its userb
 
 This piece of documentation is for former Trace users and will help them understand how do properly migrate from Trace to Keymetrics
 
-## What is required to use Keymetrics ?
+## What is required to use Keymetrics?
 
 ## Start your application with PM2
 
