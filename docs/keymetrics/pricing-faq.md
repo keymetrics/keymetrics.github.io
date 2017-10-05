@@ -32,13 +32,6 @@ If you want to monitor the process again use `pm2 monitor [APP_NAME|ID]`.
 
 A 'server' represents one linked PM2 instance. Normally, each bare metal server/container/VM have one PM2 instance.
 
-## Notification limit system
-
-For some specific plans you have a limited number of reporting avalaible for a certain period. This is listed in the plan specifications.
-After your notifications are used you will receive a mail warning you that you will receive no more mails until the next reset.
-
-For example the Garage plan lets you have 10 total notifications per day, and resets every day. 
-
 ### When does the notification limitation reset?
 
 The counter resets every day at midnight at GMT+1.
