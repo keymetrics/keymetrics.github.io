@@ -26,7 +26,7 @@ pmx.emit(EVENT_NAME, DATA)
 ```
 
 EVENT_NAME must be a string.
-DATA can be an object (JSON only) or a string.
+DATA can be an object (**an array will not work**) or a string.
 
 ## Example #1: User registration
 
