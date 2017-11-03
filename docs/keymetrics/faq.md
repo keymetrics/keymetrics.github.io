@@ -32,7 +32,7 @@ Make sure you have only one PM2 instance launched `ps -ax | grep PM2`
 
 It means that PM2 have not managed to initialize the full duplex connection. Not any actions will work (restart, pull, module install...).
 
-Please make sure that the port 43554 (TCP inbound/outbound) is opened and check the logs in ~/.pm2/agent.log.
+Please make sure that the port 43554 (TCP outbound) is opened and check the logs in ~/.pm2/agent.log.
 
 Type `pm2 link` to re-try the connection.
 
