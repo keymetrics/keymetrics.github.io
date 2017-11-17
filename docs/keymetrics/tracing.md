@@ -171,7 +171,7 @@ The impact on performance should be low since there is no heavy logic done in yo
 
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
 
-## Throubleshooting
+## Troubleshooting
 
 It's possible that the agent inside your application is enabled but the tracing isn't succesful. Few things to check :
 - If you used `--trace`, disable it with `--disable-trace` then add the pmx snippet at the first line of your application :
