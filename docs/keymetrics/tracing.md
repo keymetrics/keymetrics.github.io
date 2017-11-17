@@ -181,8 +181,8 @@ require('pmx').init({
 });
 ```
 - If still not working, please double-check that you correctly added the snippet at the first line of your application (before any other `require`)
-- If still not working, you may have a dependency that break our agent, see the [next chapter](http://docs.keymetrics.io/docs/pages/tracing/#incompatibilities).
-- If you don't have any dependency listed as imcompatible, please contact our support either on zendesk, contact@keymetrics.io or https://github.com/keymetrics/keymetrics-support
+- If still not working, you may have a dependency that breaks our agent, see the [next chapter](http://docs.keymetrics.io/docs/pages/tracing/#incompatibilities).
+- If you don't have any dependency listed as incompatible, please contact our support either on zendesk, contact@keymetrics.io or https://github.com/keymetrics/keymetrics-support
 
 ## Incompatibilities
 
