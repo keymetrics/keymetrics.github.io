@@ -2,4 +2,6 @@
 layout: none
 ---
 
+User-agent: * 
+Disallow: /doc-pm2/
 Sitemap: {{ site.url }}/sitemap.xml
