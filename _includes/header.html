@@ -72,56 +72,109 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" id="doc-modal">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span id="close" aria-hidden="true">&times;</span>
           </button>
           <div class="container-background"></div>
         </div>
         <div class="modal-body">
-          <p>Check out the related section in the new documentation</p>
-          <div class="modal-btn">
+          <p id="title">Check out the related section in the new documentation</p>
+          <div class="modal-btn" id="modal-doc-btn">
             <a href="javascript:void(0);">New PM2 Documentation</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+<div class="call-to-action-container">
+  <div class="icon-new-doc"></div>
+  <div class="call-to-action">
+    <a>Check out the related section in the new documentation</a>
+  </div>
+</div>
 <script>
-  var mapping = {
-    "/": "/plus/overview/",
-    "/docs/usage/introduction/": "/plus/overview/",
-    "/docs/usage/setup/": "/plus/quick-start/",
-    "/docs/usage/security/": "",
-    "/docs/usage/install-pmx/": "/plus/reference/pmx/",
-    "/docs/usage/pmx-keymetrics-library/": "/plus/reference/pmx/",
-    "/docs/pages/faq-troubleshooting/": "",
-    "/docs/pages/pricing-faq": "/pricing",
-    "/docs/pages/dashboard/": "",
-    "/docs/pages/monitoring/": "",
-    "/docs/pages/issues/": "/plus/guide/issue-dashboard/",
-    "/docs/pages/tracing/": "/plus/guide/transaction-tracing/",
-    "/docs/pages/alert-system/": "/plus/guide/notifications/",
-    "/docs/pages/custom-metrics/": "/plus/guide/configuration/#expose-custom-metrics",
-    "/docs/pages/custom-actions/": "/plus/guide/configuration/#expose-remote-action",
-    "/docs/pages/events/": "/plus/guide/configuration/#emit-events",
-    "/docs/pages/profiling/": "/plus/guide/memory-cpu-profiling/",
-    "/docs/pages/integrations/": "/plus/guide/notifications/",
-    "/docs/usage/paas-heroku-azure/": "/plus/integration/cloud-providers/",
-    "/docs/usage/keymetrics-changelog/": "",
-    "/docs/usage/from-trace-to-keymetrics/": "",
-    "/docs/pages/versioning-management/": "",
-    "/docs/pages/http/": "/plus/guide/transaction-tracing/",
+  function getNewUrl() {
+    var mapping = {
+      "/": "/plus/overview/",
+      "/docs/usage/introduction/": "/plus/overview/",
+      "/docs/usage/setup/": "/plus/quick-start/",
+      "/docs/usage/security/": "",
+      "/docs/usage/install-pmx/": "/plus/reference/pmx/",
+      "/docs/usage/pmx-keymetrics-library/": "/plus/reference/pmx/",
+      "/docs/pages/faq-troubleshooting/": "",
+      "/docs/pages/pricing-faq": "/pricing",
+      "/docs/pages/dashboard/": "",
+      "/docs/pages/monitoring/": "",
+      "/docs/pages/issues/": "/plus/guide/issue-dashboard/",
+      "/docs/pages/tracing/": "/plus/guide/transaction-tracing/",
+      "/docs/pages/alert-system/": "/plus/guide/notifications/",
+      "/docs/pages/custom-metrics/": "/plus/guide/configuration/#expose-custom-metrics",
+      "/docs/pages/custom-actions/": "/plus/guide/configuration/#expose-remote-action",
+      "/docs/pages/events/": "/plus/guide/configuration/#emit-events",
+      "/docs/pages/profiling/": "/plus/guide/memory-cpu-profiling/",
+      "/docs/pages/integrations/": "/plus/guide/notifications/",
+      "/docs/usage/paas-heroku-azure/": "/plus/integration/cloud-providers/",
+      "/docs/usage/keymetrics-changelog/": "",
+      "/docs/usage/from-trace-to-keymetrics/": "",
+      "/docs/pages/versioning-management/": "",
+      "/docs/pages/http/": "/plus/guide/transaction-tracing/",
+    }
+    return "https://pm2.io/doc/en" + mapping[document.location.pathname];
+  }
+  function getCookie(name) {
+    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+  }
+  function setCookie(name, value, days) {
+      var d = new Date;
+      d.setTime(d.getTime() + 24*60*60*1000*days);
+      document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
   }
 
-  var newUrl = "https://pm2.io/doc/en" + mapping[document.location.pathname];
-  var linkNewUrl = document.querySelector('#myModal .modal-body a');
-  linkNewUrl.href = newUrl;
-  setTimeout(function(){ $('#myModal').modal({backdrop: false}); }, 1000);
+  var newUrl = getNewUrl();
+  document.querySelector('#myModal .modal-body a').href = newUrl;
+  document.querySelector('.call-to-action-container a').href = newUrl;
+  var alreadyClose = getCookie("close_modal");
+  if (alreadyClose === "true") {
 
+  } else {
+    setTimeout(function(){ $('#myModal').modal(); }, 1000);
+  }
+  $("#myModal").on("hidden.bs.modal", function () {
+    // setCookie("close_modal", "true", 1);
+  });
 </script>
 <style>
+.call-to-action-container {
+  z-index: 1000;
+  background-color : white;
+  color: #01cea2;
+  color: #3eb1f3
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-color: #46b8da;
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.call-to-action {
+  margin-left: 50px;
+  padding: 5px;
+}
+.icon-new-doc {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-size: 100%;
+  background-image: url(/images/Icon.jpg);
+  background-repeat: no-repeat;
+}
 .container-background {
   min-height: 150px;
   background-image: url(/images/Banner.jpg);
@@ -129,7 +182,7 @@
 }
 .modal-body {
   text-align: center;
-  min-height: 150px;
+  min-height: 200px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -152,6 +205,10 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   background-color: #01cea2;
   background-color: #3eb1f3;
+  margin: 0 auto;
+}
+.modal-backdrop {
+    z-index: 0;
 }
 .modal-body .modal-btn p {
   width: 161px;
@@ -171,7 +228,7 @@
   width: 108.5px;
   height: 11px;
   font-family: Blender;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -179,6 +236,25 @@
   letter-spacing: 0.4px;
   text-align: center;
   color: #ffffff;
+}
+#title {
+  color: black;
+}
+#doc-modal {
+  padding: 0px;
+}
+#modal-doc-btn{
+  border-radius: 3em;
+  width: auto;
+}
+#close {
+  padding-right: 10px;
+  padding-top: 10px;
+  z-index: 1000;
+  color: white;
+  float: right;
+  font-size: 20px;
+  opacity: 0.5 !important;
 }
 </style>
 
