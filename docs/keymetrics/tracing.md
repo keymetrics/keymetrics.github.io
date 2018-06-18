@@ -171,7 +171,7 @@ The impact on performance should be low since there is no heavy logic done in yo
 
 Don't hesitate to open an issue [here](https://github.com/keymetrics/keymetrics-support) if you think we should add another type of identifier or correct one.
 
-## Throubleshooting
+## Troubleshooting
 
 It's possible that the agent inside your application is enabled but the tracing isn't succesful. Few things to check :
 - If you used `--trace`, disable it with `--disable-trace` then add the pmx snippet at the first line of your application :
@@ -181,8 +181,8 @@ require('pmx').init({
 });
 ```
 - If still not working, please double-check that you correctly added the snippet at the first line of your application (before any other `require`)
-- If still not working, you may have a dependency that break our agent, see the [next chapter](http://docs.keymetrics.io/docs/pages/tracing/#incompatibilities).
-- If you don't have any dependency listed as imcompatible, please contact our support either on zendesk, contact@keymetrics.io or https://github.com/keymetrics/keymetrics-support
+- If still not working, you may have a dependency that breaks our agent, see the [next chapter](http://docs.keymetrics.io/docs/pages/tracing/#incompatibilities).
+- If you don't have any dependency listed as incompatible, please contact our support either on zendesk, contact@keymetrics.io or https://github.com/keymetrics/keymetrics-support
 
 ## Incompatibilities
 
